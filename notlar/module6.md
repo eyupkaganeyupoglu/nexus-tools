@@ -3,7 +3,7 @@
 Bu modül, kullanıcıların `marketData` listesinden seçim yaparak standart bir satış ilanı oluşturmasını sağlar.
 
 **1. Veri Kaynağı (Hardcoded Data):**
-`data.js` dosyasında `marketData` adında sabit bir liste (Array of Objects) tanımlanmalıdır.
+`data.js` dosyasında `marketData` adında sabit bir liste (Array of Objects) tanımlanmalıdır. `marketData` buraya yazılacak veriler `Kutsal_Pazar_Listesi.csv` dosyasındadır.
 
 * **Veri Yapısı:**
     ```javascript

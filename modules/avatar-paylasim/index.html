@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Paylaşım Şablonu - Nexus Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .section-card {
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .btn-check:checked+.btn-outline-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .locked-section {
+            opacity: 0.7;
+            pointer-events: none;
+            position: relative;
+        }
+
+        /* Unlock button overlay or just standard disabled attribute usage */
+
+        .class-group {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Ana Sayfa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <h2 class="mb-4 text-center"><i class="fa-solid fa-user-shield me-2"></i>Avatar Paylaşım Şablonu</h2>
+        <p class="text-center text-muted mb-4">Yeni karakterinizi forumda paylaşmak için bu şablonu kullanın.</p>
+
+        <!-- Section A: Header Info -->
+        <div class="section-card" id="section-a">
+            <div class="section-header">A. Yapılandırma (Sınıf & Irk)</div>
+            <form id="form-section-a">
+                <div class="mb-3 form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="multiclassToggle">
+                    <label class="form-check-label" for="multiclassToggle">Multiclass (Çoklu Sınıf) var mı?</label>
+                </div>
+
+                <div class="mb-3 d-none" id="classCountContainer">
+                    <label for="classCount" class="form-label">Sınıf Sayısı (2-5)</label>
+                    <input type="number" class="form-control" id="classCount" min="2" max="5" value="2">
+                </div>
+
+                <div id="classInputsContainer">
+                    <!-- Dynamic Class Inputs will appear here -->
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="species" class="form-label">Species (Irk)</label>
+                    <input type="text" class="form-control" id="species" placeholder="Örn: Human, High Elf..." required>
+                </div>
+
+                <div class="d-grid">
+                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-a')"
+                        id="btn-approve-a">
+                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Section B: Message Content -->
+        <div class="section-card" id="section-b">
+            <div class="section-header">B. Karakter Detayları</div>
+            <form id="form-section-b">
+                <div class="mb-3">
+                    <label for="avatarName" class="form-label">Avatarın İsmi</label>
+                    <input type="text" class="form-control" id="avatarName" placeholder="Karakterinizin adı" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="backstory" class="form-label">Avatar Hikayesi (Backstory)</label>
+                    <textarea class="form-control" id="backstory" rows="4" placeholder="Karakterinizin geçmişi..."
+                        required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="aboutPlayer" class="form-label">Oyuncu Hakkında</label>
+                    <textarea class="form-control" id="aboutPlayer" rows="2"
+                        placeholder="Kendiniz hakkında kısa bir not..." required></textarea>
+                </div>
+
+                <div class="d-grid">
+                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-b')"
+                        id="btn-approve-b">
+                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Section C: Tags -->
+        <div class="section-card" id="section-c">
+            <div class="section-header">C. Etiketler (Sınıflar)</div>
+            <form id="form-section-c">
+                <div class="mb-3">
+                    <label class="form-label d-block">Sınıflar (Birden fazla seçilebilir)</label>
+                    <div class="row" id="classCheckboxes">
+                        <!-- Checkboxes will be populated by JS -->
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-c')"
+                        id="btn-approve-c">
+                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                    </button>
+                    <div id="warning-section-c" class="text-danger small mt-2 text-center d-none"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Generate Button -->
+        <div class="d-grid mb-5">
+            <button class="btn btn-success btn-lg" id="btn-generate" disabled onclick="generateTemplate()">
+                <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Şablonu Oluştur
+            </button>
+            <small class="text-muted text-center mt-2">Tüm bölümleri onayladıktan sonra oluşturabilirsiniz.</small>
+        </div>
+
+        <!-- Result Section -->
+        <div class="section-card d-none" id="result-card">
+            <div class="section-header d-flex justify-content-between align-items-center">
+                <span>Oluşturulan Şablon</span>
+                <button class="btn btn-sm btn-outline-light" onclick="copyResult()">
+                    <i class="fa-regular fa-copy me-1"></i>Kopyala
+                </button>
+            </div>
+            <div class="bg-darker p-3 rounded position-relative">
+                <pre id="resultOutput" class="text-light m-0"
+                    style="white-space: pre-wrap; font-family: monospace;"></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">Başarılı</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-dark">
+                Panoya kopyalandı!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
