@@ -127,7 +127,7 @@ function calculateEndGame() {
             <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent text-light border-secondary">
                 <span>
                     <span class="badge bg-secondary me-2">Lvl ${p.lvl}</span>
-                    <small class="text-muted">(Puan: ${p.pts})</small>
+                    <small class="text-white">(Puan: ${p.pts})</small>
                 </span>
                 <span class="text-end">
                     <span class="text-warning fw-bold">${gold} GP</span> <span class="text-muted">|</span> 
