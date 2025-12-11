@@ -73,13 +73,13 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="endgame-tab" data-bs-toggle="tab" data-bs-target="#endgame"
                     type="button" role="tab">
-                    <i class="fa-solid fa-trophy me-2"></i>Oyun Sonu Hesaplayıcı
+                    <i class="fa-solid fa-trophy me-2"></i>Campaign Sonu Ödülleri Hesaplayıcı
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="planner-tab" data-bs-toggle="tab" data-bs-target="#planner" type="button"
                     role="tab">
-                    <i class="fa-solid fa-sack-dollar me-2"></i>Loot Planlayıcı
+                    <i class="fa-solid fa-sack-dollar me-2"></i>Campaign Max GP Hesaplayıcı
                 </button>
             </li>
         </ul>
@@ -131,15 +131,15 @@
                                 <span class="fw-bold" id="resDuration">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <small class="text-muted d-block">Max MS</small>
+                                <small class="text-muted d-block">Max Milestone</small>
                                 <span class="fw-bold" id="resMaxMS">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <small class="text-muted d-block">DM Puan Ort.</small>
+                                <small class="text-muted d-block">DM Puan Ortalaması</small>
                                 <span class="fw-bold" id="resDMAvg">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
-                                <small class="text-muted d-block">Perf. Oranı</small>
+                                <small class="text-muted d-block">Bulunan Loot Oranı</small>
                                 <span class="fw-bold" id="resPerf">-</span>
                             </div>
                         </div>
@@ -174,14 +174,11 @@
 
             <!-- Tab 2: Loot Planner -->
             <div class="tab-pane fade" id="planner" role="tabpanel">
-                <div class="alert alert-info">
-                    <i class="fa-solid fa-circle-info me-2"></i>Campaign'in sürmesini planladığınız maksimum süreyi
-                    girin.
-                </div>
 
                 <div class="mb-3">
                     <label class="form-label">Planlanan Süre (Saat)</label>
-                    <input type="number" class="form-control" id="planHours" placeholder="Örn: 20" min="1">
+                    <input type="number" class="form-control" id="planHours"
+                        placeholder="Campaign'in sürmesini planladığınız maksimum süreyi girin. Örn: 20" min="3">
                 </div>
 
                 <div class="mb-3">
@@ -205,7 +202,7 @@
                 <!-- Planner Results -->
                 <div id="planner-result" class="d-none">
                     <div class="result-card text-center">
-                        <h4 class="mb-3">Bu oyuna serpiştirmeniz gereken toplam loot değeri:</h4>
+                        <h4 class="mb-3">Campaign'e serpiştirmeniz gereken toplam loot değeri:</h4>
                         <div class="display-4 highlight-val mb-3" id="resPlannedLoot">0 GP</div>
 
                         <div class="alert alert-warning text-start small mt-4">
@@ -217,8 +214,9 @@
                             <strong>NOT:</strong> Campaign'de elde edilebilecek bütün loot'ları toplam altın ödülüne
                             dahil etmek zorunda değilsiniz. Örneğin, campaign'de kullanılması gereken bir magic item var
                             ama campaign sonu toplam altın ödülüne dahil etmek istemiyorsunuz diyelim. Bu durumda, bu
-                            item'ı toplam altın ödülüne dahil etmeyin. Oyunculara bu item'ı verirken ismine GP değerini
-                            yazmayın. Bu sayede bu item'ın toplam altın ödülüne dahil olmadığını belirtmiş olursunuz.
+                            item'ı toplam altın ödülüne dahil etmeyin (evet, bu kadar basit). Oyunculara bu item'ı
+                            verirken ismine GP değerini yazmayın. Bu sayede bu item'ın toplam altın ödülüne dahil
+                            olmadığını belirtmiş olursunuz.
                         </div>
                     </div>
                 </div>
