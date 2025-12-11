@@ -1,2 +1,1 @@
 - crafting sonuçlandıktan sonra work unit kadar gün crafting yapamayacağımızı belirten bir mesaj göndersin.
-- Oyuncu Sonuçları #009900 çerçeve eklenecek
