@@ -51,6 +51,22 @@
             color: var(--accent-color);
             font-weight: bold;
         }
+
+        .text-azure {
+            color: #007fff !important;
+        }
+
+        .border-azure {
+            border-color: #007fff !important;
+        }
+
+        .text-nexus-green {
+            color: #009900 !important;
+        }
+
+        .border-nexus-green {
+            border-color: #009900 !important;
+        }
     </style>
 </head>
 
@@ -123,30 +139,30 @@
 
                 <!-- End Game Results -->
                 <div id="endgame-result" class="d-none">
-                    <div class="result-card">
-                        <h5 class="border-bottom pb-2 mb-3">Genel Özet</h5>
+                    <div class="result-card border-azure">
+                        <h5 class="border-bottom pb-2 mb-3 text-azure border-azure">Genel Özet</h5>
                         <div class="row text-center">
                             <div class="col-6 col-md-3 mb-2">
                                 <small class="text-white d-block">Süre</small>
-                                <span class="fw-bold" id="resDuration">-</span>
+                                <span class="fw-bold text-azure" id="resDuration">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
                                 <small class="text-white d-block">Max Milestone</small>
-                                <span class="fw-bold" id="resMaxMS">-</span>
+                                <span class="fw-bold text-azure" id="resMaxMS">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
                                 <small class="text-white d-block">DM Puan Ortalaması</small>
-                                <span class="fw-bold" id="resDMAvg">-</span>
+                                <span class="fw-bold text-azure" id="resDMAvg">-</span>
                             </div>
                             <div class="col-6 col-md-3 mb-2">
                                 <small class="text-white d-block">Bulunan Loot Oranı</small>
-                                <span class="fw-bold" id="resPerf">-</span>
+                                <span class="fw-bold text-azure" id="resPerf">-</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="result-card">
-                        <h5 class="border-bottom pb-2 mb-3">Oyuncu Sonuçları</h5>
+                        <h5 class="border-bottom pb-2 mb-3 text-nexus-green border-nexus-green">Oyuncu Sonuçları</h5>
                         <ul class="list-group list-group-flush bg-transparent" id="resPlayerList">
                             <!-- JS Generated -->
                         </ul>
@@ -159,7 +175,7 @@
                     </div>
 
                     <div class="result-card border-warning">
-                        <h5 class="border-bottom pb-2 mb-3 text-warning">DM Ödülleri</h5>
+                        <h5 class="border-bottom pb-2 mb-3 text-warning border-warning">DM Ödülleri</h5>
                         <div class="row text-center">
                             <div class="col-4">
                                 <small class="text-white d-block">Altın</small>
