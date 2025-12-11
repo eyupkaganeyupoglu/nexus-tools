@@ -73,11 +73,11 @@ function renderClassInputs() {
                     <input type="number" class="form-control class-level" min="1" max="20" required placeholder="Lvl">
                 </div>
                 <div class="col-md-5">
-                    <label class="form-label small">Subclass (Opsiyonel)</label>
+                    <label class="form-label small">Subclass (eğer varsa)</label>
                     <input type="text" class="form-control class-subclass" placeholder="Örn: Battle Master">
                 </div>
                 <div class="col-md-5">
-                    <label class="form-label small">Class İsmi</label>
+                    <label class="form-label small">Class</label>
                     <input type="text" class="form-control class-name" required placeholder="Örn: Fighter">
                 </div>
             </div>

@@ -59,26 +59,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">Ana Sayfa</a>
-                    </li>
-                </ul>
+                <span class="navbar-text text-white fw-bold ms-auto">
+                    Avatar Paylaşım Şablonu
+                </span>
             </div>
         </div>
     </nav>
 
     <div class="container mb-5">
-        <h2 class="mb-4 text-center"><i class="fa-solid fa-user-shield me-2"></i>Avatar Paylaşım Şablonu</h2>
         <p class="text-center text-muted mb-4">Yeni karakterinizi forumda paylaşmak için bu şablonu kullanın.</p>
 
         <!-- Section A: Header Info -->
         <div class="section-card" id="section-a">
-            <div class="section-header">A. Yapılandırma (Sınıf & Irk)</div>
+            <div class="section-header">Avatar Yapılandırma</div>
             <form id="form-section-a">
                 <div class="mb-3 form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="multiclassToggle">
-                    <label class="form-check-label" for="multiclassToggle">Multiclass (Çoklu Sınıf) var mı?</label>
+                    <label class="form-check-label" for="multiclassToggle">Multiclass var mı?</label>
                 </div>
 
                 <div class="mb-3 d-none" id="classCountContainer">
@@ -91,7 +88,7 @@
                 </div>
 
                 <div class="mb-3 mt-3">
-                    <label for="species" class="form-label">Species (Irk)</label>
+                    <label for="species" class="form-label">Species</label>
                     <input type="text" class="form-control" id="species" placeholder="Örn: Human, High Elf..." required>
                 </div>
 
@@ -106,7 +103,7 @@
 
         <!-- Section B: Message Content -->
         <div class="section-card" id="section-b">
-            <div class="section-header">B. Karakter Detayları</div>
+            <div class="section-header">Avatar Detayları</div>
             <form id="form-section-b">
                 <div class="mb-3">
                     <label for="avatarName" class="form-label">Avatarın İsmi</label>
@@ -114,7 +111,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="backstory" class="form-label">Avatar Hikayesi (Backstory)</label>
+                    <label for="backstory" class="form-label">Backstory</label>
                     <textarea class="form-control" id="backstory" rows="4" placeholder="Karakterinizin geçmişi..."
                         required></textarea>
                 </div>
@@ -122,7 +119,7 @@
                 <div class="mb-3">
                     <label for="aboutPlayer" class="form-label">Oyuncu Hakkında</label>
                     <textarea class="form-control" id="aboutPlayer" rows="2"
-                        placeholder="Kendiniz hakkında kısa bir not..." required></textarea>
+                        placeholder="Kendiniz hakkında bahsetmek istediğiniz şeyler..." required></textarea>
                 </div>
 
                 <div class="d-grid">
@@ -136,10 +133,10 @@
 
         <!-- Section C: Tags -->
         <div class="section-card" id="section-c">
-            <div class="section-header">C. Etiketler (Sınıflar)</div>
+            <div class="section-header">Tag'lar</div>
             <form id="form-section-c">
                 <div class="mb-3">
-                    <label class="form-label d-block">Sınıflar (Birden fazla seçilebilir)</label>
+                    <label class="form-label d-block">Class Tag'ları (Birden fazla seçilebilir)</label>
                     <div class="row" id="classCheckboxes">
                         <!-- Checkboxes will be populated by JS -->
                     </div>
@@ -160,7 +157,7 @@
             <button class="btn btn-success btn-lg" id="btn-generate" disabled onclick="generateTemplate()">
                 <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Şablonu Oluştur
             </button>
-            <small class="text-muted text-center mt-2">Tüm bölümleri onayladıktan sonra oluşturabilirsiniz.</small>
+            <small class="text-white text-center mt-2">Tüm bölümleri onayladıktan sonra oluşturabilirsiniz.</small>
         </div>
 
         <!-- Result Section -->
