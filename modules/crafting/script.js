@@ -368,8 +368,8 @@ function checkEndCondition() {
         } else {
             // Failure - Recycling logic
             let recycleMsg = "Materyaller tamamen yok oldu.";
-            if (STATE.selectedQuality === 'quality') recycleMsg = `[${itemName}][Common Materials] geri kazanıldı.`;
-            if (STATE.selectedQuality === 'common') recycleMsg = `[${itemName}][Poor Materials] geri kazanıldı.`;
+            if (STATE.selectedQuality === 'quality') recycleMsg = `${itemName} Common Materials geri kazanıldı.`;
+            if (STATE.selectedQuality === 'common') recycleMsg = `${itemName} Poor Materials geri kazanıldı.`;
 
             html = `
             <div class="alert alert-danger border-danger mt-4">
