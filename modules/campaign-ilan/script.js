@@ -151,7 +151,7 @@ function generateTemplate() {
     const output = `**Campaign Başlığı:** ${title}
 **Campaign Lokasyonu:** ${loc}
 **Campaign Açıklaması:** ${desc}
-**Oyuncu Tecrübesi:** ${selectedTags.join(' ')} etiketleri ile ifade edilen, campaign'in bu etikette belirtilen tecrübe seviyesi için uygunluğu bilgisi.
+**Oyuncu Tecrübesi:** ${selectedTags.join(' ')}
 **Tavsiye Edilen Seviye ve Avatar Sayısı:** ${levelText}, ${avatarCount} avatar.
 **Campaign Uzunluğu:** ${sessionText}, ${hourText}.
 **Campaign Günü:** ${day}

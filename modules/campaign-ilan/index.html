@@ -61,45 +61,35 @@
             <a class="navbar-brand" href="../../index.html">
                 <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
             </a>
+            <span class="navbar-text text-white fw-bold">Campaign İlan Şablonu</span>
         </div>
     </nav>
 
     <div class="container mb-5">
-        <h2 class="mb-4 text-center"><i class="fa-solid fa-scroll me-2"></i>Campaign İlan Şablonu</h2>
+
 
         <!-- Info Section (Tecrübe Tanımları) -->
-        <div class="info-box">
-            <h5><i class="fa-solid fa-circle-info me-2"></i>Tecrübe Tanımları</h5>
-            <ul class="mb-0 ps-3">
-                <li><strong>0/5:</strong> Kelimenin tam anlamıyla D&D ile ilk kez tanışmış, daha önce oyun
-                    oynamamış/oynatmamış, kitapları okumamış kişilerdir. Kitapları okumaları tavsiye edilir.</li>
-                <li><strong>1/5:</strong> Daha önce oyun oynamamış/oynatmamış ama kitapları okumuş kişilerdir.</li>
-                <li><strong>2/5:</strong> Daha önce oyun oynamış ama oynatmamış ve kitapları okumuş kişilerdir.</li>
-                <li><strong>3/5:</strong> Daha önce oyun oynamış, oynatmış ve kitapları okumuş kişilerdir. Kelimenin tam
-                    anlamıyla ortalama D&D oyuncusunu temsil eder.</li>
-                <li><strong>4/5:</strong> Daha önce birçok kez oyun oynamış, oynatmış ve kitapları okumuş kişilerdir. DM
-                    olmak için uygun kişilerdir.</li>
-                <li><strong>5/5:</strong> D&D ile ilgili her şeyi yalayıp yutmuş kişilerdir. Gözün kapalı
-                    güvenebilirsin.</li>
-            </ul>
-        </div>
+
 
         <!-- Section A: Basic Info -->
         <div class="section-card" id="section-a">
-            <div class="section-header">A. Temel Bilgiler</div>
+            <div class="section-header">Campaign Bilgileri</div>
             <form id="form-section-a">
                 <div class="mb-3">
                     <label for="campaignTitle" class="form-label">Campaign Başlığı</label>
-                    <input type="text" class="form-control" id="campaignTitle" required>
+                    <input type="text" class="form-control" id="campaignTitle" placeholder="Örn: Daggerford İsyanı"
+                        required>
                 </div>
                 <div class="mb-3">
                     <label for="campaignLocation" class="form-label">Campaign Lokasyonu</label>
-                    <input type="text" class="form-control" id="campaignLocation" placeholder="Örn: Kuzgun Kalesi"
+                    <input type="text" class="form-control" id="campaignLocation" placeholder="Örn: Daggerford"
                         required>
                 </div>
                 <div class="mb-3">
                     <label for="campaignDesc" class="form-label">Campaign Açıklaması</label>
-                    <textarea class="form-control" id="campaignDesc" rows="4" required></textarea>
+                    <textarea class="form-control" id="campaignDesc" rows="4"
+                        placeholder="Örn: Daggerford'da, kendine kırk haramiler diyen bir grup adamın isyan çıkaracağına dair söylentiler var. Bunu araştıracak maceracılar aranıyor."
+                        required></textarea>
                 </div>
                 <div class="d-grid">
                     <button type="button" class="btn btn-warning" onclick="toggleApproval('section-a')"
@@ -113,7 +103,7 @@
 
         <!-- Section B: Details (Exp, Level, Avatar) -->
         <div class="section-card" id="section-b">
-            <div class="section-header">B. Detaylar</div>
+            <div class="section-header">Tecrübe Seviyesi & Seviye Aralığı</div>
             <form id="form-section-b">
 
                 <!-- Experience Tags -->
@@ -121,6 +111,26 @@
                     <label class="form-label d-block">Oyuncu Tecrübesi (Birden fazla seçilebilir)</label>
                     <div class="row g-2" id="expCheckboxes">
                         <!-- Populated by JS -->
+                    </div>
+                    <div class="info-box mt-3 small" style="font-size: 0.9rem;">
+                        <h6 class="mb-2"><i class="fa-solid fa-circle-info me-2"></i>Tecrübe Tanımları</h6>
+                        <ul class="mb-0 ps-3">
+                            <li><strong>0/5:</strong> Kelimenin tam anlamıyla D&D ile ilk kez tanışmış, daha önce oyun
+                                oynamamış/oynatmamış, kitapları okumamış kişilerdir. Kitapları okumaları tavsiye edilir.
+                            </li>
+                            <li><strong>1/5:</strong> Daha önce oyun oynamamış/oynatmamış ama kitapları okumuş
+                                kişilerdir.</li>
+                            <li><strong>2/5:</strong> Daha önce oyun oynamış ama oynatmamış ve kitapları okumuş
+                                kişilerdir.</li>
+                            <li><strong>3/5:</strong> Daha önce oyun oynamış, oynatmış ve kitapları okumuş kişilerdir.
+                                Kelimenin tam
+                                anlamıyla ortalama D&D oyuncusunu temsil eder.</li>
+                            <li><strong>4/5:</strong> Daha önce birçok kez oyun oynamış, oynatmış ve kitapları okumuş
+                                kişilerdir. DM
+                                olmak için uygun kişilerdir.</li>
+                            <li><strong>5/5:</strong> D&D ile ilgili her şeyi yalayıp yutmuş kişilerdir. Gözün kapalı
+                                güvenebilirsin.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -160,23 +170,23 @@
 
         <!-- Section C: Timing & Other -->
         <div class="section-card" id="section-c">
-            <div class="section-header">C. Zamanlama & Diğer</div>
+            <div class="section-header">Zamanlama & Diğer</div>
             <form id="form-section-c">
 
                 <!-- Session Length -->
                 <div class="mb-4">
                     <label class="form-label d-flex justify-content-between">
                         <span>Campaign Uzunluğu (Session)</span>
-                        <span class="badge bg-primary" id="sessionDisplay">10-15 Session</span>
+                        <span class="badge bg-primary" id="sessionDisplay">3-5 Session</span>
                     </label>
                     <div class="row g-2 align-items-center">
                         <div class="col-6">
                             <label class="small text-muted">Min</label>
-                            <input type="range" class="form-range" id="sessionMin" min="1" max="10" value="1">
+                            <input type="range" class="form-range" id="sessionMin" min="1" max="20" value="3">
                         </div>
                         <div class="col-6">
                             <label class="small text-muted">Max</label>
-                            <input type="range" class="form-range" id="sessionMax" min="1" max="10" value="4">
+                            <input type="range" class="form-range" id="sessionMax" min="1" max="20" value="5">
                         </div>
                     </div>
                 </div>
@@ -203,13 +213,14 @@
                 <div class="mb-3">
                     <label for="campaignDay" class="form-label">Campaign Günü (Opsiyonel)</label>
                     <input type="text" class="form-control" id="campaignDay"
-                        placeholder="Boş bırakılırsa 'Anket Açılacak' yazılır">
+                        placeholder="Campaign'i spesifik bir günde oynatacaksanız burayı doldurun. Aksi halde anket açılır.">
                 </div>
 
                 <!-- Other Info -->
                 <div class="mb-3">
-                    <label for="otherInfo" class="form-label">Diğer Bilgiler</label>
-                    <textarea class="form-control" id="otherInfo" rows="3" required></textarea>
+                    <label for="otherInfo" class="form-label">Diğer Bilgiler (Opsiyonel)</label>
+                    <textarea class="form-control" id="otherInfo" rows="3"
+                        placeholder="Spesifik bir başlığa ait olmayan ama yine de söylemeniz gereken ('İzleyici kabul etmiyorum' gibi) şeyleri yazacağınız kısım. Campaign için kullanacağınız ek şeyleri ('AboveVTT kullanacağım bu yüzden bilgisayarınız olmalı' gibi şeyler) belirtmeyi unutmayın."></textarea>
                 </div>
 
                 <div class="d-grid">
