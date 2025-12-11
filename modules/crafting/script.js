@@ -261,13 +261,20 @@ function startSimulation() {
 }
 
 function editSetup() {
-    if (STATE.currentWU > 0) {
+    // Only ask for confirmation if simulation is actually in progress AND not finished
+    const isMidGame = STATE.currentWU > 0 && STATE.currentWU < STATE.targetWU;
+
+    if (isMidGame) {
         if (!confirm("Simülasyon devam ediyor. Düzenleme yaparsanız ilerlemeniz SIFIRLANACAK. Emin misiniz?")) {
             return;
         }
     }
+
+    // Reset Logic
     STATE.isSimulationActive = false;
     document.getElementById('simPanel').classList.add('d-none');
+    document.getElementById('resultContainer').classList.add('d-none'); // Ensure result is hidden too
+
     toggleSetup(false);
 }
 
