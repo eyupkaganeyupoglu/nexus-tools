@@ -27,7 +27,7 @@ const TOOLS_LIST = [
     "Smith's Tools",
     "Weaver's Tools",
     "Woodcarver's Tools",
-    "Diğer / Özel Tool"
+    "Diğer..."
 ];
 
 const EVENT_TABLE = [
@@ -101,11 +101,33 @@ function initEventListeners() {
     inputItem.addEventListener('input', handleAutocomplete);
 
     // Material Quality Calc
+    const cards = ['cardPoor', 'cardCommon', 'cardQuality'];
+    const radios = ['matPoor', 'matCommon', 'matQuality'];
+
+    // Setup Card Clicks
+    cards.forEach((cardId, index) => {
+        const card = document.getElementById(cardId);
+        const radioId = radios[index];
+
+        card.addEventListener('click', () => {
+            const radio = document.getElementById(radioId);
+            radio.checked = true;
+            // Trigger change manually
+            const event = new Event('change');
+            radio.dispatchEvent(event);
+        });
+    });
+
+    // Listen to Radio Changes for UI Update
     const qualityRadios = document.getElementsByName('materialQuality');
     qualityRadios.forEach(r => r.addEventListener('change', (e) => {
         STATE.selectedQuality = e.target.value;
         validateMaterialSelection();
+        updateMaterialUI();
     }));
+
+    // Init UI
+    updateMaterialUI();
 
     // Skill Bonus
     document.getElementById('abilityMod').addEventListener('input', calcSkillBonus);
@@ -461,4 +483,28 @@ function handleAutocomplete(e) {
         div.addEventListener('click', () => selectItem(item));
         list.appendChild(div);
     });
+}
+
+function updateMaterialUI() {
+    const cards = {
+        'poor': 'cardPoor',
+        'common': 'cardCommon',
+        'quality': 'cardQuality'
+    };
+
+    // Reset All
+    Object.values(cards).forEach(id => {
+        const el = document.getElementById(id);
+        el.style.borderColor = "";
+        el.style.boxShadow = "";
+    });
+
+    // Highlight Selected
+    const selected = STATE.selectedQuality; // poor, common, quality
+    const activeCardId = cards[selected];
+    if (activeCardId) {
+        const el = document.getElementById(activeCardId);
+        el.style.borderColor = "var(--accent-color)";
+        el.style.boxShadow = "0 0 10px rgba(88, 101, 242, 1)"; // Blue blur
+    }
 }

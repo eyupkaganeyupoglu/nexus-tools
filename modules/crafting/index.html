@@ -108,53 +108,57 @@
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <label class="form-label text-accent">Eşya Fiyatı (GP)</label>
-                        <div id="itemPrice" class="form-control bg-dark text-accent fw-bold d-flex align-items-center"
+                        <div id="itemPrice"
+                            class="form-control bg-dark text-accent fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label text-warning">Hedef Work Units</label>
-                        <div id="targetWU" class="form-control bg-dark text-warning fw-bold d-flex align-items-center"
+                        <div id="targetWU"
+                            class="form-control bg-dark text-warning fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label class="form-label text-danger">Hedef Masterwork DC</label>
-                        <div id="targetDC" class="form-control bg-dark text-danger fw-bold d-flex align-items-center"
+                        <div id="targetDC"
+                            class="form-control bg-dark text-danger fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                 </div>
             </div>
 
             <!-- Step 2: Material Prep -->
-            <div class="step-section" id="step2">
-                <h5 class="step-header">Adım 2: Materyal Kalitesi</h5>
+            <div class="step-section" id="step2" style="border-color: var(--text-normal);">
+                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Adım
+                    2: Materyal Kalitesi</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-check card p-3 border-secondary mb-2" id="cardPoor">
-                            <input class="form-check-input" type="radio" name="materialQuality" id="matPoor"
+                            <input class="form-check-input d-none" type="radio" name="materialQuality" id="matPoor"
                                 value="poor">
                             <label class="form-check-label w-100" for="matPoor">
                                 <strong>Poor Materials</strong> (-3 CM)<br>
-                                <small class="text-muted">Maliyet: <span id="costPoor">-</span> GP</small>
+                                <small>Maliyet: <span id="costPoor">-</span> GP</small>
                             </label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check card p-3 border-secondary mb-2" id="cardCommon">
-                            <input class="form-check-input" type="radio" name="materialQuality" id="matCommon"
+                            <input class="form-check-input d-none" type="radio" name="materialQuality" id="matCommon"
                                 value="common" checked>
                             <label class="form-check-label w-100" for="matCommon">
                                 <strong>Common Materials</strong> (-2 CM)<br>
-                                <small class="text-muted">Maliyet: <span id="costCommon">-</span> GP</small>
+                                <small>Maliyet: <span id="costCommon">-</span> GP</small>
                             </label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check card p-3 border-secondary mb-2" id="cardQuality">
-                            <input class="form-check-input" type="radio" name="materialQuality" id="matQuality"
+                            <input class="form-check-input d-none" type="radio" name="materialQuality" id="matQuality"
                                 value="quality">
                             <label class="form-check-label w-100" for="matQuality">
                                 <strong>Quality Materials</strong> (-1 CM)<br>
-                                <small class="text-muted">Maliyet: <span id="costQuality">-</span> GP</small>
+                                <small>Maliyet: <span id="costQuality">-</span> GP</small>
                             </label>
                         </div>
                     </div>
@@ -165,8 +169,9 @@
             </div>
 
             <!-- Step 3: Tools & Skills -->
-            <div class="step-section" id="step3">
-                <h5 class="step-header">Adım 3: Tool & Skill Check</h5>
+            <div class="step-section" id="step3" style="border-color: var(--text-normal);">
+                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Adım
+                    3: Tool & Skill Check</h5>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Kullanılacak Tool</label>
@@ -175,7 +180,7 @@
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">İlgili Ability Mod Değeri</label>
+                        <label class="form-label">Tool İçin Gereken Ability'nin Mod Değeri</label>
                         <input type="number" id="abilityMod" class="form-control" placeholder="Örn: +3 için 3"
                             value="0">
                     </div>
@@ -185,7 +190,7 @@
                     <label class="form-check-label" for="hasProficiency">Tool Proficiency Var (+<span
                             id="pbLabel">2</span>)</label>
                 </div>
-                <div class="alert alert-info text-center py-2">
+                <div class="text-center py-2 text-warning">
                     <strong>Toplam Skill Check Bonusu: +<span id="finalSkillBonus">0</span></strong>
                 </div>
             </div>
@@ -193,10 +198,10 @@
             <!-- Step 4: Control -->
             <div class="step-section text-center" id="step4">
                 <button id="btnStartSetup" class="btn btn-lg btn-success w-50">
-                    <i class="fa-solid fa-play me-2"></i>Kurulumu Onayla ve Başla
+                    Onayla ve Başla
                 </button>
-                <button id="btnEditSetup" class="btn btn-lg btn-outline-warning w-50 d-none">
-                    <i class="fa-solid fa-pen me-2"></i>Kurulumu Düzenle (Sıfırla)
+                <button id="btnEditSetup" class="btn btn-lg btn-warning w-50 d-none" style="background-color: #ffc107; border-color: #ffc107; color: #000;">
+                    Düzenle (Sıfırla)
                 </button>
             </div>
         </div>
