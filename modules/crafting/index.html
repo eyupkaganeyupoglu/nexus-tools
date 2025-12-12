@@ -196,13 +196,14 @@
             </div>
 
             <!-- Step 4: Control -->
-            <div class="step-section text-center" id="step4">
+            <div class="step-section text-center" id="step4" style="border: none;">
                 <button id="btnStartSetup" class="btn btn-lg btn-success w-50">
                     Onayla ve Başla
                 </button>
                 <button id="btnEditSetup" class="btn btn-lg btn-warning w-50 d-none" style="background-color: #ffc107; border-color: #ffc107; color: #000;">
                     Düzenle (Sıfırla)
                 </button>
+                <div id="step4Warning" class="text-danger small mt-2 text-center d-none"></div>
             </div>
         </div>
 
@@ -210,7 +211,7 @@
         <div id="simPanel" class="d-none">
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <div class="card bg-dark border-primary h-100">
+                    <div class="card bg-dark border-primary h-100 overflow-hidden">
                         <div class="card-header bg-primary text-white fw-bold">İlerleme Durumu</div>
                         <div class="card-body text-center">
                             <h2 class="display-6"><span id="lblCurrentWU">0</span> / <span id="lblTargetWU">0</span> WU
@@ -224,7 +225,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card bg-dark border-warning h-100">
+                    <div class="card bg-dark border-warning h-100 overflow-hidden">
                         <div class="card-header bg-warning text-dark fw-bold">Toplam Crafting Modifier (CM)</div>
                         <div class="card-body text-center d-flex justify-content-center align-items-center">
                             <h2 class="display-4 text-warning" id="lblGrandTotal">0</h2>

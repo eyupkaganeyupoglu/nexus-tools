@@ -264,10 +264,13 @@ function calcSkillBonus() {
 // --- Wizard Control ---
 function startSimulation() {
     // Validations
+    const warn = document.getElementById('step4Warning');
     if (STATE.targetWU <= 0) {
-        alert("Geçersiz hedef değerleri (WU). Lütfen geçerli bir eşya seçin.");
+        warn.textContent = "Geçersiz Item Seçtiniz. Lütfen geçerli bir Item seçin.";
+        warn.classList.remove('d-none');
         return;
     }
+    warn.classList.add('d-none'); // Clear if valid
 
     STATE.isSimulationActive = true;
     STATE.currentWU = 0;
