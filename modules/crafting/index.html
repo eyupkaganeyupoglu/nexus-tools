@@ -209,27 +209,15 @@
 
         <!-- Step 5: Simulation Panel -->
         <div id="simPanel" class="d-none">
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <div class="card bg-dark border-primary h-100 overflow-hidden">
-                        <div class="card-header bg-primary text-white fw-bold">İlerleme Durumu</div>
-                        <div class="card-body text-center">
-                            <h2 class="display-6"><span id="lblCurrentWU">0</span> / <span id="lblTargetWU">0</span> WU
-                            </h2>
-                            <div class="progress mt-2" style="height: 20px;">
-                                <div id="progressBar"
-                                    class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                    style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card bg-dark border-warning h-100 overflow-hidden">
-                        <div class="card-header bg-warning text-dark fw-bold">Toplam Crafting Modifier (CM)</div>
-                        <div class="card-body text-center d-flex justify-content-center align-items-center">
-                            <h2 class="display-4 text-warning" id="lblGrandTotal">0</h2>
-                        </div>
+            <div class="card bg-dark border-primary mb-4 overflow-hidden">
+                <div class="card-header bg-primary text-white fw-bold">İlerleme Durumu</div>
+                <div class="card-body text-center">
+                    <h2 class="display-6"><span id="lblCurrentWU">0</span> / <span id="lblTargetWU">0</span> WU
+                    </h2>
+                    <div class="progress mt-2" style="height: 20px;">
+                        <div id="progressBar"
+                            class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                            style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -264,7 +252,7 @@
                                     <th>#</th>
                                     <th>Approach Check</th>
                                     <th>Event</th>
-                                    <th>Tur Modifier</th>
+                                    <th>CM Toplamı</th>
                                     <th>İlerleme Zarı</th>
                                     <th>Toplam</th>
                                 </tr>
@@ -274,6 +262,20 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+
+            <!-- Explainer Text -->
+            <div class="mb-3 text-start" style="color: var(--text-normal);">
+                <div><span class="fw-bold">CM Toplamı:</span> O Work Unit (WU) için tüm Crafting Modifier (CM) değerlerinin toplamıdır.</div>
+                <div><span class="fw-bold">İlerleme Zarı:</span> O Work Unit (WU) için atılan 1d20 zarının sonucudur.</div>
+                <div><span class="fw-bold">Toplam:</span> İlerleme Zarı ve CM Toplamı değerlerinin o Work Unit (WU) için toplam sonucudur.</div>
+            </div>
+
+            <div class="card bg-dark border-warning mb-4 overflow-hidden">
+                <div class="card-header bg-warning text-dark fw-bold">Toplam Crafting Modifier (CM)</div>
+                <div class="card-body text-center">
+                    <h2 class="display-4 text-warning" id="lblGrandTotal">0</h2>
                 </div>
             </div>
 

@@ -368,7 +368,7 @@ function runRound() {
     STATE.grandTotal += roundScore;
 
     // Log
-    addLog(STATE.roundCount, approachSuccess, approachTotal, approachDC, eventName, eventColor, unitTotalCM, roundScore, STATE.grandTotal);
+    addLog(STATE.roundCount, approachSuccess, approachTotal, approachDC, eventName, eventColor, unitTotalCM, rollProg, roundScore);
 
     updateSimUI();
     checkEndCondition();
@@ -384,11 +384,11 @@ function checkEndCondition() {
         let html = '';
         if (success) {
             html = `
-            <div class="alert alert-success border-success mt-4">
+            <div class="alert mt-4 text-white" style="background-color: var(--success-color);">
                 <h4 class="alert-heading"><i class="fa-solid fa-trophy me-2"></i>Tebrikler!</h4>
-                <p class="mb-0"><strong>${itemName}</strong> başarıyla üretildi.</p>
-                <hr>
                 <p class="mb-0">Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
+                <hr>
+                <p class="mb-0"><strong>${itemName}</strong> başarıyla üretildi.</p>
             </div>
             `;
         } else {
@@ -398,8 +398,8 @@ function checkEndCondition() {
             if (STATE.selectedQuality === 'common') recycleMsg = `${itemName} Poor Materials geri kazanıldı.`;
 
             html = `
-            <div class="alert alert-danger border-danger mt-4">
-                <h4 class="alert-heading"><i class="fa-solid fa-skull-crossbones me-2"></i>Üretim Başarısız</h4>
+            <div class="alert mt-4 text-white" style="background-color: var(--danger-color);">
+                <h4 class="alert-heading"><i class="fa-solid fa-skull-crossbones me-2"></i>Üretim Başarısız!</h4>
                 <p>Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
                 <p class="mb-0"><strong>Geri Dönüşüm Sonucu:</strong> ${recycleMsg}</p>
@@ -453,7 +453,7 @@ function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, pro
         <td><span class="${evColor}">${evName} (${evCM > 0 ? '+' : ''}${evCM} CM)</span></td>
         <td>${roundCM > 0 ? '+' : ''}${roundCM}</td>
         <td>${progRoll}</td>
-        <td class="fw-bold text-warning">${total}</td>
+        <td>${total}</td>
     `;
 
     tbody.prepend(tr);
