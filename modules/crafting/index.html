@@ -182,7 +182,7 @@
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Tool İçin Gereken Ability'nin Mod Değeri</label>
                         <input type="number" id="abilityMod" class="form-control" placeholder="Örn: +3 için 3"
-                            value="0">
+                            value="0" min="0">
                     </div>
                 </div>
                 <div class="form-check mb-3">
@@ -200,7 +200,7 @@
                 <button id="btnStartSetup" class="btn btn-lg btn-success w-50">
                     Onayla ve Başla
                 </button>
-                <button id="btnEditSetup" class="btn btn-lg btn-warning w-50 d-none" style="background-color: #ffc107; border-color: #ffc107; color: #000;">
+                <button id="btnEditSetup" class="btn btn-lg btn-danger w-50 d-none">
                     Düzenle (Sıfırla)
                 </button>
                 <div id="step4Warning" class="text-danger small mt-2 text-center d-none"></div>
@@ -234,12 +234,12 @@
                 </div>
             </div>
 
-            <div class="step-section">
-                <h5 class="step-header">Tur Aksiyonu</h5>
+            <div class="step-section" style="border-color: var(--text-normal);">
+                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Tur Aksiyonu</h5>
                 <div class="row align-items-end">
                     <div class="col-md-8">
                         <label class="form-label">Crafting Yaklaşımı (Approach)</label>
-                        <select id="simApproach" class="form-select font-monospace">
+                        <select id="simApproach" class="form-select">
                             <option value="safe">Safe & Steady (DC 10) | +1 / -2 CM</option>
                             <option value="ambitious">Ambitious (DC 15) | +2 / -4 CM</option>
                             <option value="masterwork">Masterwork (DC 20) | +3 / -6 CM</option>
@@ -247,7 +247,7 @@
                     </div>
                     <div class="col-md-4">
                         <button id="btnCraft" class="btn btn-danger w-100 py-2 fw-bold">
-                            <i class="fa-solid fa-dice-d20 me-2"></i>CRAFT!
+                            CRAFT!
                         </button>
                     </div>
                 </div>
@@ -255,7 +255,7 @@
 
             <!-- Logs -->
             <div class="card bg-darker border-secondary mb-4">
-                <div class="card-header border-secondary text-muted small">Simülasyon Logları</div>
+                <div class="card-header border-secondary text-white small">Simülasyon Logları</div>
                 <div class="card-body p-0">
                     <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
                         <table class="table table-dark table-striped table-sm mb-0 small">
@@ -264,8 +264,8 @@
                                     <th>#</th>
                                     <th>Approach Check</th>
                                     <th>Event</th>
-                                    <th>Round CM</th>
-                                    <th>Progress Roll</th>
+                                    <th>Tur Modifier</th>
+                                    <th>İlerleme Zarı</th>
                                     <th>Toplam</th>
                                 </tr>
                             </thead>

@@ -32,9 +32,9 @@ const TOOLS_LIST = [
 
 const EVENT_TABLE = [
     { min: 1, max: 1, name: "Disaster", cm: -4, color: "text-danger" },
-    { min: 2, max: 4, name: "Setback", cm: -2, color: "text-warning" },
-    { min: 5, max: 8, name: "Stable", cm: 0, color: "text-muted" },
-    { min: 9, max: 9, name: "Minor Breakthrough", cm: 1, color: "text-info" },
+    { min: 2, max: 4, name: "Setback", cm: -2, color: "text-danger" },
+    { min: 5, max: 8, name: "Stable", cm: 0, color: "text-normal" },
+    { min: 9, max: 9, name: "Minor Breakthrough", cm: 1, color: "text-success" },
     { min: 10, max: 10, name: "Sudden Inspiration", cm: 2, color: "text-success" }
 ];
 
@@ -253,7 +253,8 @@ function validateMaterialSelection() {
 
 // --- Skill Logic ---
 function calcSkillBonus() {
-    const mod = parseInt(document.getElementById('abilityMod').value) || 0;
+    let mod = parseInt(document.getElementById('abilityMod').value) || 0;
+    if (mod < 0) mod = 0; // Enforce min 0
     const proficient = document.getElementById('hasProficiency').checked;
     const pb = proficient ? parseInt(document.getElementById('pbLabel').textContent) : 0;
 
@@ -436,10 +437,20 @@ function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, pro
     const appClass = appSuccess ? "text-success" : "text-danger";
     const appIcon = appSuccess ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark"></i>';
 
+    // Find Event CM for display
+    let evCM = 0;
+    const evObj = EVENT_TABLE.find(e => e.name === evName);
+    if (evObj) evCM = evObj.cm;
+
+    // Determine Approach Info
+    let s = 1, f = -2;
+    if (appDC === 15) { s = 2; f = -4; }
+    if (appDC === 20) { s = 3; f = -6; }
+
     tr.innerHTML = `
         <td>${round}</td>
-        <td><span class="${appClass}">${appIcon} ${appRoll}</span> <small class="text-muted">(DC ${appDC})</small></td>
-        <td><span class="${evColor}">${evName}</span></td>
+        <td><span class="${appClass}">${appIcon} ${appRoll}</span> <small style="color: var(--text-normal);">(DC ${appDC}) | +${s} / ${f} CM</small></td>
+        <td><span class="${evColor}">${evName} (${evCM > 0 ? '+' : ''}${evCM} CM)</span></td>
         <td>${roundCM > 0 ? '+' : ''}${roundCM}</td>
         <td>${progRoll}</td>
         <td class="fw-bold text-warning">${total}</td>
