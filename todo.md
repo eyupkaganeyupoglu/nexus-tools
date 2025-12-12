@@ -1,1 +1,0 @@
-- crafting sonuçlandıktan sonra work unit kadar gün crafting yapamayacağımızı belirten bir mesaj göndersin.
