@@ -100,7 +100,8 @@ body {
 }
 
 .form-control:disabled,
-.form-control[readonly] {
+.form-control[readonly],
+.form-select:disabled {
     background-color: var(--bg-tertiary);
     opacity: 0.7;
 }

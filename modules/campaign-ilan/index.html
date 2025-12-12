@@ -155,7 +155,8 @@
                 <!-- Avatar Count -->
                 <div class="mb-3">
                     <label for="avatarCount" class="form-label">Avatar Sayısı</label>
-                    <input type="number" class="form-control" id="avatarCount" min="1" max="10" value="4" required>
+                    <input type="number" class="form-control" id="avatarCount" min="1" max="10"
+                        placeholder="1-10 arasında bir sayı girin." required>
                 </div>
 
                 <div class="d-grid">
@@ -213,14 +214,22 @@
                 <div class="mb-3">
                     <label for="campaignDay" class="form-label">Campaign Günü (Opsiyonel)</label>
                     <input type="text" class="form-control" id="campaignDay"
-                        placeholder="Campaign'i spesifik bir günde oynatacaksanız burayı doldurun. Aksi halde anket açılır.">
+                        placeholder="Campaign'i spesifik bir günde oynatacaksanız burayı doldurun. Aksi halde burayı boş bırakın ve Gün Belirleme Anketi açın.">
                 </div>
 
                 <!-- Other Info -->
                 <div class="mb-3">
                     <label for="otherInfo" class="form-label">Diğer Bilgiler (Opsiyonel)</label>
                     <textarea class="form-control" id="otherInfo" rows="3"
-                        placeholder="Spesifik bir başlığa ait olmayan ama yine de söylemeniz gereken ('İzleyici kabul etmiyorum' gibi) şeyleri yazacağınız kısım. Campaign için kullanacağınız ek şeyleri ('AboveVTT kullanacağım bu yüzden bilgisayarınız olmalı' gibi şeyler) belirtmeyi unutmayın."></textarea>
+                        placeholder="Spesifik bir başlığa ait olmayan ama yine de söylemeniz gereken ('İzleyici kabul etmiyorum' gibi) şeyleri buraya yazın."></textarea>
+                    <div class="alert alert-warning d-flex align-items-center mt-3 mb-0" role="alert">
+                        <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
+                        <div>
+                            <strong>DİKKAT!</strong><br>
+                            VTT kullanacaksanız, kullanacağınız VTT'nin ne olduğunu ve bu VTT'yi kullanmak için neler
+                            gerektiğini ayrıntılı bir şekilde yukarıda belirtmek zorundasınız.
+                        </div>
+                    </div>
                 </div>
 
                 <div class="d-grid">

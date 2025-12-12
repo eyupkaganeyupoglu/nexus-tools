@@ -121,7 +121,7 @@ function calculateEndGame() {
         // Let's output float if needed, but usually floor/ceil for tokens.
         // Checking notes again on Player Genesis: "Max_MS / 2". No rounding specified.
         // Let's output as decimal if needed.
-        const genVal = (maxMS / 2);
+        const genVal = maxMS;
 
         resultHTML += `
             <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent text-light border-secondary">
@@ -159,6 +159,17 @@ function calculateEndGame() {
     document.getElementById('resMaxMS').textContent = maxMS;
     document.getElementById('resDMAvg').textContent = dmAvg;
     document.getElementById('resPerf').textContent = `%${(perfRatio * 100).toFixed(2)}`;
+
+    // Loot Cap Warning Logic
+    const warningEl = document.getElementById('lootCapWarning');
+    const capValEl = document.getElementById('warnCapAmount');
+
+    if (perfRatio > 1.0) {
+        warningEl.classList.remove('d-none');
+        capValEl.textContent = `${Math.ceil(groupCap)} GP`;
+    } else {
+        warningEl.classList.add('d-none');
+    }
 
     document.getElementById('resPlayerList').innerHTML = resultHTML;
 

@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
-                <i class="fa-solid fa-chevron-left me-2"></i>Araçlar
+                <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
             </a>
             <span class="navbar-text text-white fw-bold">
                 Kural Öneri Formu
@@ -59,23 +59,22 @@
                             <!-- COMMON: Rule Name -->
                             <div class="mb-3">
                                 <label for="ruleName" class="form-label" id="labelRuleName">Kural İsmi</label>
-                                <input type="text" class="form-control" id="ruleName" required>
+                                <input type="text" class="form-control" id="ruleName"
+                                    placeholder="Kurala verdiğiniz isim." required>
                             </div>
 
                             <!-- MODE A: Add New Rule Content -->
                             <div id="sectionAdd">
                                 <div class="mb-3">
                                     <label for="newRuleContent" class="form-label">Eklenecek Kuralın İçeriği</label>
-                                    <textarea class="form-control" id="newRuleContent" rows="4"></textarea>
+                                    <textarea class="form-control" id="newRuleContent" rows="4"
+                                        placeholder="Kuralın içeriğini buraya yazın."></textarea>
                                 </div>
                             </div>
 
                             <!-- MODE B: Edit/Delete Specifics -->
                             <div id="sectionEdit" class="d-none">
-                                <div class="mb-3">
-                                    <label for="ruleId" class="form-label">Kural ID'si</label>
-                                    <input type="text" class="form-control" id="ruleId" placeholder="Örn: P-5">
-                                </div>
+
 
                                 <div class="mb-3">
                                     <label class="form-label">İşlem Türü</label>
@@ -98,15 +97,17 @@
                                 </div>
 
                                 <div class="mb-3" id="changeContentGroup">
-                                    <label for="changedRuleContent" class="form-label">Değişiklik (Yeni Hal)</label>
-                                    <textarea class="form-control" id="changedRuleContent" rows="4"></textarea>
+                                    <label for="changedRuleContent" class="form-label">Değişiklik</label>
+                                    <textarea class="form-control" id="changedRuleContent" rows="4"
+                                        placeholder="Bu değişikliği neden yapmak istiyorsunuz?"></textarea>
                                 </div>
                             </div>
 
                             <!-- COMMON: Reason -->
                             <div class="mb-3">
                                 <label for="reason" class="form-label">Sebep</label>
-                                <textarea class="form-control" id="reason" rows="3" required></textarea>
+                                <textarea class="form-control" id="reason" rows="3"
+                                    placeholder="'Neden' sorusuna cevap verin." ." required></textarea>
                             </div>
 
                             <!-- Action Button -->
@@ -126,7 +127,7 @@
                 <!-- Result Card -->
                 <div class="card d-none" id="resultCard">
                     <div class="card-header">
-                        <i class="fa-solid fa-code me-2"></i>Oluşturulan Şablon
+                        Oluşturulan Şablon
                     </div>
                     <div class="card-body">
                         <div class="position-relative">
@@ -170,7 +171,6 @@
 
                 // Requirement management
                 document.getElementById('newRuleContent').required = true;
-                document.getElementById('ruleId').required = false;
                 document.getElementById('changedRuleContent').required = false;
 
             } else {
@@ -179,7 +179,6 @@
 
                 // Requirement management
                 document.getElementById('newRuleContent').required = false;
-                document.getElementById('ruleId').required = true;
                 toggleEditType(); // Check internal requirements
             }
         };
@@ -221,10 +220,10 @@
                 markdown = `**Kural İsmi:** ${ruleName}\n**Sorun:** Ekle\n**Ekle:** ${content}\n**Sebep:** ${reason}`;
             } else {
                 // Mode B: Edit/Delete
-                const ruleId = document.getElementById('ruleId').value;
+                // Mode B: Edit/Delete
                 const type = typeChangeRadio.checked ? "Değiştir" : "Sil";
 
-                markdown = `**Kural İsmi:** ${ruleName}\n**Kural ID:** ${ruleId}\n**Sorun:** ${type}\n`;
+                markdown = `**Kural İsmi:** ${ruleName}\n**Sorun:** ${type}\n`;
 
                 if (type === "Değiştir") {
                     const changedContent = document.getElementById('changedRuleContent').value;
