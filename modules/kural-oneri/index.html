@@ -33,10 +33,8 @@
             <div class="col-md-8 col-lg-7">
 
                 <!-- Input Card -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fa-solid fa-scale-balanced me-2"></i>Öneri Detayları
-                    </div>
+                <div class="card mb-4 overflow-hidden rounded-3">
+
                     <div class="card-body">
 
                         <!-- Mode Selection -->
@@ -58,9 +56,9 @@
 
                             <!-- COMMON: Rule Name -->
                             <div class="mb-3">
-                                <label for="ruleName" class="form-label" id="labelRuleName">Kural İsmi</label>
+                                <label for="ruleName" class="form-label" id="labelRuleName">Başlık</label>
                                 <input type="text" class="form-control" id="ruleName"
-                                    placeholder="Kurala verdiğiniz isim." required>
+                                    placeholder="Kural için temsili bir başlık yazın." required>
                             </div>
 
                             <!-- MODE A: Add New Rule Content -->
@@ -68,7 +66,7 @@
                                 <div class="mb-3">
                                     <label for="newRuleContent" class="form-label">Eklenecek Kuralın İçeriği</label>
                                     <textarea class="form-control" id="newRuleContent" rows="4"
-                                        placeholder="Kuralın içeriğini buraya yazın."></textarea>
+                                        placeholder="Eklenecek kuralın içeriğini eksiksiz bir şekilde yazın."></textarea>
                                 </div>
                             </div>
 
@@ -96,10 +94,19 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3" id="changeContentGroup">
-                                    <label for="changedRuleContent" class="form-label">Değişiklik</label>
-                                    <textarea class="form-control" id="changedRuleContent" rows="4"
-                                        placeholder="Bu değişikliği neden yapmak istiyorsunuz?"></textarea>
+                                <div id="changeContentGroup">
+                                    <div class="mb-3">
+                                        <label for="oldRuleContent" class="form-label">Değiştirilecek/Silinecek Kuralın
+                                            eski İçeriği</label>
+                                        <textarea class="form-control" id="oldRuleContent" rows="4"
+                                            placeholder="Değiştirilecek/Silinecek kuralın eski içeriğini eksiksiz bir şekilde yazın."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="newRuleContentEdit" class="form-label">Değiştirilecek/Silinecek
+                                            Kuralın yeni İçeriği</label>
+                                        <textarea class="form-control" id="newRuleContentEdit" rows="4"
+                                            placeholder="Değiştirilecek/Silinecek kuralın yeni içeriğini eksiksiz bir şekilde yazın."></textarea>
+                                    </div>
                                 </div>
                             </div>
 
@@ -107,7 +114,7 @@
                             <div class="mb-3">
                                 <label for="reason" class="form-label">Sebep</label>
                                 <textarea class="form-control" id="reason" rows="3"
-                                    placeholder="'Neden' sorusuna cevap verin." ." required></textarea>
+                                    placeholder="Neden böyle bir şey teklif ettiğinizi yazın." required></textarea>
                             </div>
 
                             <!-- Action Button -->
@@ -165,13 +172,32 @@
 
         // Toggle Modes
         const toggleMode = () => {
+            // Reset Form State on Mode Switch
+            toggleInputs('ruleForm', false); // Unlock inputs
+
+            // Clear Values
+            document.getElementById('ruleName').value = "";
+            document.getElementById('reason').value = "";
+            document.getElementById('newRuleContent').value = "";
+            document.getElementById('oldRuleContent').value = "";
+            document.getElementById('newRuleContentEdit').value = "";
+
+            // Hide Result
+            document.getElementById('resultCard').classList.add('d-none');
+            document.getElementById('resultArea').value = "";
+
+            // Reset Buttons
+            document.getElementById('approveBtn').classList.remove('d-none');
+            document.getElementById('editBtn').classList.add('d-none');
+
             if (modeAddRadio.checked) {
                 sectionAdd.classList.remove('d-none');
                 sectionEdit.classList.add('d-none');
 
                 // Requirement management
                 document.getElementById('newRuleContent').required = true;
-                document.getElementById('changedRuleContent').required = false;
+                document.getElementById('oldRuleContent').required = false;
+                document.getElementById('newRuleContentEdit').required = false;
 
             } else {
                 sectionAdd.classList.add('d-none');
@@ -186,10 +212,12 @@
         const toggleEditType = () => {
             if (typeChangeRadio.checked) {
                 changeContentGroup.classList.remove('d-none');
-                document.getElementById('changedRuleContent').required = true;
+                document.getElementById('oldRuleContent').required = true;
+                document.getElementById('newRuleContentEdit').required = true;
             } else {
                 changeContentGroup.classList.add('d-none');
-                document.getElementById('changedRuleContent').required = false;
+                document.getElementById('oldRuleContent').required = false;
+                document.getElementById('newRuleContentEdit').required = false;
             }
         };
 
@@ -226,8 +254,9 @@
                 markdown = `**Kural İsmi:** ${ruleName}\n**Sorun:** ${type}\n`;
 
                 if (type === "Değiştir") {
-                    const changedContent = document.getElementById('changedRuleContent').value;
-                    markdown += `**Değişiklik:** ${changedContent}\n`;
+                    const oldContent = document.getElementById('oldRuleContent').value;
+                    const newContent = document.getElementById('newRuleContentEdit').value;
+                    markdown += `**Eski Hali:** ${oldContent}\n**Yeni Hali:** ${newContent}\n`;
                 }
 
                 markdown += `**Sebep:** ${reason}`;
