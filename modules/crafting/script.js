@@ -321,6 +321,8 @@ function toggleSetup(locked) {
     } else {
         btnStart.classList.remove('d-none');
         btnEdit.classList.add('d-none');
+        btnEdit.disabled = false; // Reset state
+        btnEdit.style.opacity = "1";
     }
 }
 
@@ -368,9 +370,15 @@ function runRound() {
     STATE.grandTotal += roundScore;
 
     // Log
-    addLog(STATE.roundCount, approachSuccess, approachTotal, approachDC, eventName, eventColor, unitTotalCM, rollProg, roundScore);
+    addLog(STATE.roundCount, approachSuccess, approachTotal, approachDC, eventName, eventColor, unitTotalCM, rollProg, roundScore, STATE.grandTotal);
 
     updateSimUI();
+    
+    // Disable Edit Button visually and functionally
+    const btnEdit = document.getElementById('btnEditSetup');
+    btnEdit.disabled = true;
+    btnEdit.style.opacity = "0.5";
+
     checkEndCondition();
 }
 
@@ -389,6 +397,7 @@ function checkEndCondition() {
                 <p class="mb-0">Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
                 <p class="mb-0"><strong>${itemName}</strong> başarıyla üretildi.</p>
+                <p class="mb-0"><strong>${STATE.targetWU}</strong> gün boyunca başka bir item craftlayamazsın.</p>
             </div>
             `;
         } else {
@@ -403,11 +412,12 @@ function checkEndCondition() {
                 <p>Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
                 <p class="mb-0"><strong>Geri Dönüşüm Sonucu:</strong> ${recycleMsg}</p>
+                <p class="mb-0"><strong>${STATE.targetWU}</strong> gün boyunca başka bir item craftlayamazsın.</p>
             </div>
             `;
         }
 
-        html += `<div class="d-grid mt-3"><button class="btn btn-primary" onclick="editSetup()">Simülasyonu Sıfırla / Yeni Üretim</button></div>`;
+        html += `<div class="d-grid mt-3"><button class="btn btn-primary" onclick="editSetup()">Yeni Üretim</button></div>`;
 
         resContainer.innerHTML = html;
         resContainer.classList.remove('d-none');
@@ -418,7 +428,7 @@ function checkEndCondition() {
 function updateSimUI() {
     document.getElementById('lblCurrentWU').textContent = STATE.currentWU;
     document.getElementById('lblTargetWU').textContent = STATE.targetWU;
-    document.getElementById('lblGrandTotal').textContent = STATE.grandTotal;
+
 
     const pct = Math.min(100, (STATE.currentWU / STATE.targetWU) * 100);
     const bar = document.getElementById('progressBar');
@@ -429,7 +439,7 @@ function updateSimUI() {
     }
 }
 
-function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, progRoll, total) {
+function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, progRoll, total, grandTotal) {
     const tbody = document.getElementById('simLogBody');
     const tr = document.createElement('tr');
 
@@ -454,6 +464,7 @@ function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, pro
         <td>${roundCM > 0 ? '+' : ''}${roundCM}</td>
         <td>${progRoll}</td>
         <td>${total}</td>
+        <td class="fw-bold text-warning">${grandTotal}</td>
     `;
 
     tbody.prepend(tr);

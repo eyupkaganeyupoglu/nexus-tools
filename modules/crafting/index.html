@@ -107,19 +107,19 @@
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-accent">Eşya Fiyatı (GP)</label>
+                        <label class="form-label text-accent">Item'in Fiyatı (GP)</label>
                         <div id="itemPrice"
                             class="form-control bg-dark text-accent fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-warning">Hedef Work Units</label>
+                        <label class="form-label text-warning">Item için gereken Work Units</label>
                         <div id="targetWU"
                             class="form-control bg-dark text-warning fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-danger">Hedef Masterwork DC</label>
+                        <label class="form-label text-danger">Item'in Masterwork DC</label>
                         <div id="targetDC"
                             class="form-control bg-dark text-danger fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
@@ -201,7 +201,7 @@
                     Onayla ve Başla
                 </button>
                 <button id="btnEditSetup" class="btn btn-lg btn-danger w-50 d-none">
-                    Düzenle (Sıfırla)
+                    Düzenle
                 </button>
                 <div id="step4Warning" class="text-danger small mt-2 text-center d-none"></div>
             </div>
@@ -255,6 +255,7 @@
                                     <th>CM Toplamı</th>
                                     <th>İlerleme Zarı</th>
                                     <th>Toplam</th>
+                                    <th>Genel Toplam</th>
                                 </tr>
                             </thead>
                             <tbody id="simLogBody">
@@ -270,14 +271,10 @@
                 <div><span class="fw-bold">CM Toplamı:</span> O Work Unit (WU) için tüm Crafting Modifier (CM) değerlerinin toplamıdır.</div>
                 <div><span class="fw-bold">İlerleme Zarı:</span> O Work Unit (WU) için atılan 1d20 zarının sonucudur.</div>
                 <div><span class="fw-bold">Toplam:</span> İlerleme Zarı ve CM Toplamı değerlerinin o Work Unit (WU) için toplam sonucudur.</div>
+                <div><span class="fw-bold">Genel Toplam:</span> Item'in Masterwork DC'sine ulaşmak için şu ana kadar biriktirilen toplam ilerleme puanıdır.</div>
             </div>
 
-            <div class="card bg-dark border-warning mb-4 overflow-hidden">
-                <div class="card-header bg-warning text-dark fw-bold">Toplam Crafting Modifier (CM)</div>
-                <div class="card-body text-center">
-                    <h2 class="display-4 text-warning" id="lblGrandTotal">0</h2>
-                </div>
-            </div>
+
 
             <!-- Final Result Overlay/Card -->
             <div id="resultContainer" class="d-none">
