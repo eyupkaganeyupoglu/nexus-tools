@@ -74,11 +74,11 @@
 
                             <!-- Item Search (Autocomplete) -->
                             <div class="mb-3 position-relative">
-                                <label for="itemName" class="form-label">Eşya İsmi (Arama)</label>
+                                <label for="itemName" class="form-label">Item İsmi</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                                     <input type="text" class="form-control" id="itemName"
-                                        placeholder="Eşya ismini yazmaya başlayın..." required>
+                                        placeholder="Satacağınız item'in ismi." required>
                                 </div>
                                 <!-- Autocomplete List Container -->
                                 <div id="autocomplete-list" class="autocomplete-items"></div>
@@ -91,13 +91,15 @@
                             <!-- Seller -->
                             <div class="mb-3">
                                 <label for="sellerName" class="form-label">Satıcı</label>
-                                <input type="text" class="form-control" id="sellerName" required>
+                                <input type="text" class="form-control" id="sellerName"
+                                    placeholder="Bu item'i satan avatarın ismi." required>
                             </div>
 
                             <!-- Price -->
                             <div class="mb-3">
                                 <label for="salePrice" class="form-label">Satış Fiyatı (GP)</label>
-                                <input type="number" step="0.01" class="form-control" id="salePrice" required>
+                                <input type="number" step="0.01" class="form-control" id="salePrice"
+                                    placeholder="Bu item'i satmak istediğiniz GP cinsinden fiyat." required>
                                 <div class="form-text text-light small">Orijinal Fiyat: <span
                                         id="originalPriceDisplay">-</span> GP</div>
                             </div>
@@ -105,7 +107,8 @@
                             <!-- Extra Info -->
                             <div class="mb-3">
                                 <label for="extraInfo" class="form-label">Ek Bilgiler</label>
-                                <textarea class="form-control" id="extraInfo" rows="3"></textarea>
+                                <textarea class="form-control" id="extraInfo" rows="3"
+                                    placeholder="Yazmak istediğiniz diğer şeyler."></textarea>
                             </div>
 
                             <!-- Action Button -->
@@ -163,6 +166,13 @@
 
         inputItem.addEventListener('input', function (e) {
             const val = this.value;
+            const lowerVal = val.toLowerCase();
+
+            // Reset hidden fields when user types
+            inputLink.value = "";
+            inputOriginalPrice.value = "";
+            displayOriginalPrice.textContent = "-";
+
             closeAllLists();
             if (!val) return false;
 
@@ -170,8 +180,17 @@
 
             // Filter Data (limit to 10 results for performance)
             const matches = marketData.filter(item =>
-                item.name.toLowerCase().includes(val.toLowerCase())
+                item.name.toLowerCase().includes(lowerVal)
             ).slice(0, 10);
+
+            // Check for exact match in the filtered results to update price immediately
+            const exactMatch = matches.find(item => item.name.toLowerCase() === lowerVal);
+            if (exactMatch) {
+                inputLink.value = exactMatch.link;
+                inputOriginalPrice.value = exactMatch.price;
+                displayOriginalPrice.textContent = exactMatch.price;
+                inputSalePrice.value = exactMatch.price; // Auto-fill sale price for exact match while typing pattern
+            }
 
             matches.forEach(match => {
                 const div = document.createElement('div');
@@ -250,15 +269,30 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const item = inputItem.value;
+            const item = inputItem.value.trim();
             const seller = document.getElementById('sellerName').value;
             const price = inputSalePrice.value;
-            const link = inputLink.value || "#"; // Default if not found
-            let originalPrice = inputOriginalPrice.value || "0";
             const extra = document.getElementById('extraInfo').value;
 
+            // Check for exact match if link is empty (User typed name but didn't select)
+            let link = inputLink.value;
+            let originalPrice = inputOriginalPrice.value;
+
+            if (!link && item) {
+                const exactMatch = marketData.find(d => d.name.toLowerCase() === item.toLowerCase());
+                if (exactMatch) {
+                    link = exactMatch.link;
+                    originalPrice = exactMatch.price;
+                }
+            }
+
             // Generate Markdown
-            const markdown = `**Eşya:** ${item}\n**Satıcı:** ${seller}\n**Ek Bilgiler:** ${extra}\n**Fiyat:** ${price} GP\n**Link:** [${item}](${link}), ${originalPrice} GP`;
+            let markdown = `**Item:** ${item}\n**Satıcı:** ${seller}\n**Ek Bilgiler:** ${extra}\n**Fiyat:** ${price} GP`;
+
+            // Append Link only if valid
+            if (link && link !== "#") {
+                markdown += `\n**Link:** [${item}](${link}), ${originalPrice || 0} GP`;
+            }
 
             resultArea.value = markdown;
             resultCard.classList.remove('d-none');

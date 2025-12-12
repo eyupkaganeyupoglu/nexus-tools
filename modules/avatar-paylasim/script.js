@@ -183,7 +183,7 @@ function generateTemplate() {
 - ${backstory}
 - ${about}
 
-**ETİKETLER:** ${selectedTags.join(', ')}`;
+**ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçin)`;
 
     // Render
     document.getElementById('resultOutput').textContent = output;
