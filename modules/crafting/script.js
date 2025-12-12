@@ -31,8 +31,8 @@ const TOOLS_LIST = [
 ];
 
 const EVENT_TABLE = [
-    { min: 1, max: 1, name: "Disaster", cm: -4, color: "text-danger" },
-    { min: 2, max: 4, name: "Setback", cm: -2, color: "text-danger" },
+    { min: 1, max: 1, name: "Disaster", cm: -2, color: "text-danger" },
+    { min: 2, max: 4, name: "Setback", cm: -1, color: "text-danger" },
     { min: 5, max: 8, name: "Stable", cm: 0, color: "text-normal" },
     { min: 9, max: 9, name: "Minor Breakthrough", cm: 1, color: "text-success" },
     { min: 10, max: 10, name: "Sudden Inspiration", cm: 2, color: "text-success" }
@@ -337,10 +337,10 @@ function runRound() {
     // 1. Approach
     const approachType = document.getElementById('simApproach').value;
     let approachDC = 10;
-    let successEff = 1, failEff = -2;
+    let successEff = 1, failEff = -1;
 
-    if (approachType === 'ambitious') { approachDC = 15; successEff = 2; failEff = -4; }
-    if (approachType === 'masterwork') { approachDC = 20; successEff = 3; failEff = -6; }
+    if (approachType === 'ambitious') { approachDC = 15; successEff = 2; failEff = -2; }
+    if (approachType === 'masterwork') { approachDC = 20; successEff = 3; failEff = -3; }
 
     const roll1 = rollD20();
     const approachTotal = roll1 + STATE.skillBonus;
@@ -453,9 +453,9 @@ function addLog(round, appSuccess, appRoll, appDC, evName, evColor, roundCM, pro
     if (evObj) evCM = evObj.cm;
 
     // Determine Approach Info
-    let s = 1, f = -2;
-    if (appDC === 15) { s = 2; f = -4; }
-    if (appDC === 20) { s = 3; f = -6; }
+    let s = 1, f = -1;
+    if (appDC === 15) { s = 2; f = -2; }
+    if (appDC === 20) { s = 3; f = -3; }
 
     tr.innerHTML = `
         <td>${round}</td>
