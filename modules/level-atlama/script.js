@@ -119,7 +119,7 @@ function calculate(start, end) {
     if (totalStd > 0) parts.push(`${totalStd} Milestone`);
     if (totalEpic > 0) parts.push(`${totalEpic} Epic Milestone`);
 
-    mainEl.textContent = "Gereken: " + parts.join(' + ');
+    mainEl.textContent = parts.join(' + ');
 
     // Render Info Message
     const infoEl = document.getElementById('flexibleInfo');
