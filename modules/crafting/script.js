@@ -122,7 +122,7 @@ function initEventListeners() {
 // --- Complexity Logic ---
 function selectItem(itemData) {
     document.getElementById('itemName').value = itemData.name;
-    document.getElementById('itemPrice').value = itemData.price;
+    document.getElementById('itemPrice').textContent = itemData.price;
     STATE.itemPrice = parseFloat(itemData.price);
 
     // Close list
@@ -191,8 +191,8 @@ function calculateComplexity(name, price) {
 function setTarget(wu, dc) {
     STATE.targetWU = wu;
     STATE.targetDC = dc;
-    document.getElementById('targetWU').value = wu;
-    document.getElementById('targetDC').value = dc;
+    document.getElementById('targetWU').textContent = wu;
+    document.getElementById('targetDC').textContent = dc;
 }
 
 // --- Material Logic ---
@@ -433,15 +433,31 @@ function handleAutocomplete(e) {
     const list = document.getElementById('autocomplete-list');
     list.innerHTML = '';
 
+    // Reset State on Input
+    document.getElementById('itemPrice').textContent = "0";
+    STATE.itemPrice = 0;
+    // Recalc with 0 price (effectively resets targets unless name triggers scroll logic)
+    calculateComplexity(val, 0);
+    updateMaterialCosts();
+
     if (!val || typeof marketData === 'undefined') return;
 
     const matches = marketData.filter(item =>
         item.name.toLowerCase().includes(val.toLowerCase())
     ).slice(0, 8);
 
+    // Check Exact Match
+    const exactMatch = matches.find(item => item.name.toLowerCase() === val.toLowerCase());
+    if (exactMatch) {
+        document.getElementById('itemPrice').textContent = exactMatch.price;
+        STATE.itemPrice = parseFloat(exactMatch.price);
+        calculateComplexity(exactMatch.name, STATE.itemPrice);
+        updateMaterialCosts();
+    }
+
     matches.forEach(item => {
         const div = document.createElement('div');
-        div.innerHTML = item.name; // Simple highlight omitted for brevity
+        div.innerHTML = item.name;
         div.addEventListener('click', () => selectItem(item));
         list.appendChild(div);
     });
