@@ -11,6 +11,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel="stylesheet">
+    <style>
+        /* Placeholder color for invalid (empty) required select */
+        #dmScore:invalid {
+            color: var(--text-muted);
+        }
+
+        /* Ensure options remain normal color */
+        #dmScore option {
+            color: var(--text-normal);
+        }
+    </style>
 </head>
 
 <body>
@@ -33,10 +44,8 @@
             <div class="col-md-8 col-lg-6">
 
                 <!-- Input Card -->
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fa-solid fa-star-half-stroke me-2"></i>Değerlendirme
-                    </div>
+                <div class="card mb-4 overflow-hidden rounded-3">
+
                     <div class="card-body">
                         <form id="dmScoreForm">
                             <!-- Campaign Name -->
@@ -50,12 +59,12 @@
                             <div class="mb-3">
                                 <label for="dmScore" class="form-label">Puanınız (1-5)</label>
                                 <select class="form-select" id="dmScore" required>
-                                    <option value="" selected disabled>Seçiniz...</option>
-                                    <option value="5">5 - Mükemmel</option>
-                                    <option value="4">4 - Çok İyi</option>
-                                    <option value="3">3 - İyi</option>
-                                    <option value="2">2 - Orta</option>
-                                    <option value="1">1 - Kötü</option>
+                                    <option value="" selected disabled>Campaign ve DM için puan veriniz...</option>
+                                    <option value="5">5 - Kusursuz</option>
+                                    <option value="4">4 - İyi</option>
+                                    <option value="3">3 - Ortalama</option>
+                                    <option value="2">2 - Eh işte</option>
+                                    <option value="1">1 - Bok gibi</option>
                                 </select>
                             </div>
 
