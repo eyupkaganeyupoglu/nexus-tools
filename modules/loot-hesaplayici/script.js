@@ -63,6 +63,24 @@ function calculateEndGame() {
     let calculatedHours = hoursIn;
     if (minutesIn >= 30) calculatedHours += 1;
 
+    // Check Min Hours Rule
+    const isDurationValid = calculatedHours >= 3;
+
+    // UI Elements
+    const minHoursWarning = document.getElementById('minHoursWarning');
+    const lootCapWarning = document.getElementById('lootCapWarning');
+    const capValEl = document.getElementById('warnCapAmount');
+    const resultContainer = document.getElementById('endgame-result');
+
+    if (!isDurationValid) {
+        minHoursWarning.classList.remove('d-none');
+        lootCapWarning.classList.add('d-none');
+        resultContainer.classList.add('d-none');
+        return;
+    } else {
+        minHoursWarning.classList.add('d-none');
+    }
+
     // 2. Max MS
     const maxMS = Math.floor(calculatedHours / 3);
 
@@ -102,25 +120,30 @@ function calculateEndGame() {
     let perfRatio = 0;
     if (groupCap > 0) {
         perfRatio = totalLoot / groupCap;
+    } else if (totalLoot > 0) {
+        perfRatio = Infinity;
     }
+
+    // Check Loot Cap Rule
+    const isCapValid = perfRatio <= 1.0;
+
+    if (!isCapValid) {
+        lootCapWarning.classList.remove('d-none');
+        capValEl.textContent = `${Math.ceil(groupCap)} GP`;
+        resultContainer.classList.add('d-none');
+        return;
+    } else {
+        lootCapWarning.classList.add('d-none');
+    }
+
+    // If valid, show results
+    resultContainer.classList.remove('d-none');
 
     // Step D: Calculate Final Rewards
     let resultHTML = '';
     players.forEach(p => {
         const gold = Math.round(p.cap * perfRatio);
         const ms = maxMS;
-        const genesis = Math.floor(maxMS / 2); // Assuming standard floor logic for genesis from description implicit 
-        // "Max_MS / 2" usually implies integer division in these contexts unless specified. 
-        // Let's stick to floor to be safe or float? 
-        // Note says: "Kazanılan_Genesis: Max_MS / 2". 
-        // Given tokens are usually whole, let's use floor or maybe exact?
-        // Wait, DM Genesis says "Yukarı yuvarla" for DM. 
-        // Let's use float fixed(1) or if int is expected... 
-        // Looking at example: DM Genesis 9. 
-        // Safe bet: .5 implies 0.5 token, usually tracked as float? 
-        // Let's output float if needed, but usually floor/ceil for tokens.
-        // Checking notes again on Player Genesis: "Max_MS / 2". No rounding specified.
-        // Let's output as decimal if needed.
         const genVal = maxMS;
 
         resultHTML += `
@@ -141,44 +164,25 @@ function calculateEndGame() {
     // 5. DM Rewards
     let factor = Math.ceil(calculatedHours / 3);
     if (factor === 1) factor = 2;
+
     const xGold = totalLoot / players.length;
     const xMS = maxMS;
 
     const dmGold = Math.ceil(xGold * factor);
     const dmMS = xMS * factor;
-    // DM Genesis: "DM_Puan_Ortalaması + Faktör (Yukarı yuvarla)"
-    // Actually formula is just DM_Puan_Avg + Factor. Rounding probably redundant if integers, but specified.
     let dmGenesis = Math.ceil(dmAvg + factor);
-
-    // Constraint: Y < 3 -> DM Genesis = 0
-    if (calculatedHours < 3) {
-        dmGenesis = 0;
-    }
 
     // Display Results
     document.getElementById('resDuration').textContent = `${calculatedHours} Saat`;
     document.getElementById('resMaxMS').textContent = maxMS;
     document.getElementById('resDMAvg').textContent = dmAvg;
     document.getElementById('resPerf').textContent = `%${(perfRatio * 100).toFixed(2)}`;
-
-    // Loot Cap Warning Logic
-    const warningEl = document.getElementById('lootCapWarning');
-    const capValEl = document.getElementById('warnCapAmount');
-
-    if (perfRatio > 1.0) {
-        warningEl.classList.remove('d-none');
-        capValEl.textContent = `${Math.ceil(groupCap)} GP`;
-    } else {
-        warningEl.classList.add('d-none');
-    }
-
+    
     document.getElementById('resPlayerList').innerHTML = resultHTML;
 
     document.getElementById('resDMGold').textContent = `${dmGold} GP`;
     document.getElementById('resDMMS').textContent = `${dmMS} MS`;
-    document.getElementById('resDMGenesis').textContent = `${dmGenesis} GT` + (calculatedHours < 3 ? " (Min 3 Saat)" : "");
-
-    document.getElementById('endgame-result').classList.remove('d-none');
+    document.getElementById('resDMGenesis').textContent = `${dmGenesis} GT`;
 }
 
 // --- Loot Planner Logic ---

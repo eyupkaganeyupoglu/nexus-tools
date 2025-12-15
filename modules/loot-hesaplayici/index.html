@@ -133,8 +133,29 @@
 
                 <div class="d-grid mb-4">
                     <button class="btn btn-primary" onclick="calculateEndGame()">
-                        <i class="fa-solid fa-calculator me-2"></i>Hesapla
+                        Hesapla
                     </button>
+                </div>
+
+                <!-- Warnings -->
+                <div id="minHoursWarning" class="alert alert-danger d-flex align-items-center mt-4 mb-0 d-none"
+                    role="alert">
+                    <i class="fa-solid fa-clock fa-2x me-3"></i>
+                    <div>
+                        <strong>SÜRE YETERSİZ!</strong><br>
+                        Oyun süresi minimum 3 saat olmalıdır. Lütfen süreyi kontrol ediniz.
+                    </div>
+                </div>
+
+                <div id="lootCapWarning" class="alert alert-warning d-flex align-items-center mt-4 mb-0 d-none"
+                    role="alert">
+                    <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
+                    <div>
+                        <strong>DİKKAT!</strong><br>
+                        Campaign altın ödülünüz maksimum miktarı aşmıştır. Lütfen "Bulunan Toplam Loot (GP)"
+                        verisini doğru girin. Bulunan Toplam Loot (GP) miktarı maksimum <span id="warnCapAmount"
+                            class="fw-bold"></span> olabilir.
+                    </div>
                 </div>
 
                 <!-- End Game Results -->
@@ -158,18 +179,6 @@
                                 <small class="text-white d-block">Bulunan Loot Oranı</small>
                                 <span class="fw-bold text-azure" id="resPerf">-</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Loot Cap Warning -->
-                    <div id="lootCapWarning" class="alert alert-warning d-flex align-items-center mt-4 mb-0 d-none"
-                        role="alert">
-                        <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
-                        <div>
-                            <strong>DİKKAT!</strong><br>
-                            Campaign altın ödülünüz maksimum miktarı aşmıştır. Lütfen "Bulunan Toplam Loot (GP)"
-                            verisini doğru girin. Bulunan Toplam Loot (GP) miktarı maksimum <span id="warnCapAmount"
-                                class="fw-bold"></span> olabilir.
                         </div>
                     </div>
 
