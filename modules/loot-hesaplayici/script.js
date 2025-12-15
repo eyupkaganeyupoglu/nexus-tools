@@ -139,7 +139,8 @@ function calculateEndGame() {
     });
 
     // 5. DM Rewards
-    const factor = Math.ceil(calculatedHours / 3);
+    let factor = Math.ceil(calculatedHours / 3);
+    if (factor === 1) factor = 2;
     const xGold = totalLoot / players.length;
     const xMS = maxMS;
 
