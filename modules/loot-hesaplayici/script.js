@@ -82,7 +82,8 @@ function calculateEndGame() {
     }
 
     // 2. Max MS
-    const maxMS = Math.floor(calculatedHours / 3);
+    // New Rule: 3h -> 1 MS. Then every 2h adds 1 MS. (3h=1, 5h=2, 7h=3...)
+    const maxMS = calculatedHours < 3 ? 0 : Math.floor((calculatedHours - 3) / 2) + 1;
 
     // Get Players
     const playerRows = document.querySelectorAll('#endgame-players .player-row');
@@ -162,7 +163,8 @@ function calculateEndGame() {
     });
 
     // 5. DM Rewards
-    let factor = Math.floor(calculatedHours / 3) + 1;
+    // New Rule: 3h -> Factor 2. Then every 2h adds 1 Factor. (3h=2, 5h=3, 7h=4...)
+    let factor = calculatedHours < 3 ? 0 : Math.floor((calculatedHours - 3) / 2) + 2;
 
     const xGold = groupCap / players.length;
 
@@ -197,7 +199,8 @@ function calculatePlanner() {
     const hours = parseFloat(document.getElementById('planHours').value) || 0;
 
     // 1. Planned MS
-    const plannedMS = Math.floor(hours / 3);
+    // New Rule: 3h -> 1 MS. Then every 2h adds 1 MS. (3h=1, 5h=2, 7h=3...)
+    const plannedMS = hours < 3 ? 0 : Math.floor((hours - 3) / 2) + 1;
 
     // Get Players
     const playerRows = document.querySelectorAll('#planner-players .player-row');
