@@ -79,7 +79,7 @@ function updatePB() {
     if (lvl >= 13) pb = 5;
     if (lvl >= 17) pb = 6;
 
-    document.getElementById('displayPB').textContent = `+${pb}`;
+    // document.getElementById('displayPB').textContent = `+${pb}`;
     document.getElementById('pbLabel').textContent = pb;
     calcSkillBonus();
 }
