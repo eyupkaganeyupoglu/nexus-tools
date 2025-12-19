@@ -177,16 +177,21 @@
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Tool İçin Gereken Ability'nin Mod Değeri</label>
                         <input type="number" id="abilityMod" class="form-control" placeholder="Örn: +3 için 3"
-                            value="0" min="0">
+                            value="0">
                     </div>
                 </div>
-                <div class="form-check mb-3">
+                <div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" id="hasProficiency" checked>
                     <label class="form-check-label" for="hasProficiency">Tool Proficiency Var (+<span
                             id="pbLabel">2</span>)</label>
                 </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="hasExpertise">
+                    <label class="form-check-label" for="hasExpertise">Tool Expertise Var (+<span
+                            id="expertiseLabel">4</span>)</label>
+                </div>
                 <div class="text-center py-2 text-warning">
-                    <strong>Toplam Skill Check Bonusu: +<span id="finalSkillBonus">0</span></strong>
+                    <strong>Toplam Skill Check Bonusu: <span id="finalSkillBonus">0</span></strong>
                 </div>
             </div>
 

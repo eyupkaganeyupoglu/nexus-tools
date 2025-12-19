@@ -81,6 +81,7 @@ function updatePB() {
 
     // document.getElementById('displayPB').textContent = `+${pb}`;
     document.getElementById('pbLabel').textContent = pb;
+    document.getElementById('expertiseLabel').textContent = pb * 2;
     calcSkillBonus();
 }
 
@@ -132,6 +133,7 @@ function initEventListeners() {
     // Skill Bonus
     document.getElementById('abilityMod').addEventListener('input', calcSkillBonus);
     document.getElementById('hasProficiency').addEventListener('change', calcSkillBonus);
+    document.getElementById('hasExpertise').addEventListener('change', calcSkillBonus);
 
     // Setup Buttons
     document.getElementById('btnStartSetup').addEventListener('click', startSimulation);
@@ -254,12 +256,25 @@ function validateMaterialSelection() {
 // --- Skill Logic ---
 function calcSkillBonus() {
     let mod = parseInt(document.getElementById('abilityMod').value) || 0;
-    if (mod < 0) mod = 0; // Enforce min 0
+    // if (mod < 0) mod = 0; // Removed to allow negative mods
     const proficient = document.getElementById('hasProficiency').checked;
-    const pb = proficient ? parseInt(document.getElementById('pbLabel').textContent) : 0;
+    const expertise = document.getElementById('hasExpertise').checked;
+    
+    // Get base PB from the label text (which is updated by level)
+    const pb = parseInt(document.getElementById('pbLabel').textContent) || 0;
 
-    STATE.skillBonus = mod + pb;
-    document.getElementById('finalSkillBonus').textContent = STATE.skillBonus;
+    let bonusPB = 0;
+    if (expertise) {
+        bonusPB = pb * 2;
+    } else if (proficient) {
+        bonusPB = pb;
+    }
+
+    STATE.skillBonus = mod + bonusPB;
+    
+    // Display signed number for clarity
+    const sign = STATE.skillBonus >= 0 ? '+' : '';
+    document.getElementById('finalSkillBonus').textContent = `${sign}${STATE.skillBonus}`;
 }
 
 // --- Wizard Control ---
