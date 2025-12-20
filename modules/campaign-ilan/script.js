@@ -145,14 +145,14 @@ function generateTemplate() {
     const sessionText = document.getElementById('sessionDisplay').textContent;
     const hourText = document.getElementById('hourDisplay').textContent;
     const dayInput = document.getElementById('campaignDay').value.trim();
-    const day = dayInput || "Anket Açılacak";
-    const other = document.getElementById('otherInfo').value.trim();
+    const day = dayInput || "Gün belirleme anketi ile karar verilecek.";
+    const other = document.getElementById('otherInfo').value.trim() || "-";
 
     const output = `**Campaign Başlığı:** ${title}
 **Campaign Lokasyonu:** ${loc}
 **Campaign Açıklaması:** ${desc}
 **Oyuncu Tecrübesi:** ${selectedTags.join(' ')}
-**Tavsiye Edilen Seviye ve Avatar Sayısı:** ${levelText}, ${avatarCount} avatar.
+**İstenilen Seviye ve Avatar Sayısı:** ${levelText}, ${avatarCount} avatar.
 **Campaign Uzunluğu:** ${sessionText}, ${hourText}.
 **Campaign Günü:** ${day}
 **Diğer Bilgiler:** ${other}`;
