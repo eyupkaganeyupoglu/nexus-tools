@@ -169,7 +169,7 @@ function calculateEndGame() {
     const xGold = groupCap / players.length;
 
     const dmGold = Math.ceil(xGold * 2);
-    const dmMS = maxMS * players.length;
+    const dmMS = maxMS * 2;
     let dmGenesis = Math.ceil(dmAvg + factor);
 
     // Display Results
