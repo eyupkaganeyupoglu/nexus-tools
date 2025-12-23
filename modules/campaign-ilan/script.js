@@ -153,7 +153,7 @@ function generateTemplate() {
 **Campaign Açıklaması:** ${desc}
 **Oyuncu Tecrübesi:** ${selectedTags.join(' ')}
 **İstenilen Seviye ve Avatar Sayısı:** ${levelText}, ${avatarCount} avatar.
-**Campaign Uzunluğu:** ${sessionText}, ${hourText}.
+**Campaign Uzunluğu:** ${sessionText}, session başı ${hourText}.
 **Campaign Günü:** ${day}
 **Diğer Bilgiler:** ${other}`;
 
