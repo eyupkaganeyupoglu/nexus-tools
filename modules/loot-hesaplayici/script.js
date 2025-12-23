@@ -172,7 +172,7 @@ function calculateEndGame() {
 
     const dmGold = Math.ceil(xGold * 2);
     const dmMS = maxMS * 2;
-    const vipDMBonus = vipDMValue; // VIP DM Bonus (Max 1)
+    const vipDMBonus = vipDMValue * 2; // VIP DM Bonus (Max 2)
     let dmGenesis = Math.ceil(dmAvg + factor) + vipDMBonus;
 
     // Display Results
