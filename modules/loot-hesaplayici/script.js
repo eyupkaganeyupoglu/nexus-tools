@@ -58,6 +58,7 @@ function calculateEndGame() {
     const hoursIn = parseFloat(document.getElementById('gameHours').value) || 0;
     const minutesIn = parseFloat(document.getElementById('gameMinutes').value) || 0;
     const totalLoot = parseFloat(document.getElementById('totalLoot').value) || 0;
+    const vipDMValue = document.getElementById('vipDM').checked ? 1 : 0;
 
     // 1. Duration Rounding
     let calculatedHours = hoursIn;
@@ -93,8 +94,9 @@ function calculateEndGame() {
     playerRows.forEach(row => {
         const lvl = parseInt(row.querySelector('.inp-level').value) || 0;
         const pts = parseInt(row.querySelector('.inp-points').value) || 0;
+        const vip = row.querySelector('.inp-vip').checked ? 1 : 0;
         if (lvl > 0) {
-            players.push({ lvl, pts });
+            players.push({ lvl, pts, vip });
             totalDMPoints += pts;
         }
     });
@@ -145,7 +147,7 @@ function calculateEndGame() {
     players.forEach(p => {
         const gold = Math.round(p.cap * perfRatio);
         const ms = maxMS;
-        const genVal = maxMS;
+        const genVal = maxMS + p.vip; // Add VIP Avatar Bonus (Max 1)
 
         resultHTML += `
             <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent text-light border-secondary">
@@ -170,7 +172,8 @@ function calculateEndGame() {
 
     const dmGold = Math.ceil(xGold * 2);
     const dmMS = maxMS * 2;
-    let dmGenesis = Math.ceil(dmAvg + factor);
+    const vipDMBonus = vipDMValue; // VIP DM Bonus (Max 1)
+    let dmGenesis = Math.ceil(dmAvg + factor) + vipDMBonus;
 
     // Display Results
     document.getElementById('resDuration').textContent = `${calculatedHours} Saat`;
