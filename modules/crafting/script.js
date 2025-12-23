@@ -32,9 +32,9 @@ const TOOLS_LIST = [
 
 const EVENT_TABLE = [
     { min: 1, max: 1, name: "Disaster", cm: -2, color: "text-danger" },
-    { min: 2, max: 4, name: "Setback", cm: -1, color: "text-danger" },
-    { min: 5, max: 8, name: "Stable", cm: 0, color: "text-normal" },
-    { min: 9, max: 9, name: "Minor Breakthrough", cm: 1, color: "text-success" },
+    { min: 2, max: 3, name: "Setback", cm: -1, color: "text-danger" },
+    { min: 4, max: 7, name: "Stable", cm: 0, color: "text-normal" },
+    { min: 8, max: 9, name: "Minor Breakthrough", cm: 1, color: "text-success" },
     { min: 10, max: 10, name: "Sudden Inspiration", cm: 2, color: "text-success" }
 ];
 
@@ -404,6 +404,9 @@ function checkEndCondition() {
         const resContainer = document.getElementById('resultContainer');
         const itemName = document.getElementById('itemName').value;
 
+        const hasToolsOfTheTrade = document.getElementById('hasToolsOfTheTrade').checked;
+        const cooldownDays = hasToolsOfTheTrade ? Math.floor(STATE.targetWU / 2) : STATE.targetWU;
+
         let html = '';
         if (success) {
             html = `
@@ -412,7 +415,7 @@ function checkEndCondition() {
                 <p class="mb-0">Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
                 <p class="mb-0"><strong>${itemName}</strong> başarıyla üretildi.</p>
-                <p class="mb-0"><strong>${STATE.targetWU}</strong> gün boyunca başka bir item craftlayamazsın.</p>
+                <p class="mb-0"><strong>${cooldownDays}</strong> gün boyunca başka bir item craftlayamazsın.</p>
             </div>
             `;
         } else {
@@ -427,7 +430,7 @@ function checkEndCondition() {
                 <p>Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
                 <p class="mb-0"><strong>Geri Dönüşüm Sonucu:</strong> ${recycleMsg}</p>
-                <p class="mb-0"><strong>${STATE.targetWU}</strong> gün boyunca başka bir item craftlayamazsın.</p>
+                <p class="mb-0"><strong>${cooldownDays}</strong> gün boyunca başka bir item craftlayamazsın.</p>
             </div>
             `;
         }
