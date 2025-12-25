@@ -185,6 +185,46 @@ function calculateEndGame() {
     document.getElementById('resDMGenesis').textContent = `${dmGenesis} GT`;
 }
 
+// --- 3. Starting Budget Calculator ---
+const BUDGET_REWARDS = { 1: 0, 2: 100, 3: 200, 4: 300, 5: 400, 6: 500, 7: 600, 8: 700, 9: 800, 10: 900, 11: 1000, 12: 1150, 13: 1250, 14: 1350, 15: 1500, 16: 1600, 17: 1800, 18: 2000, 19: 2200, 20: 2400 };
+
+function initBudgetCalculator() {
+    const lvlSelect = document.getElementById('budgetLevel');
+    const display = document.getElementById('budgetTotal');
+    const warning = document.getElementById('budgetWarning');
+
+    // Populate Select
+    for (let i = 1; i <= 20; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = `Level ${i}`;
+        lvlSelect.appendChild(opt);
+    }
+
+    const calculate = () => {
+        const lvl = parseInt(lvlSelect.value);
+        let total = 0;
+        
+        // Cumulative Sum
+        for (let i = 2; i <= lvl; i++) {
+            total += BUDGET_REWARDS[i] || 0;
+        }
+
+        display.textContent = '+' + total.toLocaleString('tr-TR') + ' GP';
+
+        if (lvl >= 6) {
+            warning.classList.remove('d-none');
+        } else {
+            warning.classList.add('d-none');
+        }
+    };
+
+    lvlSelect.addEventListener('change', calculate);
+    calculate(); // Initial
+}
+
+initBudgetCalculator();
+
 // --- Milestone Converter Logic ---
 function calculateMilestoneGold() {
     const startLvl = parseInt(document.getElementById('msCurrentLevel').value) || 1;
