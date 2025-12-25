@@ -298,6 +298,10 @@
                 markdown += `\n**Link:** [${item}](${link}), ${originalPrice || 0} GP`;
             }
 
+
+            // Append Footer
+            markdown += "\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*";
+
             resultArea.value = markdown;
             resultCard.classList.remove('d-none');
 

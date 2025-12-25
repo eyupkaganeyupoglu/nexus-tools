@@ -155,7 +155,7 @@ function generateTemplate() {
 **İstenilen Seviye ve Avatar Sayısı:** ${levelText}, ${avatarCount} avatar.
 **Campaign Uzunluğu:** ${sessionText}, session başı ${hourText}.
 **Campaign Günü:** ${day}
-**Diğer Bilgiler:** ${other}`;
+**Diğer Bilgiler:** ${other}\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
     document.getElementById('resultOutput').textContent = output;
     document.getElementById('result-card').classList.remove('d-none');

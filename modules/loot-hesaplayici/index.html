@@ -95,7 +95,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="planner-tab" data-bs-toggle="tab" data-bs-target="#planner" type="button"
                     role="tab">
-                    <i class="fa-solid fa-sack-dollar me-2"></i>Campaign Max GP Hesaplayıcı
+                    <i class="fa-solid fa-coins me-2"></i>Milestone -> Gold Dönüştürücü
                 </button>
             </li>
         </ul>
@@ -114,10 +114,6 @@
                                 max="59">
                             <span class="input-group-text">Dk</span>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label class="form-label">Bulunan Toplam Loot (GP)</label>
-                        <input type="number" class="form-control" id="totalLoot" placeholder="Örn: 5000" min="0">
                     </div>
                     <div class="col-md-4 mb-3 d-flex align-items-center gap-2" style="padding-top: 2rem;">
                         <input type="checkbox" class="form-check-input m-0" id="vipDM">
@@ -142,8 +138,7 @@
                 </div>
 
                 <!-- Warnings -->
-                <div id="minHoursWarning" class="alert alert-danger d-flex align-items-center mt-4 mb-0 d-none"
-                    role="alert">
+                <div id="minHoursWarning" class="alert alert-danger d-flex align-items-center mt-4 mb-0 d-none" role="alert">
                     <i class="fa-solid fa-clock fa-2x me-3"></i>
                     <div>
                         <strong>SÜRE YETERSİZ!</strong><br>
@@ -151,41 +146,9 @@
                     </div>
                 </div>
 
-                <div id="lootCapWarning" class="alert alert-warning d-flex align-items-center mt-4 mb-0 d-none"
-                    role="alert">
-                    <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
-                    <div>
-                        <strong>DİKKAT!</strong><br>
-                        Campaign altın ödülünüz maksimum miktarı aşmıştır. Lütfen "Bulunan Toplam Loot (GP)"
-                        verisini doğru girin. Bulunan Toplam Loot (GP) miktarı maksimum <span id="warnCapAmount"
-                            class="fw-bold"></span> olabilir.
-                    </div>
-                </div>
 
                 <!-- End Game Results -->
                 <div id="endgame-result" class="d-none">
-                    <div class="result-card border-azure">
-                        <h5 class="border-bottom pb-2 mb-3 text-azure border-azure">Genel Özet</h5>
-                        <div class="row text-center">
-                            <div class="col-6 col-md-3 mb-2">
-                                <small class="text-white d-block">Süre</small>
-                                <span class="fw-bold text-azure" id="resDuration">-</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <small class="text-white d-block">Max Milestone</small>
-                                <span class="fw-bold text-azure" id="resMaxMS">-</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <small class="text-white d-block">DM Puan Ortalaması</small>
-                                <span class="fw-bold text-azure" id="resDMAvg">-</span>
-                            </div>
-                            <div class="col-6 col-md-3 mb-2">
-                                <small class="text-white d-block">Bulunan Loot Oranı</small>
-                                <span class="fw-bold text-azure" id="resPerf">-</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="result-card border-nexus-green">
                         <h5 class="border-bottom pb-2 mb-3 text-nexus-green border-nexus-green">Oyuncu Sonuçları</h5>
                         <ul class="list-group list-group-flush bg-transparent" id="resPlayerList">
@@ -203,8 +166,8 @@
                         <h5 class="border-bottom pb-2 mb-3 text-warning border-warning">DM Ödülleri</h5>
                         <div class="row text-center">
                             <div class="col-4">
-                                <small class="text-white d-block">Altın</small>
-                                <span class="highlight-val text-warning" id="resDMGold">-</span>
+                                <small class="text-white d-block">DM Puanı Ortalaması</small>
+                                <span class="highlight-val text-warning" id="resDMAvg">-</span>
                             </div>
                             <div class="col-4">
                                 <small class="text-white d-block">Milestone</small>
@@ -219,52 +182,104 @@
                 </div>
             </div>
 
-            <!-- Tab 2: Loot Planner -->
+            <!-- Tab 2: Milestone -> Gold Converter -->
             <div class="tab-pane fade" id="planner" role="tabpanel">
 
-                <div class="mb-3">
-                    <label class="form-label">Planlanan Süre (Saat)</label>
-                    <input type="number" class="form-control" id="planHours"
-                        placeholder="Campaign'in sürmesini planladığınız maksimum süreyi girin. Örn: 20" min="3">
+                <!-- Single Form Layout -->
+                <div class="row g-3">
+                    <!-- Level -->
+                    <div class="col-12">
+                        <label class="form-label text-white">Mevcut Seviye</label>
+                        <select class="form-select text-center fw-bold" id="msCurrentLevel">
+                            <!-- Options 1-19 -->
+                            <option value="1">Level 1</option>
+                            <option value="2">Level 2</option>
+                            <option value="3">Level 3</option>
+                            <option value="4">Level 4</option>
+                            <option value="5">Level 5</option>
+                            <option value="6">Level 6</option>
+                            <option value="7">Level 7</option>
+                            <option value="8">Level 8</option>
+                            <option value="9">Level 9</option>
+                            <option value="10">Level 10</option>
+                            <option value="11">Level 11</option>
+                            <option value="12">Level 12</option>
+                            <option value="13">Level 13</option>
+                            <option value="14">Level 14</option>
+                            <option value="15">Level 15</option>
+                            <option value="16">Level 16</option>
+                            <option value="17">Level 17</option>
+                            <option value="18">Level 18</option>
+                            <option value="19">Level 19</option>
+                        </select>
+                    </div>
+
+                    <!-- Row: Normal MS -->
+                    <div class="col-md-6">
+                        <label class="form-label text-white">Mevcut MS</label>
+                        <input type="number" class="form-control" id="msCurrentCount" min="0" value="0">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-success">Kazanılan MS</label>
+                        <input type="number" class="form-control" id="msAddedCount" min="0" value="0">
+                    </div>
+
+                    <!-- Row: Epic MS -->
+                    <div class="col-md-6">
+                        <label class="form-label text-white">Mevcut Epic MS</label>
+                        <input type="number" class="form-control" id="msCurrentEpic" min="0" value="0" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-success">Kazanılan Epic MS</label>
+                        <input type="number" class="form-control" id="msAddedEpic" min="0" value="0">
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <label class="form-label mb-0">Avatarlar</label>
-                        <button class="btn btn-sm btn-outline-success" onclick="addPlayerRow('planner')">
-                            <i class="fa-solid fa-plus me-1"></i>Avatar Ekle
-                        </button>
-                    </div>
-                    <div id="planner-players">
-                        <!-- Dynamic Rows -->
-                    </div>
-                </div>
-
-                <div class="d-grid mb-4">
-                    <button class="btn btn-primary" onclick="calculatePlanner()">
-                        <i class="fa-solid fa-coins me-2"></i>Loot Hesapla
+                <div class="d-grid my-4">
+                    <button class="btn btn-primary" onclick="calculateMilestoneGold()">
+                        Hesapla
                     </button>
                 </div>
 
-                <!-- Planner Results -->
-                <div id="planner-result" class="d-none">
-                    <div class="result-card text-center">
-                        <h4 class="mb-3">Campaign'e serpiştirmeniz gereken toplam loot değeri:</h4>
-                        <div class="display-4 highlight-val mb-3" id="resPlannedLoot">0 GP</div>
+                <!-- Warning -->
+                <div id="msEpicWarning" class="alert alert-danger d-flex align-items-center d-none" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
+                    <div>
+                        <strong>HATA:</strong><br>
+                        Epic Milestone sistemi sadece 15. seviye ve üzerindeki karakterler için geçerlidir. 15. seviye
+                        altında Epic Milestone kazanamaz veya kullanamazsınız.
+                    </div>
+                </div>
 
-                        <div class="alert alert-warning text-start small mt-4">
-                            <strong>NOT:</strong> Campaign sonunda toplam altın ödülüne dahil edilmesini istediğiniz
-                            loot'ların yanına parantez içinde GP değerlerini yazmayı (Örn: "Diamonda (300 GP)") ihmal
-                            etmeyin.
+                <!-- Result -->
+                <div id="msResult" class="result-card d-none text-center">
+                    <div class="mb-4">
+                        <div class="text-white small mb-1">Toplam Kazanılan GP</div>
+                        <div class="display-4 fw-bold text-accent" id="msTotalGold">0 GP</div>
+                    </div>
+
+                    <div class="row g-3 text-start">
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-darker h-100">
+                                <small class="text-white d-block mb-1">Elde Kalan Milestone</small>
+                                <div class="fs-4 fw-bold text-white"><span id="msRemNormal" class="text-info">0</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="alert alert-secondary text-start small">
-                            <strong>NOT:</strong> Campaign'de elde edilebilecek bütün loot'ları toplam altın ödülüne
-                            dahil etmek zorunda değilsiniz. Örneğin, campaign'de kullanılması gereken bir magic item var
-                            ama campaign sonu toplam altın ödülüne dahil etmek istemiyorsunuz diyelim. Bu durumda, bu
-                            item'ı toplam altın ödülüne dahil etmeyin (evet, bu kadar basit). Oyunculara bu item'ı
-                            verirken ismine GP değerini yazmayın. Bu sayede bu item'ın toplam altın ödülüne dahil
-                            olmadığını belirtmiş olursunuz.
+                        <div class="col-md-6">
+                            <div class="p-3 border border-secondary rounded bg-darker h-100">
+                                <small class="text-white d-block mb-1">Elde Kalan Epic Milestone</small>
+                                <div class="fs-4 fw-bold text-white"><span id="msRemEpic" class="text-info">0</span>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="mt-4 p-3 border border-secondary rounded bg-darker text-start">
+                        <h6 class="text-white border-bottom border-secondary pb-2 mb-2">Detaylı Döküm</h6>
+                        <ul class="list-unstyled mb-0 small text-info" id="msBreakdown">
+                            <li>Henüz hesaplama yapılmadı.</li>
+                        </ul>
                     </div>
                 </div>
             </div>

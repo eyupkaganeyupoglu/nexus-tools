@@ -183,7 +183,7 @@ function generateTemplate() {
 - ${backstory}
 - ${about}
 
-**ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçin)`;
+**ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçin)\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
     // Render
     document.getElementById('resultOutput').textContent = output;
