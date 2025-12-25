@@ -74,6 +74,15 @@ function updateEpicInputState() {
     } else {
         addedMsInp.disabled = false;
     }
+
+    // Current MS Handling (Level 1)
+    const curMsInp = document.getElementById('msCurrentCount');
+    if (lvl === 1) {
+        curMsInp.disabled = true;
+        curMsInp.value = 0;
+    } else {
+        curMsInp.disabled = false;
+    }
 }
 
 // --- Dynamic Row Management ---
@@ -210,7 +219,7 @@ function initBudgetCalculator() {
             total += BUDGET_REWARDS[i] || 0;
         }
 
-        display.textContent = '+' + total.toLocaleString('tr-TR') + ' GP';
+        display.textContent = '+' + total + ' GP';
 
         if (lvl >= 6) {
             warning.classList.remove('d-none');
@@ -223,22 +232,134 @@ function initBudgetCalculator() {
     calculate(); // Initial
 }
 
+// --- 4. Level Up Calculator ---
+const LEVEL_UP_COSTS = {
+    1: { type: 'std', val: 1 }, 2: { type: 'std', val: 2 }, 3: { type: 'std', val: 2 }, 4: { type: 'std', val: 2 },
+    5: { type: 'std', val: 3 }, 6: { type: 'std', val: 3 }, 7: { type: 'std', val: 3 }, 8: { type: 'std', val: 3 }, 9: { type: 'std', val: 3 },
+    10: { type: 'std', val: 4 }, 11: { type: 'std', val: 4 }, 12: { type: 'std', val: 4 }, 13: { type: 'std', val: 4 }, 14: { type: 'std', val: 4 },
+    15: { type: 'flex', val: 4 }, 16: { type: 'flex', val: 4 }, 17: { type: 'flex', val: 4 },
+    18: { type: 'epic', val: 1 }, 19: { type: 'epic', val: 2 }
+};
+
+function initLevelUpCalculator() {
+    const curSlider = document.getElementById('lvlCurrent');
+    const tarSlider = document.getElementById('lvlTarget');
+    const curDisplay = document.getElementById('lvlCurrentDisplay');
+    const tarDisplay = document.getElementById('lvlTargetDisplay');
+    const resultEl = document.getElementById('lvlResult');
+    const flexValEl = document.getElementById('lvlFlexText');
+    const flexAlert = document.getElementById('lvlFlexInfo');
+
+    function update() {
+        let start = parseInt(curSlider.value);
+        let end = parseInt(tarSlider.value);
+
+        // Constraints: Target > Current
+        if (start >= end) {
+            // Check which element triggered the event to know strict direction?
+            // Actually simpler: Just enforce Gap.
+            // If current pushed up, push target up.
+            // If target pushed down, push current down.
+            // But efficient way:
+            if (end <= start) {
+                 // Check relative to previous values? No state here.
+                 // Let's just ensure min gap of 1.
+                 // Correct logic handled in listeners usually or here post-facto.
+            }
+        }
+        
+        curDisplay.textContent = start;
+        tarDisplay.textContent = end;
+
+        // Calculate
+        let totalStd = 0;
+        let totalEpic = 0;
+        const flexibleTrans = [];
+
+        for (let i = start; i < end; i++) {
+            const cost = LEVEL_UP_COSTS[i];
+            if (!cost) continue;
+
+            if (cost.type === 'std') totalStd += cost.val;
+            else if (cost.type === 'epic') totalEpic += cost.val;
+            else if (cost.type === 'flex') {
+                totalStd += cost.val; // Default to Std
+                flexibleTrans.push(`${i}->${i + 1}`);
+            }
+        }
+
+        // Display Result
+        const parts = [];
+        if (totalStd > 0) parts.push(`${totalStd}`);
+        if (totalEpic > 0) parts.push(`${totalEpic} Epic`);
+        resultEl.textContent = parts.length > 0 ? parts.join(' + ') : '0';
+
+        // Display Info
+        if (flexibleTrans.length > 0) {
+            const savedEpic = flexibleTrans.length;
+            const costSaved = flexibleTrans.length * 4;
+            flexValEl.innerHTML = `<strong>İpucu:</strong> Bu aralıkta bulunan <strong>${flexibleTrans.join(', ')}</strong> seviye geçişleri için toplam <strong>${costSaved} Milestone</strong> yerine <strong>${savedEpic} Epic Milestone</strong> kullanmayı tercih edebilirsiniz.`;
+            flexAlert.classList.remove('d-none');
+        } else {
+            flexAlert.classList.add('d-none');
+        }
+    }
+
+    // Constraint Listeners
+    curSlider.addEventListener('input', () => {
+        let start = parseInt(curSlider.value);
+        let end = parseInt(tarSlider.value);
+        
+        if (start >= end) {
+            end = start + 1;
+            if (end > 20) {
+                end = 20;
+                start = 19;
+                curSlider.value = start;
+            }
+            tarSlider.value = end;
+        }
+        update();
+    });
+
+    tarSlider.addEventListener('input', () => {
+        let start = parseInt(curSlider.value);
+        let end = parseInt(tarSlider.value);
+        
+        if (end <= start) {
+            start = end - 1;
+            if (start < 1) {
+                start = 1;
+                end = 2;
+                tarSlider.value = end;
+            }
+            curSlider.value = start;
+        }
+        update();
+    });
+
+    update(); // Init
+}
+
+initLevelUpCalculator();
 initBudgetCalculator();
 
 // --- Milestone Converter Logic ---
 function calculateMilestoneGold() {
     const startLvl = parseInt(document.getElementById('msCurrentLevel').value) || 1;
-    let currentMs = Math.max(0, parseInt(document.getElementById('msCurrentCount').value) || 0);
-    let currentEpic = Math.max(0, parseInt(document.getElementById('msCurrentEpic').value) || 0);
+    
+    // Track inputs separately
+    let curMs = Math.max(0, parseInt(document.getElementById('msCurrentCount').value) || 0);
+    let curEpic = Math.max(0, parseInt(document.getElementById('msCurrentEpic').value) || 0);
 
-    let addedMs = Math.max(0, parseInt(document.getElementById('msAddedCount').value) || 0);
-    let addedEpic = Math.max(0, parseInt(document.getElementById('msAddedEpic').value) || 0);
+    let addMs = Math.max(0, parseInt(document.getElementById('msAddedCount').value) || 0);
+    let addEpic = Math.max(0, parseInt(document.getElementById('msAddedEpic').value) || 0);
 
     const warningEl = document.getElementById('msEpicWarning');
     const resultEl = document.getElementById('msResult');
 
     // Validation
-    if ((addedEpic > 0 || currentEpic > 0) && startLvl < 15) {
+    if ((addEpic > 0 || curEpic > 0) && startLvl < 15) {
         warningEl.classList.remove('d-none');
         resultEl.classList.add('d-none');
         return;
@@ -250,9 +371,9 @@ function calculateMilestoneGold() {
     let totalGold = 0;
     const breakdown = [];
 
-    // Combine Stash
-    let stashMs = currentMs + addedMs;
-    let stashEpic = currentEpic + addedEpic;
+    // Combined Stash for Leveling Logic
+    let stashMs = curMs + addMs;
+    let stashEpic = curEpic + addEpic;
 
     // Process Loop
     let keepChecking = true;
@@ -267,23 +388,45 @@ function calculateMilestoneGold() {
         let levelledUp = false;
 
         // 1. Level Up Check - Priority: Standard MS first, then Epic MS
-        // This effectively handles "OR" logic for levels 15-17 (consume MS OR Epic)
-        // And handles exclusive logic for levels < 15 (only MS) and > 17 (only Epic)
         
         if (data.reqMs > 0 && stashMs >= data.reqMs) {
             // Level up using Standard Milestone
-            stashMs -= data.reqMs;
-            totalGold += (data.reqMs * data.valMs);
-            breakdown.push(`Level ${lvl} -> ${data.next} : ${data.reqMs} Milestone harcandı.`);
+            const req = data.reqMs;
+            
+            // Calculate consumption split (Prioritize Current Stash)
+            const usedCur = Math.min(req, curMs);
+            const usedAdd = req - usedCur; // Remainder from Added
+
+            // Decrement shadow counters
+            curMs -= usedCur;
+            addMs -= usedAdd;
+            stashMs -= req;
+
+            // Add Gold ONLY for Added portion
+            totalGold += (usedAdd * data.valMs);
+
+            breakdown.push(`Level ${lvl} -> ${data.next} (${req} Milestone harcandı)`);
             
             lvl = data.next;
             levelledUp = true;
         } 
         else if (data.reqEpic > 0 && stashEpic >= data.reqEpic) {
             // Level up using Epic Milestone
-            stashEpic -= data.reqEpic;
-            totalGold += (data.reqEpic * data.valEpic);
-            breakdown.push(`Level ${lvl} -> ${data.next} : ${data.reqEpic} Epic Milestone harcandı.`);
+            const req = data.reqEpic;
+
+            // Calculate consumption split (Prioritize Current Stash)
+            const usedCur = Math.min(req, curEpic);
+            const usedAdd = req - usedCur; // Remainder from Added
+
+            // Decrement shadow counters
+            curEpic -= usedCur;
+            addEpic -= usedAdd;
+            stashEpic -= req;
+
+            // Add Gold ONLY for Added portion
+            totalGold += (usedAdd * data.valEpic);
+
+            breakdown.push(`Level ${lvl} -> ${data.next} (${req} Epic Milestone harcandı)`);
             
             lvl = data.next;
             levelledUp = true;
@@ -294,62 +437,25 @@ function calculateMilestoneGold() {
         }
     }
 
-    // Remaining (Surplus) Gold Conversion?
-    // "Kaç milestone ... girdiğimizde ... kaç gp aldığımızı"
-    // Usually surplus milestones sit in inventory. Do they convert to gold instantly?
-    // Based on "Milestone başı X gp", YES.
-    // Every Milestone obtained at a specific level acts as Gold source.
-    // So even if we don't level up, the remaining milestones in stash correspond to the current level's gold value.
-    
-    // BUT exception: Epic Milestones at level 18->19 is 1 Epic.
-    // If I am level 15 and I have 5 Epic Milestones (hypothetically impossible but input allows):
-    // I use 1 for 15->16. I use 1 for 16->17. I use 1 for 17->18. I use 1 for 18->19.
-    // The value changes per level.
-    
-    // So the surplus should be converted based on the CURRENT level rate?
-    // Usually yes.
-    
-    // Validating current level for surplus calculation
+    // Remaining (Surplus) Gold Conversion
+    // Only convert remaining ADDED milestones
     if (lvl < 20) {
         const currentData = LEVEL_DATA[lvl];
         if (currentData) {
-            // Convert Remaining Normal MS
-            if (currentData.valMs > 0 && stashMs > 0) {
-                totalGold += (stashMs * currentData.valMs);
-                // Note: We don't remove them from stash, they remain as "Current MS" for next session.
-                // But for "Total GP Earned" display, we include them.
+            // Convert Remaining Added Normal MS
+            if (currentData.valMs > 0 && addMs > 0) {
+                totalGold += (addMs * currentData.valMs);
             }
-            // Convert Remaining Epic MS
-            if (currentData.valEpic > 0 && stashEpic > 0) {
-                totalGold += (stashEpic * currentData.valEpic);
+            // Convert Remaining Added Epic MS
+            if (currentData.valEpic > 0 && addEpic > 0) {
+                totalGold += (addEpic * currentData.valEpic);
             }
         }
-    } else {
-         // Level 20 Cap? No data for 20 in map.
-         // Assuming no gold generation at max level or special rule?
-         // For now ignore surplus at Lvl 20.
     }
 
-    // NOTE: The request says "Kaç gp aldığımızı".
-    // Since we provided "Current MS" (already owned, presumably already cashed out?)
-    // Maybe we should subtract the value of 'Current MS' from calculation if we only want 'Added' GP?
-    // But purely "Converter" implies converting the input pile.
-    // Let's assume we display TOTAL gold value of the transition.
-    // Or better: Calculate gold strictly from the "Added" portion?
-    // Complexity: Added MS might trigger a level up which changes value of subsequent MS.
-    // Best approach: Calculate Total Gold of (Current + Added) path, then subtract Total Gold of (Current) path?
-    // Easier: Just display the total gold generated by the consumed + surplus of the final state.
-    // User can ignore the "already owned" portion if they want, or we clarify "Total Value".
-    // Let's stick to "Total Accumulated Gold from this pool".
-
-    // UPDATE: "Girdiğimiz ms ... ve halihazırda sahip olduğumuz ... göre"
-    // It implies a simulation.
-    // Let's show the Total Gold accumulated during this simulation/process.
-    // If I start with 1 MS (already cashed), and add 1 MS. Level up (req 2).
-    // The loop calculates value for 2 MS.
-    
     // Display
     document.getElementById('msTotalGold').textContent = `${totalGold} GP`;
+    // Display Total Remaining Stash (Current + Added that wasn't used)
     document.getElementById('msRemNormal').textContent = stashMs;
     document.getElementById('msRemEpic').textContent = stashEpic;
 

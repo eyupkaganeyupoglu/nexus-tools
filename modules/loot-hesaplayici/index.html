@@ -104,6 +104,12 @@
                     <i class="fa-solid fa-sack-dollar me-2"></i>Başlangıç Bütçesi Hesaplayıcı
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="levelup-tab" data-bs-toggle="tab" data-bs-target="#levelup" type="button"
+                    role="tab">
+                    <i class="fa-solid fa-arrow-up-right-dots me-2"></i>Level Atlama Hesaplayıcı
+                </button>
+            </li>
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -316,6 +322,47 @@
                                 <strong>DİKKAT!</strong><br>
                                 Level 6 ve üzeri başlangıçlar için ADMIN'den özel onay almalısınız.
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tab 4: Level Up Calculator -->
+            <div class="tab-pane fade" id="levelup" role="tabpanel">
+                <div class="row g-3">
+                    
+                    <div class="col-12">
+                        <label for="lvlCurrent" class="form-label d-flex justify-content-between text-white">
+                            <span>Mevcut Seviye</span>
+                            <span class="fw-bold text-white" id="lvlCurrentDisplay">1</span>
+                        </label>
+                        <input type="range" class="form-range" id="lvlCurrent" min="1" max="19" value="1">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="lvlTarget" class="form-label d-flex justify-content-between text-white">
+                            <span>Hedef Seviye</span>
+                            <span class="fw-bold text-white" id="lvlTargetDisplay">2</span>
+                        </label>
+                        <input type="range" class="form-range" id="lvlTarget" min="2" max="20" value="2">
+                    </div>
+
+                    <div class="col-12">
+                        <hr class="border-secondary my-2">
+                    </div>
+
+                    <div class="col-12">
+                        <div class="result-card text-center mb-0">
+                            <div class="text-white small mb-1">Gereken Milestone</div>
+                            <div class="display-4 fw-bold text-accent" id="lvlResult">1</div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                         <div class="alert alert-info d-flex align-items-center mb-0 d-none" id="lvlFlexInfo" role="alert">
+                            <i class="fa-solid fa-lightbulb fa-2x me-3"></i>
+                            <div id="lvlFlexText" class="small"></div>
                         </div>
                     </div>
 
