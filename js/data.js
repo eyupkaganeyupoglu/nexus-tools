@@ -3,4 +3,1840 @@
  * Generated from Kutsal_Pazar_Temizlenmis.csv
  */
 
-const marketData = [{"price":625,"link":"https://5e.tools/items.html#%2b1%20all-purpose%20tool_tce","name":"[+1] All-Purpose Tool"},{"price":10,"link":"https://5e.tools/items.html#%2b1%20ammunition_xdmg","name":"[+1] Ammunition"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20amulet%20of%20the%20devout_tce","name":"[+1] Amulet of the Devout"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20arcane%20grimoire_tce","name":"[+1] Arcane Grimoire"},{"price":1750,"link":"https://5e.tools/items.html#%2b1%20armor_xdmg","name":"[+1] Armor"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20bloodwell%20vial_tce","name":"[+1] Bloodwell Vial"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20dragonhide%20belt_ftd","name":"[+1] Dragonhide Belt"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20moon%20sickle_tce","name":"[+1] Moon Sickle"},{"price":625,"link":"https://5e.tools/items.html#repeating%20shot_efa","name":"Repeating Shot"},{"price":625,"link":"https://5e.tools/items.html#%2b1%20rod%20of%20the%20pact%20keeper_xdmg","name":"[+1] Rod of the Pact Keeper"},{"price":750,"link":"https://5e.tools/items.html#%2b1%20shield%20(*)_xdmg","name":"[+1] Shield"},{"price":500,"link":"https://5e.tools/items.html#%2b1%20wand%20of%20the%20war%20mage_xdmg","name":"[+1] Wand of the War Mage"},{"price":500,"link":"https://5e.tools/items.html#%2b1%20weapon_xdmg","name":"[+1] Weapon"},{"price":500,"link":"https://5e.tools/items.html#%2b1%20wraps%20of%20unarmed%20power_xdmg","name":"[+1] Wraps of Unarmed Power"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20all-purpose%20tool_tce","name":"[+2] All-Purpose Tool"},{"price":25,"link":"https://5e.tools/items.html#%2b2%20ammunition_xdmg","name":"[+2] Ammunition"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20amulet%20of%20the%20devout_tce","name":"[+2] Amulet of the Devout"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20arcane%20grimoire_tce","name":"[+2] Arcane Grimoire"},{"price":3500,"link":"https://5e.tools/items.html#%2b2%20armor_xdmg","name":"[+2] Armor"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20bloodwell%20vial_tce","name":"[+2] Bloodwell Vial"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20dragonhide%20belt_ftd","name":"[+2] Dragonhide Belt"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20moon%20sickle_tce","name":"[+2] Moon Sickle"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20rhythm-maker\u0027s%20drum_tce","name":"[+2] Rhythm-Maker\u0027s Drum"},{"price":1250,"link":"https://5e.tools/items.html#%2b2%20rod%20of%20the%20pact%20keeper_xdmg","name":"[+2] Rod of the Pact Keeper"},{"price":1500,"link":"https://5e.tools/items.html#%2b2%20shield%20(*)_xdmg","name":"[+2] Shield"},{"price":1000,"link":"https://5e.tools/items.html#%2b2%20wand%20of%20the%20war%20mage_xdmg","name":"[+2] Wand of the War Mage"},{"price":1000,"link":"https://5e.tools/items.html#%2b2%20weapon_xdmg","name":"[+2] Weapon"},{"price":1000,"link":"https://5e.tools/items.html#%2b2%20wraps%20of%20unarmed%20power_xdmg","name":"[+2] Wraps of Unarmed Power"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20all-purpose%20tool_tce","name":"[+3] All-Purpose Tool"},{"price":50,"link":"https://5e.tools/items.html#%2b3%20ammunition_xdmg","name":"[+3] Ammunition"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20amulet%20of%20the%20devout_tce","name":"[+3] Amulet of the Devout"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20arcane%20grimoire_tce","name":"[+3] Arcane Grimoire"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20bloodwell%20vial_tce","name":"[+3] Bloodwell Vial"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20dragonhide%20belt_ftd","name":"[+3] Dragonhide Belt"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20moon%20sickle_tce","name":"[+3] Moon Sickle"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20rhythm-maker\u0027s%20drum_tce","name":"[+3] Rhythm-Maker\u0027s Drum"},{"price":2500,"link":"https://5e.tools/items.html#%2b3%20rod%20of%20the%20pact%20keeper_xdmg","name":"[+3] Rod of the Pact Keeper"},{"price":3000,"link":"https://5e.tools/items.html#%2b3%20shield%20(*)_xdmg","name":"[+3] Shield"},{"price":2000,"link":"https://5e.tools/items.html#%2b3%20wand%20of%20the%20war%20mage_xdmg","name":"[+3] Wand of the War Mage"},{"price":2000,"link":"https://5e.tools/items.html#%2b3%20weapon_xdmg","name":"[+3] Weapon"},{"price":2000,"link":"https://5e.tools/items.html#%2b3%20wraps%20of%20unarmed%20power_xdmg","name":"[+3] Wraps of Unarmed Power"},{"price":325,"link":"https://5e.tools/items.html#adamantine%20armor_xdmg","name":"Adamantine Armor"},{"price":200,"link":"https://5e.tools/items.html#adamantine%20weapon_xdmg","name":"Adamantine Weapon"},{"price":10,"link":"https://5e.tools/items.html#adventurer\u0027s%20ring_frhof","name":"Adventurer\u0027s Ring"},{"price":500,"link":"https://5e.tools/items.html#alchemy%20jug_xdmg","name":"Alchemy Jug"},{"price":250,"link":"https://5e.tools/items.html#ammunition%20of%20slaying_xdmg","name":"Ammunition of Slaying"},{"price":750,"link":"https://5e.tools/items.html#amulet%20of%20proof%20against%20detection%20and%20location_xdmg","name":"Amulet of Proof against Detection and Location"},{"price":2500,"link":"https://5e.tools/items.html#animated%20shield_xdmg","name":"Animated Shield"},{"price":25,"link":"https://5e.tools/items.html#armor%20of%20gleaming_xdmg","name":"Armor of Gleaming"},{"price":1000,"link":"https://5e.tools/items.html#armor%20of%20resistance_xdmg","name":"Armor of Resistance"},{"price":500,"link":"https://5e.tools/items.html#armor%20of%20vulnerability_xdmg","name":"Armor of Vulnerability"},{"price":1000,"link":"https://5e.tools/items.html#arrow-catching%20shield_xdmg","name":"Arrow-Catching Shield"},{"price":200,"link":"https://5e.tools/items.html#baba%20yaga\u0027s%20dancing%20broom_xdmg","name":"Baba Yaga\u0027s Dancing Broom"},{"price":500,"link":"https://5e.tools/items.html#bag%20of%20holding_xdmg","name":"Bag of Holding"},{"price":1500,"link":"https://5e.tools/items.html#bag%20of%20tricks_xdmg","name":"Bag of Tricks"},{"price":500,"link":"https://5e.tools/items.html#bead%20of%20force_xdmg","name":"Bead of Force"},{"price":10,"link":"https://5e.tools/items.html#bead%20of%20nourishment_xdmg","name":"Bead of Nourishment"},{"price":10,"link":"https://5e.tools/items.html#bead%20of%20refreshment_xdmg","name":"Bead of Refreshment"},{"price":1500,"link":"https://5e.tools/items.html#belt%20of%20dwarvenkind_xdmg","name":"Belt of Dwarvenkind"},{"price":1000,"link":"https://5e.tools/items.html#berserker%20axe_xdmg","name":"Berserker Axe"},{"price":250,"link":"https://5e.tools/items.html#boots%20of%20elvenkind_xdmg","name":"Boots of Elvenkind"},{"price":25,"link":"https://5e.tools/items.html#boots%20of%20false%20tracks_xdmg","name":"Boots of False Tracks"},{"price":1000,"link":"https://5e.tools/items.html#boots%20of%20levitation_xdmg","name":"Boots of Levitation"},{"price":1000,"link":"https://5e.tools/items.html#boots%20of%20speed_xdmg","name":"Boots of Speed"},{"price":200,"link":"https://5e.tools/items.html#boots%20of%20striding%20and%20springing_xdmg","name":"Boots of Striding and Springing"},{"price":750,"link":"https://5e.tools/items.html#boots%20of%20the%20winding%20path_efa","name":"Boots of the Winding Path"},{"price":500,"link":"https://5e.tools/items.html#boots%20of%20the%20winterlands_xdmg","name":"Boots of the Winterlands"},{"price":1500,"link":"https://5e.tools/items.html#bowl%20of%20commanding%20water%20elementals_xdmg","name":"Bowl of Commanding Water Elementals"},{"price":500,"link":"https://5e.tools/items.html#bracers%20of%20archery_xdmg","name":"Bracers of Archery"},{"price":1000,"link":"https://5e.tools/items.html#bracers%20of%20defense_xdmg","name":"Bracers of Defense"},{"price":1500,"link":"https://5e.tools/items.html#brazier%20of%20commanding%20fire%20elementals_xdmg","name":"Brazier of Commanding Fire Elementals"},{"price":500,"link":"https://5e.tools/items.html#brooch%20of%20shielding_xdmg","name":"Brooch of Shielding"},{"price":750,"link":"https://5e.tools/items.html#broom%20of%20flying_xdmg","name":"Broom of Flying"},{"price":1000,"link":"https://5e.tools/items.html#candle%20of%20invocation_xdmg","name":"Candle of Invocation"},{"price":50,"link":"https://5e.tools/items.html#candle%20of%20the%20deep_xdmg","name":"Candle of the Deep"},{"price":250,"link":"https://5e.tools/items.html#cap%20of%20water%20breathing_xdmg","name":"Cap of Water Breathing"},{"price":1000,"link":"https://5e.tools/items.html#cape%20of%20the%20mountebank_xdmg","name":"Cape of the Mountebank"},{"price":4000,"link":"https://5e.tools/items.html#carpet%20of%20flying_xdmg","name":"Carpet of Flying"},{"price":50,"link":"https://5e.tools/items.html#cast-off%20armor_xdmg","name":"Cast-Off Armor"},{"price":5000,"link":"https://5e.tools/items.html#cauldron%20of%20rebirth_xdmg","name":"Cauldron of Rebirth"},{"price":1500,"link":"https://5e.tools/items.html#censer%20of%20controlling%20air%20elementals_xdmg","name":"Censer of Controlling Air Elementals"},{"price":50,"link":"https://5e.tools/items.html#charlatan\u0027s%20die_xdmg","name":"Charlatan\u0027s Die"},{"price":2500,"link":"https://5e.tools/items.html#chime%20of%20opening_xdmg","name":"Chime of Opening"},{"price":250,"link":"https://5e.tools/items.html#circlet%20of%20blasting_xdmg","name":"Circlet of Blasting"},{"price":3250,"link":"https://5e.tools/items.html#cloak%20of%20arachnida_xdmg","name":"Cloak of Arachnida"},{"price":25,"link":"https://5e.tools/items.html#cloak%20of%20billowing_xdmg","name":"Cloak of Billowing"},{"price":2500,"link":"https://5e.tools/items.html#cloak%20of%20displacement_xdmg","name":"Cloak of Displacement"},{"price":250,"link":"https://5e.tools/items.html#cloak%20of%20elvenkind_xdmg","name":"Cloak of Elvenkind"},{"price":25,"link":"https://5e.tools/items.html#cloak%20of%20many%20fashions_xdmg","name":"Cloak of Many Fashions"},{"price":750,"link":"https://5e.tools/items.html#cloak%20of%20protection_xdmg","name":"Cloak of Protection"},{"price":1000,"link":"https://5e.tools/items.html#cloak%20of%20the%20bat_xdmg","name":"Cloak of the Bat"},{"price":500,"link":"https://5e.tools/items.html#cloak%20of%20the%20manta%20ray_xdmg","name":"Cloak of the Manta Ray"},{"price":50,"link":"https://5e.tools/items.html#clockwork%20amulet_xdmg","name":"Clockwork Amulet (Max. 3)"},{"price":50,"link":"https://5e.tools/items.html#clothes%20of%20mending_xdmg","name":"Clothes of Mending"},{"price":3250,"link":"https://5e.tools/items.html#crystal%20ball_xdmg","name":"Crystal Ball"},{"price":2000,"link":"https://5e.tools/items.html#cube%20of%20force_xdmg","name":"Cube of Force"},{"price":2000,"link":"https://5e.tools/items.html#cube%20of%20summoning_xdmg","name":"Cube of Summoning"},{"price":2500,"link":"https://5e.tools/items.html#daern\u0027s%20instant%20fortress_xdmg","name":"Daern\u0027s Instant Fortress"},{"price":1250,"link":"https://5e.tools/items.html#dagger%20of%20venom_xdmg","name":"Dagger of Venom"},{"price":5000,"link":"https://5e.tools/items.html#dancing%20sword_xdmg","name":"Dancing Sword"},{"price":50,"link":"https://5e.tools/items.html#dark%20shard%20amulet_xdmg","name":"Dark Shard Amulet"},{"price":1500,"link":"https://5e.tools/items.html#dazzling%20weapon_efa","name":"Dazzling Weapon"},{"price":250,"link":"https://5e.tools/items.html#decanter%20of%20endless%20water_xdmg","name":"Decanter of Endless Water"},{"price":300,"link":"https://5e.tools/items.html#deck%20of%20illusions_xdmg","name":"Deck of Illusions"},{"price":3500,"link":"https://5e.tools/items.html#demon%20armor_xdmg","name":"Demon Armor"},{"price":1250,"link":"https://5e.tools/items.html#dimensional%20shackles_xdmg","name":"Dimensional Shackles"},{"price":4000,"link":"https://5e.tools/items.html#dragon%20scale%20mail_xdmg","name":"Dragon Scale Mail"},{"price":1000,"link":"https://5e.tools/items.html#dragon%20slayer_xdmg","name":"Dragon Slayer"},{"price":25,"link":"https://5e.tools/items.html#dread%20helm_xdmg","name":"Dread Helm"},{"price":500,"link":"https://5e.tools/items.html#driftglobe_xdmg","name":"Driftglobe"},{"price":150,"link":"https://5e.tools/items.html#dust%20of%20disappearance_xdmg","name":"Dust of Disappearance"},{"price":100,"link":"https://5e.tools/items.html#dust%20of%20dryness_xdmg","name":"Dust of Dryness"},{"price":200,"link":"https://5e.tools/items.html#dust%20of%20sneezing%20and%20choking_xdmg","name":"Dust of Sneezing and Choking"},{"price":5000,"link":"https://5e.tools/items.html#dwarven%20plate_xdmg","name":"Dwarven Plate"},{"price":4500,"link":"https://5e.tools/items.html#dwarven%20thrower_xdmg","name":"Dwarven Thrower"},{"price":25,"link":"https://5e.tools/items.html#ear%20horn%20of%20hearing_xdmg","name":"Ear Horn of Hearing"},{"price":250,"link":"https://5e.tools/items.html#elemental%20gem_xdmg","name":"Elemental Gem"},{"price":200,"link":"https://5e.tools/items.html#elixir%20of%20health_xdmg","name":"Elixir of Health"},{"price":2500,"link":"https://5e.tools/items.html#elven%20chain_xdmg","name":"Elven Chain"},{"price":50,"link":"https://5e.tools/items.html#enduring%20spellbook_xdmg","name":"Enduring Spellbook"},{"price":3000,"link":"https://5e.tools/items.html#energy%20bow_xdmg","name":"Energy Bow"},{"price":100,"link":"https://5e.tools/items.html#enspelled%20armor%20(cantrip)_xdmg","name":"Enspelled Armor (Cantrip)"},{"price":250,"link":"https://5e.tools/items.html#enspelled%20armor%20(level%201)_xdmg","name":"Enspelled Armor (Level 1)"},{"price":50,"link":"https://5e.tools/items.html#enspelled%20staff%20(cantrip)_xdmg","name":"Enspelled Staff (Cantrip)"},{"price":250,"link":"https://5e.tools/items.html#enspelled%20staff%20(level%201)_xdmg","name":"Enspelled Staff (Level 1)"},{"price":75,"link":"https://5e.tools/items.html#enspelled%20weapon%20(cantrip)_xdmg","name":"Enspelled Weapon (Cantrip)"},{"price":250,"link":"https://5e.tools/items.html#enspelled%20weapon%20(level%201)_xdmg","name":"Enspelled Weapon (Level 1)"},{"price":25,"link":"https://5e.tools/items.html#ersatz%20eye_xdmg","name":"Ersatz Eye"},{"price":250,"link":"https://5e.tools/items.html#eversmoking%20bottle_xdmg","name":"Eversmoking Bottle"},{"price":2500,"link":"https://5e.tools/items.html#executioner\u0027s%20axe_xdmg","name":"Executioner’s Axe"},{"price":250,"link":"https://5e.tools/items.html#eyes%20of%20charming_xdmg","name":"Eyes of Charming"},{"price":250,"link":"https://5e.tools/items.html#eyes%20of%20minute%20seeing_xdmg","name":"Eyes of Minute Seeing"},{"price":250,"link":"https://5e.tools/items.html#eyes%20of%20the%20eagle_xdmg","name":"Eyes of the Eagle"},{"price":1500,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20bronze%20griffon_xdmg","name":"Figurine of Wondrous Power, Bronze Griffon"},{"price":1000,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20ebony%20fly_xdmg","name":"Figurine of Wondrous Power, Ebony Fly"},{"price":1000,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20golden%20lions_xdmg","name":"Figurine of Wondrous Power, Golden Lions"},{"price":2500,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20ivory%20goats_xdmg","name":"Figurine of Wondrous Power, Ivory Goats"},{"price":2000,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20marble%20elephant_xdmg","name":"Figurine of Wondrous Power, Marble Elephant"},{"price":3000,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20obsidian%20steed_xdmg","name":"Figurine of Wondrous Power, Obsidian Steed"},{"price":1750,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20onyx%20dog_xdmg","name":"Figurine of Wondrous Power, Onyx Dog"},{"price":1000,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20serpentine%20owl_xdmg","name":"Figurine of Wondrous Power, Serpentine Owl"},{"price":200,"link":"https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20silver%20raven_xdmg","name":"Figurine of Wondrous Power, Silver Raven"},{"price":1500,"link":"https://5e.tools/items.html#flame%20tongue_xdmg","name":"Flame Tongue"},{"price":500,"link":"https://5e.tools/items.html#folding%20boat_xdmg","name":"Folding Boat"},{"price":3500,"link":"https://5e.tools/items.html#frost%20brand_xdmg","name":"Frost Brand"},{"price":250,"link":"https://5e.tools/items.html#gem%20of%20brightness_xdmg","name":"Gem of Brightness"},{"price":1000,"link":"https://5e.tools/items.html#gem%20of%20seeing_xdmg","name":"Gem of Seeing"},{"price":1000,"link":"https://5e.tools/items.html#giant%20slayer_xdmg","name":"Giant Slayer"},{"price":1800,"link":"https://5e.tools/items.html#glamoured%20studded%20leather_xdmg","name":"Glamoured Studded Leather"},{"price":250,"link":"https://5e.tools/items.html#gloves%20of%20missile%20snaring_xdmg","name":"Gloves of Missile Snaring"},{"price":250,"link":"https://5e.tools/items.html#gloves%20of%20swimming%20and%20climbing_xdmg","name":"Gloves of Swimming and Climbing"},{"price":500,"link":"https://5e.tools/items.html#gloves%20of%20thievery_xdmg","name":"Gloves of Thievery"},{"price":100,"link":"https://5e.tools/items.html#goggles%20of%20night_xdmg","name":"Goggles of Night"},{"price":500,"link":"https://5e.tools/items.html#hag%20eye_xdmg","name":"Hag Eye"},{"price":500,"link":"https://5e.tools/items.html#hat%20of%20disguise_xdmg","name":"Hat of Disguise"},{"price":25,"link":"https://5e.tools/items.html#hat%20of%20vermin_xdmg","name":"Hat of Vermin"},{"price":50,"link":"https://5e.tools/items.html#hat%20of%20wizardry_xdmg","name":"Hat of Wizardry"},{"price":500,"link":"https://5e.tools/items.html#helm%20of%20awareness_efa","name":"Helm of Awareness"},{"price":500,"link":"https://5e.tools/items.html#helm%20of%20comprehending%20languages_xdmg","name":"Helm of Comprehending Languages"},{"price":500,"link":"https://5e.tools/items.html#helm%20of%20telepathy_xdmg","name":"Helm of Telepathy"},{"price":2500,"link":"https://5e.tools/items.html#helm%20of%20teleportation_xdmg","name":"Helm of Teleportation"},{"price":1250,"link":"https://5e.tools/items.html#heward\u0027s%20handy%20haversack_xdmg","name":"Heward\u0027s Handy Haversack"},{"price":25,"link":"https://5e.tools/items.html#heward\u0027s%20handy%20spice%20pouch_xdmg","name":"Heward\u0027s Handy Spice Pouch"},{"price":1000,"link":"https://5e.tools/items.html#horn%20of%20blasting_xdmg","name":"Horn of Blasting"},{"price":50,"link":"https://5e.tools/items.html#horn%20of%20silent%20alarm_xdmg","name":"Horn of Silent Alarm"},{"price":2000,"link":"https://5e.tools/items.html#horseshoes%20of%20a%20zephyr_xdmg","name":"Horseshoes of a Zephyr"},{"price":500,"link":"https://5e.tools/items.html#horseshoes%20of%20speed_xdmg","name":"Horseshoes of Speed"},{"price":1000,"link":"https://5e.tools/items.html#immovable%20rod_xdmg","name":"Immovable Rod"},{"price":25,"link":"https://5e.tools/items.html#instrument%20of%20illusions_xdmg","name":"Instrument of Illusions"},{"price":25,"link":"https://5e.tools/items.html#instrument%20of%20scribing_xdmg","name":"Instrument of Scribing"},{"price":4000,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20anstruth%20harp_xdmg","name":"Instrument of the Bards, Anstruth Harp"},{"price":1000,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20canaith%20mandolin_xdmg","name":"Instrument of the Bards, Canaith Mandolin"},{"price":1000,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20cli%20lyre_xdmg","name":"Instrument of the Bards, Cli Lyre"},{"price":500,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20doss%20lute_xdmg","name":"Instrument of the Bards, Doss Lute"},{"price":500,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20fochlucan%20bandore_xdmg","name":"Instrument of the Bards, Fochlucan Bandore"},{"price":500,"link":"https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20mac-fuirmidh%20cittern_xdmg","name":"Instrument of the Bards, Mac-Fuirmidh Cittern"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20absorption_xdmg","name":"Ioun Stone, Absorption"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20agility_xdmg","name":"Ioun Stone, Agility"},{"price":1500,"link":"https://5e.tools/items.html#ioun%20stone%2c%20awareness_xdmg","name":"Ioun Stone, Awareness"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20fortitude_xdmg","name":"Ioun Stone, Fortitude"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20insight_xdmg","name":"Ioun Stone, Insight"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20intellect_xdmg","name":"Ioun Stone, Intellect"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20leadership_xdmg","name":"Ioun Stone, Leadership"},{"price":1500,"link":"https://5e.tools/items.html#ioun%20stone%2c%20protection_xdmg","name":"Ioun Stone, Protection"},{"price":1500,"link":"https://5e.tools/items.html#ioun%20stone%2c%20reserve_xdmg","name":"Ioun Stone, Reserve"},{"price":5000,"link":"https://5e.tools/items.html#ioun%20stone%2c%20strength_xdmg","name":"Ioun Stone, Strength"},{"price":1500,"link":"https://5e.tools/items.html#ioun%20stone%2c%20sustenance_xdmg","name":"Ioun Stone, Sustenance"},{"price":2500,"link":"https://5e.tools/items.html#iron%20bands%20of%20bilarro_xdmg","name":"Iron Bands of Bilarro"},{"price":200,"link":"https://5e.tools/items.html#javelin%20of%20lightning_xdmg","name":"Javelin of Lightning"},{"price":100,"link":"https://5e.tools/items.html#keoghtom\u0027s%20ointment_xdmg","name":"Keoghtom\u0027s Ointment"},{"price":100,"link":"https://5e.tools/items.html#lantern%20of%20revealing_xdmg","name":"Lantern of Revealing"},{"price":50,"link":"https://5e.tools/items.html#lock%20of%20trickery_xdmg","name":"Lock of Trickery"},{"price":3000,"link":"https://5e.tools/items.html#lute%20of%20thunderous%20thumping_xdmg","name":"Lute of Thunderous Thumping"},{"price":1250,"link":"https://5e.tools/items.html#mace%20of%20disruption_xdmg","name":"Mace of Disruption"},{"price":1250,"link":"https://5e.tools/items.html#mace%20of%20smiting_xdmg","name":"Mace of Smiting"},{"price":1250,"link":"https://5e.tools/items.html#mace%20of%20terror_xdmg","name":"Mace of Terror"},{"price":100,"link":"https://5e.tools/items.html#manifold%20tool_efa","name":"Manifold Tool"},{"price":2000,"link":"https://5e.tools/items.html#mantle%20of%20spell%20resistance_xdmg","name":"Mantle of Spell Resistance"},{"price":250,"link":"https://5e.tools/items.html#mariner\u0027s%20armor_xdmg","name":"Mariner\u0027s Armor"},{"price":200,"link":"https://5e.tools/items.html#medallion%20of%20thoughts_xdmg","name":"Medallion of Thoughts"},{"price":250,"link":"https://5e.tools/items.html#mind%20sharpener_efa","name":"Mind Sharpener"},{"price":200,"link":"https://5e.tools/items.html#mithral%20armor_xdmg","name":"Mithral Armor"},{"price":50,"link":"https://5e.tools/items.html#moon-touched%20sword_xdmg","name":"Moon-Touched Sword"},{"price":20,"link":"https://5e.tools/items.html#mystery%20key_xdmg","name":"Mystery Key"},{"price":200,"link":"https://5e.tools/items.html#nature\u0027s%20mantle_xdmg","name":"Nature\u0027s Mantle"},{"price":200,"link":"https://5e.tools/items.html#necklace%20of%20adaptation_xdmg","name":"Necklace of Adaptation"},{"price":300,"link":"https://5e.tools/items.html#necklace%20of%20fireballs_xdmg","name":"Necklace of Fireballs (EA)"},{"price":2000,"link":"https://5e.tools/items.html#necklace%20of%20prayer%20beads_xdmg","name":"Necklace of Prayer Beads"},{"price":5000,"link":"https://5e.tools/items.html#nine%20lives%20stealer_xdmg","name":"Nine Lives Stealer"},{"price":2000,"link":"https://5e.tools/items.html#nolzur\u0027s%20marvelous%20pigments_xdmg","name":"Nolzur’s Marvelous Pigments"},{"price":5000,"link":"https://5e.tools/items.html#oathbow_xdmg","name":"Oathbow"},{"price":500,"link":"https://5e.tools/items.html#oil%20of%20etherealness_xdmg","name":"Oil of Etherealness"},{"price":500,"link":"https://5e.tools/items.html#oil%20of%20sharpness_xdmg","name":"Oil of Sharpness"},{"price":250,"link":"https://5e.tools/items.html#oil%20of%20slipperiness_xdmg","name":"Oil of Slipperiness"},{"price":25,"link":"https://5e.tools/items.html#orb%20of%20direction_xdmg","name":"Orb of Direction"},{"price":25,"link":"https://5e.tools/items.html#orb%20of%20time_xdmg","name":"Orb of Time"},{"price":750,"link":"https://5e.tools/items.html#pearl%20of%20power_xdmg","name":"Pearl of Power"},{"price":20,"link":"https://5e.tools/items.html#perfume%20of%20bewitching_xdmg","name":"Perfume of Bewitching"},{"price":150,"link":"https://5e.tools/items.html#periapt%20of%20health_xdmg","name":"Periapt of Health"},{"price":1000,"link":"https://5e.tools/items.html#periapt%20of%20proof%20against%20poison_xdmg","name":"Periapt of Proof against Poison"},{"price":250,"link":"https://5e.tools/items.html#periapt%20of%20wound%20closure_xdmg","name":"Periapt of Wound Closure"},{"price":500,"link":"https://5e.tools/items.html#philter%20of%20love_xdmg","name":"Philter of Love"},{"price":25,"link":"https://5e.tools/items.html#pipe%20of%20smoke%20monsters_xdmg","name":"Pipe of Smoke Monsters"},{"price":250,"link":"https://5e.tools/items.html#pipes%20of%20haunting_xdmg","name":"Pipes of Haunting"},{"price":250,"link":"https://5e.tools/items.html#pipes%20of%20the%20sewers_xdmg","name":"Pipes of the Sewers"},{"price":25,"link":"https://5e.tools/items.html#pole%20of%20angling_xdmg","name":"Pole of Angling"},{"price":25,"link":"https://5e.tools/items.html#pole%20of%20collapsing_xdmg","name":"Pole of Collapsing"},{"price":2500,"link":"https://5e.tools/items.html#portable%20hole_xdmg","name":"Portable Hole"},{"price":25,"link":"https://5e.tools/items.html#pot%20of%20awakening_xdmg","name":"Pot of Awakening"},{"price":100,"link":"https://5e.tools/items.html#potion%20of%20animal%20friendship_xdmg","name":"Potion of Animal Friendship"},{"price":250,"link":"https://5e.tools/items.html#potion%20of%20clairvoyance_xdmg","name":"Potion of Clairvoyance"},{"price":20,"link":"https://5e.tools/items.html#potion%20of%20climbing_xdmg","name":"Potion of Climbing"},{"price":550,"link":"https://5e.tools/items.html#potion%20of%20cloud%20giant%20strength_xdmg","name":"Potion of Cloud Giant Strength"},{"price":20,"link":"https://5e.tools/items.html#potion%20of%20comprehension_xdmg","name":"Potion of Comprehension"},{"price":200,"link":"https://5e.tools/items.html#potion%20of%20diminution_xdmg","name":"Potion of Diminution"},{"price":200,"link":"https://5e.tools/items.html#potion%20of%20fire%20breath_xdmg","name":"Potion of Fire Breath"},{"price":450,"link":"https://5e.tools/items.html#potion%20of%20fire%20giant%20strength_xdmg","name":"Potion of Fire Giant Strength"},{"price":500,"link":"https://5e.tools/items.html#potion%20of%20flying_xdmg","name":"Potion of Flying"},{"price":350,"link":"https://5e.tools/items.html#potion%20of%20frost%20giant%20strength_xdmg","name":"Potion of Frost Giant Strength"},{"price":300,"link":"https://5e.tools/items.html#potion%20of%20gaseous%20form_xdmg","name":"Potion of Gaseous Form"},{"price":200,"link":"https://5e.tools/items.html#potion%20of%20greater%20healing_xdmg","name":"Potion of Greater Healing"},{"price":650,"link":"https://5e.tools/items.html#potion%20of%20greater%20invisibility_xdmg","name":"Potion of Greater Invisibility"},{"price":150,"link":"https://5e.tools/items.html#potion%20of%20growth_xdmg","name":"Potion of Growth"},{"price":50,"link":"https://5e.tools/items.html#potion%20of%20healing_xdmg","name":"Potion of Healing"},{"price":200,"link":"https://5e.tools/items.html#potion%20of%20heroism_xdmg","name":"Potion of Heroism"},{"price":250,"link":"https://5e.tools/items.html#potion%20of%20hill%20giant%20strength_xdmg","name":"Potion of Hill Giant Strength"},{"price":200,"link":"https://5e.tools/items.html#potion%20of%20invisibility_xdmg","name":"Potion of Invisibility"},{"price":1000,"link":"https://5e.tools/items.html#potion%20of%20invulnerability_xdmg","name":"Potion of Invulnerability"},{"price":500,"link":"https://5e.tools/items.html#potion%20of%20mind%20reading_xdmg","name":"Potion of Mind Reading"},{"price":50,"link":"https://5e.tools/items.html#potion%20of%20poison_xdmg","name":"Potion of Poison"},{"price":150,"link":"https://5e.tools/items.html#potion%20of%20pugilism_xdmg","name":"Potion of Pugilism"},{"price":100,"link":"https://5e.tools/items.html#potion%20of%20resistance_xdmg","name":"Potion of Resistance"},{"price":650,"link":"https://5e.tools/items.html#potion%20of%20speed_xdmg","name":"Potion of Speed"},{"price":350,"link":"https://5e.tools/items.html#potion%20of%20stone%20giant%20strength_xdmg","name":"Potion of Stone Giant Strength"},{"price":500,"link":"https://5e.tools/items.html#potion%20of%20superior%20healing_xdmg","name":"Potion of Superior Healing"},{"price":650,"link":"https://5e.tools/items.html#potion%20of%20supreme%20healing_xdmg","name":"Potion of Supreme Healing"},{"price":650,"link":"https://5e.tools/items.html#potion%20of%20vitality_xdmg","name":"Potion of Vitality"},{"price":50,"link":"https://5e.tools/items.html#potion%20of%20water%20breathing_xdmg","name":"Potion of Water Breathing"},{"price":25,"link":"https://5e.tools/items.html#prosthetic%20limb_xdmg","name":"Prosthetic Limb"},{"price":50,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20anchor_xdmg","name":"Quaal\u0027s Feather Token, Anchor"},{"price":750,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20bird_xdmg","name":"Quaal\u0027s Feather Token, Bird"},{"price":100,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20fan_xdmg","name":"Quaal\u0027s Feather Token, Fan"},{"price":500,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20swan%20boat_xdmg","name":"Quaal\u0027s Feather Token, Swan Boat"},{"price":50,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20tree_xdmg","name":"Quaal\u0027s Feather Token, Tree"},{"price":500,"link":"https://5e.tools/items.html#quaal\u0027s%20feather%20token%2c%20whip_xdmg","name":"Quaal\u0027s Feather Token, Whip"},{"price":3000,"link":"https://5e.tools/items.html#quarterstaff%20of%20the%20acrobat_xdmg","name":"Quarterstaff of the Acrobat"},{"price":250,"link":"https://5e.tools/items.html#quiver%20of%20ehlonna_xdmg","name":"Quiver of Ehlonna"},{"price":625,"link":"https://5e.tools/items.html#repeating%20shot_efa","name":"Repeating Shot"},{"price":1000,"link":"https://5e.tools/items.html#repulsion%20shield_efa","name":"Repulsion Shield"},{"price":625,"link":"https://5e.tools/items.html#returning%20weapon_efa","name":"Returning Weapon"},{"price":500,"link":"https://5e.tools/items.html#ring%20of%20animal%20influence_xdmg","name":"Ring of Animal Influence"},{"price":500,"link":"https://5e.tools/items.html#ring%20of%20evasion_xdmg","name":"Ring of Evasion"},{"price":500,"link":"https://5e.tools/items.html#ring%20of%20feather%20falling_xdmg","name":"Ring of Feather Falling"},{"price":1500,"link":"https://5e.tools/items.html#ring%20of%20free%20action_xdmg","name":"Ring of Free Action"},{"price":100,"link":"https://5e.tools/items.html#ring%20of%20jumping_xdmg","name":"Ring of Jumping"},{"price":100,"link":"https://5e.tools/items.html#ring%20of%20mind%20shielding_xdmg","name":"Ring of Mind Shielding"},{"price":750,"link":"https://5e.tools/items.html#ring%20of%20protection_xdmg","name":"Ring of Protection"},{"price":2500,"link":"https://5e.tools/items.html#ring%20of%20regeneration_xdmg","name":"Ring of Regeneration"},{"price":1000,"link":"https://5e.tools/items.html#ring%20of%20resistance_xdmg","name":"Ring of Resistance"},{"price":2500,"link":"https://5e.tools/items.html#ring%20of%20shooting%20stars_xdmg","name":"Ring of Shooting Stars"},{"price":1250,"link":"https://5e.tools/items.html#ring%20of%20spell%20storing_xdmg","name":"Ring of Spell Storing"},{"price":150,"link":"https://5e.tools/items.html#ring%20of%20swimming_xdmg","name":"Ring of Swimming"},{"price":5000,"link":"https://5e.tools/items.html#ring%20of%20telekinesis_xdmg","name":"Ring of Telekinesis"},{"price":1000,"link":"https://5e.tools/items.html#ring%20of%20the%20ram_xdmg","name":"Ring of the Ram"},{"price":250,"link":"https://5e.tools/items.html#ring%20of%20warmth_xdmg","name":"Ring of Warmth"},{"price":150,"link":"https://5e.tools/items.html#ring%20of%20water%20walking_xdmg","name":"Ring of Water Walking"},{"price":500,"link":"https://5e.tools/items.html#ring%20of%20x-ray%20vision_xdmg","name":"Ring of X-ray Vision"},{"price":50,"link":"https://5e.tools/items.html#rival%20coin_xdmg","name":"Rival Coin"},{"price":1500,"link":"https://5e.tools/items.html#robe%20of%20eyes_xdmg","name":"Robe of Eyes"},{"price":3000,"link":"https://5e.tools/items.html#robe%20of%20scintillating%20colors_xdmg","name":"Robe of Scintillating Colors"},{"price":5000,"link":"https://5e.tools/items.html#rod%20of%20absorption_xdmg","name":"Rod of Absorption"},{"price":4000,"link":"https://5e.tools/items.html#rod%20of%20alertness_xdmg","name":"Rod of Alertness"},{"price":1500,"link":"https://5e.tools/items.html#rod%20of%20rulership_xdmg","name":"Rod of Rulership"},{"price":2500,"link":"https://5e.tools/items.html#rod%20of%20security_xdmg","name":"Rod of Security"},{"price":250,"link":"https://5e.tools/items.html#rope%20of%20climbing_xdmg","name":"Rope of Climbing"},{"price":750,"link":"https://5e.tools/items.html#rope%20of%20entanglement_xdmg","name":"Rope of Entanglement"},{"price":50,"link":"https://5e.tools/items.html#rope%20of%20mending_xdmg","name":"Rope of Mending"},{"price":25,"link":"https://5e.tools/items.html#ruby%20of%20the%20war%20mage_xdmg","name":"Ruby of the War Mage"},{"price":100,"link":"https://5e.tools/items.html#saddle%20of%20the%20cavalier_xdmg","name":"Saddle of the Cavalier"},{"price":3000,"link":"https://5e.tools/items.html#scimitar%20of%20speed_xdmg","name":"Scimitar of Speed"},{"price":500,"link":"https://5e.tools/items.html#scroll%20of%20protection_xdmg","name":"Scroll of Protection"},{"price":100,"link":"https://5e.tools/items.html#sending%20stones_xdmg","name":"Sending Stones"},{"price":500,"link":"https://5e.tools/items.html#sentinel%20shield_xdmg","name":"Sentinel Shield"},{"price":25,"link":"https://5e.tools/items.html#shield%20of%20expression_xdmg","name":"Shield of Expression"},{"price":1500,"link":"https://5e.tools/items.html#shield%20of%20missile%20attraction_xdmg","name":"Shield of Missile Attraction"},{"price":5000,"link":"https://5e.tools/items.html#shield%20of%20the%20cavalier_xdmg","name":"Shield of the Cavalier"},{"price":50,"link":"https://5e.tools/items.html#silvered%20weapon_xdmg","name":"Silvered Weapon"},{"price":250,"link":"https://5e.tools/items.html#slippers%20of%20spider%20climbing_xdmg","name":"Slippers of Spider Climbing"},{"price":25,"link":"https://5e.tools/items.html#smoldering%20armor_xdmg","name":"Smoldering Armor"},{"price":30,"link":"https://5e.tools/items.html#spell%20scroll%20(cantrip)_xdmg","name":"Spell Scroll (Cantrip)"},{"price":50,"link":"https://5e.tools/items.html#spell%20scroll%20(level%201)_xdmg","name":"Spell Scroll (Level 1)"},{"price":100,"link":"https://5e.tools/items.html#spell%20scroll%20(level%202)_xdmg","name":"Spell Scroll (Level 2)"},{"price":150,"link":"https://5e.tools/items.html#spell%20scroll%20(level%203)_xdmg","name":"Spell Scroll (Level 3)"},{"price":700,"link":"https://5e.tools/items.html#spell%20scroll%20(level%204)_xdmg","name":"Spell Scroll (Level 4)"},{"price":1000,"link":"https://5e.tools/items.html#spell%20scroll%20(level%205)_xdmg","name":"Spell Scroll (Level 5)"},{"price":2000,"link":"https://5e.tools/items.html#spell%20scroll%20(level%206)_xdmg","name":"Spell Scroll (Level 6)"},{"price":3500,"link":"https://5e.tools/items.html#spell%20scroll%20(level%207)_xdmg","name":"Spell Scroll (Level 7)"},{"price":5000,"link":"https://5e.tools/items.html#spell%20scroll%20(level%208)_xdmg","name":"Spell Scroll (Level 8)"},{"price":750,"link":"","name":"Spell-Refueling Ring"},{"price":5000,"link":"https://5e.tools/items.html#spellguard%20shield_xdmg","name":"Spellguard Shield"},{"price":2500,"link":"https://5e.tools/items.html#spirit%20board_xdmg","name":"Spirit Board"},{"price":25,"link":"https://5e.tools/items.html#staff%20of%20adornment_xdmg","name":"Staff of Adornment"},{"price":25,"link":"https://5e.tools/items.html#staff%20of%20birdcalls_xdmg","name":"Staff of Birdcalls"},{"price":1500,"link":"https://5e.tools/items.html#staff%20of%20charming_xdmg","name":"Staff of Charming"},{"price":3000,"link":"https://5e.tools/items.html#staff%20of%20fire_xdmg","name":"Staff of Fire"},{"price":25,"link":"https://5e.tools/items.html#staff%20of%20flowers_xdmg","name":"Staff of Flowers"},{"price":3000,"link":"https://5e.tools/items.html#staff%20of%20frost_xdmg","name":"Staff of Frost"},{"price":1500,"link":"https://5e.tools/items.html#staff%20of%20healing_xdmg","name":"Staff of Healing"},{"price":5000,"link":"https://5e.tools/items.html#staff%20of%20power_xdmg","name":"Staff of Power"},{"price":2500,"link":"https://5e.tools/items.html#staff%20of%20striking_xdmg","name":"Staff of Striking"},{"price":2000,"link":"https://5e.tools/items.html#staff%20of%20swarming%20insects_xdmg","name":"Staff of Swarming Insects"},{"price":500,"link":"https://5e.tools/items.html#staff%20of%20the%20adder_xdmg","name":"Staff of the Adder"},{"price":500,"link":"https://5e.tools/items.html#staff%20of%20the%20python_xdmg","name":"Staff of the Python"},{"price":2500,"link":"https://5e.tools/items.html#staff%20of%20the%20woodlands_xdmg","name":"Staff of the Woodlands"},{"price":3000,"link":"https://5e.tools/items.html#staff%20of%20thunder%20and%20lightning_xdmg","name":"Staff of Thunder and Lightning"},{"price":2000,"link":"https://5e.tools/items.html#staff%20of%20withering_xdmg","name":"Staff of Withering"},{"price":1500,"link":"https://5e.tools/items.html#stone%20of%20controlling%20earth%20elementals_xdmg","name":"Stone of Controlling Earth Elementals"},{"price":750,"link":"https://5e.tools/items.html#stone%20of%20good%20luck_xdmg","name":"Stone of Good Luck"},{"price":1500,"link":"https://5e.tools/items.html#sun%20blade_xdmg","name":"Sun Blade"},{"price":1250,"link":"https://5e.tools/items.html#sword%20of%20life%20stealing_xdmg","name":"Sword of Life Stealing"},{"price":3000,"link":"https://5e.tools/items.html#sword%20of%20sharpness_xdmg","name":"Sword of Sharpness"},{"price":500,"link":"https://5e.tools/items.html#sword%20of%20vengeance_xdmg","name":"Sword of Vengeance"},{"price":1500,"link":"https://5e.tools/items.html#sword%20of%20wounding_xdmg","name":"Sword of Wounding"},{"price":50,"link":"https://5e.tools/items.html#sylvan%20talon_xdmg","name":"Sylvan Talon"},{"price":25,"link":"https://5e.tools/items.html#talking%20doll_xdmg","name":"Talking Doll"},{"price":50,"link":"https://5e.tools/items.html#tankard%20of%20sobriety_xdmg","name":"Tankard of Sobriety"},{"price":1000,"link":"https://5e.tools/items.html#tentacle%20rod_xdmg","name":"Tentacle Rod"},{"price":200,"link":"https://5e.tools/items.html#thayan%20spell%20tattoo_frhof","name":"Thayan Spell Tattoo (Level 1)"},{"price":5000,"link":"https://5e.tools/items.html#thunderous%20greatclub_xdmg","name":"Thunderous Greatclub"},{"price":500,"link":"https://5e.tools/items.html#trident%20of%20fish%20command_xdmg","name":"Trident of Fish Command"},{"price":50,"link":"https://5e.tools/items.html#veteran\u0027s%20cane_xdmg","name":"Veteran\u0027s Cane"},{"price":1500,"link":"https://5e.tools/items.html#vicious%20weapon_xdmg","name":"Vicious Weapon"},{"price":5,"link":"https://5e.tools/items.html#walloping%20ammunition_xdmg","name":"Walloping Ammunition"},{"price":1000,"link":"https://5e.tools/items.html#wand%20of%20binding_xdmg","name":"Wand of Binding"},{"price":25,"link":"https://5e.tools/items.html#wand%20of%20conducting_xdmg","name":"Wand of Conducting"},{"price":500,"link":"https://5e.tools/items.html#wand%20of%20enemy%20detection_xdmg","name":"Wand of Enemy Detection"},{"price":1000,"link":"https://5e.tools/items.html#wand%20of%20fear_xdmg","name":"Wand of Fear"},{"price":1500,"link":"https://5e.tools/items.html#wand%20of%20fireballs_xdmg","name":"Wand of Fireballs"},{"price":1500,"link":"https://5e.tools/items.html#wand%20of%20lightning%20bolts_xdmg","name":"Wand of Lightning Bolts"},{"price":250,"link":"https://5e.tools/items.html#wand%20of%20magic%20detection_xdmg","name":"Wand of Magic Detection"},{"price":750,"link":"https://5e.tools/items.html#wand%20of%20magic%20missiles_xdmg","name":"Wand of Magic Missiles"},{"price":2000,"link":"https://5e.tools/items.html#wand%20of%20paralysis_xdmg","name":"Wand of Paralysis"},{"price":3500,"link":"https://5e.tools/items.html#wand%20of%20polymorph_xdmg","name":"Wand of Polymorph"},{"price":250,"link":"https://5e.tools/items.html#wand%20of%20secrets_xdmg","name":"Wand of Secrets"},{"price":250,"link":"https://5e.tools/items.html#wand%20of%20web_xdmg","name":"Wand of Web"},{"price":1500,"link":"https://5e.tools/items.html#wand%20of%20wonder_xdmg","name":"Wand of Wonder"},{"price":250,"link":"https://5e.tools/items.html#weapon%20of%20warning_xdmg","name":"Weapon of Warning"},{"price":100,"link":"https://5e.tools/items.html#wind%20fan_xdmg","name":"Wind Fan"},{"price":750,"link":"https://5e.tools/items.html#winged%20boots_xdmg","name":"Winged Boots"},{"price":1500,"link":"https://5e.tools/items.html#wings%20of%20flying_xdmg","name":"Wings of Flying"}];
+const marketData=[
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20all-purpose%20tool_tce",
+        "name": "[+1] All-Purpose Tool"
+    },
+    {
+        "price": 10,
+        "link": "https://5e.tools/items.html#%2b1%20ammunition_xdmg",
+        "name": "[+1] Ammunition"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20amulet%20of%20the%20devout_tce",
+        "name": "[+1] Amulet of the Devout"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20arcane%20grimoire_tce",
+        "name": "[+1] Arcane Grimoire"
+    },
+    {
+        "price": 1750,
+        "link": "https://5e.tools/items.html#%2b1%20armor_xdmg",
+        "name": "[+1] Armor"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20bloodwell%20vial_tce",
+        "name": "[+1] Bloodwell Vial"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20moon%20sickle_tce",
+        "name": "[+1] Moon Sickle"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#repeating%20shot_efa",
+        "name": "Repeating Shot"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#%2b1%20rod%20of%20the%20pact%20keeper_xdmg",
+        "name": "[+1] Rod of the Pact Keeper"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#%2b1%20shield%20(*)_xdmg",
+        "name": "[+1] Shield"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#%2b1%20wand%20of%20the%20war%20mage_xdmg",
+        "name": "[+1] Wand of the War Mage"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#%2b1%20weapon_xdmg",
+        "name": "[+1] Weapon"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#%2b1%20wraps%20of%20unarmed%20power_xdmg",
+        "name": "[+1] Wraps of Unarmed Power"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20all-purpose%20tool_tce",
+        "name": "[+2] All-Purpose Tool"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#%2b2%20ammunition_xdmg",
+        "name": "[+2] Ammunition"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20amulet%20of%20the%20devout_tce",
+        "name": "[+2] Amulet of the Devout"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20arcane%20grimoire_tce",
+        "name": "[+2] Arcane Grimoire"
+    },
+    {
+        "price": 3500,
+        "link": "https://5e.tools/items.html#%2b2%20armor_xdmg",
+        "name": "[+2] Armor"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20bloodwell%20vial_tce",
+        "name": "[+2] Bloodwell Vial"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20moon%20sickle_tce",
+        "name": "[+2] Moon Sickle"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20rhythm-maker's%20drum_tce",
+        "name": "[+2] Rhythm-Maker's Drum"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#%2b2%20rod%20of%20the%20pact%20keeper_xdmg",
+        "name": "[+2] Rod of the Pact Keeper"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#%2b2%20shield%20(*)_xdmg",
+        "name": "[+2] Shield"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#%2b2%20wand%20of%20the%20war%20mage_xdmg",
+        "name": "[+2] Wand of the War Mage"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#%2b2%20weapon_xdmg",
+        "name": "[+2] Weapon"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#%2b2%20wraps%20of%20unarmed%20power_xdmg",
+        "name": "[+2] Wraps of Unarmed Power"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20all-purpose%20tool_tce",
+        "name": "[+3] All-Purpose Tool"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#%2b3%20ammunition_xdmg",
+        "name": "[+3] Ammunition"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20amulet%20of%20the%20devout_tce",
+        "name": "[+3] Amulet of the Devout"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20arcane%20grimoire_tce",
+        "name": "[+3] Arcane Grimoire"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20bloodwell%20vial_tce",
+        "name": "[+3] Bloodwell Vial"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20moon%20sickle_tce",
+        "name": "[+3] Moon Sickle"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20rhythm-maker's%20drum_tce",
+        "name": "[+3] Rhythm-Maker's Drum"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#%2b3%20rod%20of%20the%20pact%20keeper_xdmg",
+        "name": "[+3] Rod of the Pact Keeper"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#%2b3%20shield%20(*)_xdmg",
+        "name": "[+3] Shield"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#%2b3%20wand%20of%20the%20war%20mage_xdmg",
+        "name": "[+3] Wand of the War Mage"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#%2b3%20weapon_xdmg",
+        "name": "[+3] Weapon"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#%2b3%20wraps%20of%20unarmed%20power_xdmg",
+        "name": "[+3] Wraps of Unarmed Power"
+    },
+    {
+        "price": 325,
+        "link": "https://5e.tools/items.html#adamantine%20armor_xdmg",
+        "name": "Adamantine Armor"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#adamantine%20weapon_xdmg",
+        "name": "Adamantine Weapon"
+    },
+    {
+        "price": 10,
+        "link": "https://5e.tools/items.html#adventurer's%20ring_frhof",
+        "name": "Adventurer's Ring"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#alchemy%20jug_xdmg",
+        "name": "Alchemy Jug"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#ammunition%20of%20slaying_xdmg",
+        "name": "Ammunition of Slaying"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#amulet%20of%20proof%20against%20detection%20and%20location_xdmg",
+        "name": "Amulet of Proof against Detection and Location"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#animated%20shield_xdmg",
+        "name": "Animated Shield"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#armor%20of%20gleaming_xdmg",
+        "name": "Armor of Gleaming"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#armor%20of%20resistance_xdmg",
+        "name": "Armor of Resistance"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#armor%20of%20vulnerability_xdmg",
+        "name": "Armor of Vulnerability"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#arrow-catching%20shield_xdmg",
+        "name": "Arrow-Catching Shield"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#baba%20yaga's%20dancing%20broom_xdmg",
+        "name": "Baba Yaga's Dancing Broom"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#bag%20of%20holding_xdmg",
+        "name": "Bag of Holding"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#bag%20of%20tricks_xdmg",
+        "name": "Bag of Tricks"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#bead%20of%20force_xdmg",
+        "name": "Bead of Force"
+    },
+    {
+        "price": 10,
+        "link": "https://5e.tools/items.html#bead%20of%20nourishment_xdmg",
+        "name": "Bead of Nourishment"
+    },
+    {
+        "price": 10,
+        "link": "https://5e.tools/items.html#bead%20of%20refreshment_xdmg",
+        "name": "Bead of Refreshment"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#belt%20of%20dwarvenkind_xdmg",
+        "name": "Belt of Dwarvenkind"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#berserker%20axe_xdmg",
+        "name": "Berserker Axe"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#boots%20of%20elvenkind_xdmg",
+        "name": "Boots of Elvenkind"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#boots%20of%20false%20tracks_xdmg",
+        "name": "Boots of False Tracks"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#boots%20of%20levitation_xdmg",
+        "name": "Boots of Levitation"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#boots%20of%20speed_xdmg",
+        "name": "Boots of Speed"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#boots%20of%20striding%20and%20springing_xdmg",
+        "name": "Boots of Striding and Springing"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#boots%20of%20the%20winding%20path_efa",
+        "name": "Boots of the Winding Path"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#boots%20of%20the%20winterlands_xdmg",
+        "name": "Boots of the Winterlands"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#bowl%20of%20commanding%20water%20elementals_xdmg",
+        "name": "Bowl of Commanding Water Elementals"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#bracers%20of%20archery_xdmg",
+        "name": "Bracers of Archery"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#bracers%20of%20defense_xdmg",
+        "name": "Bracers of Defense"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#brazier%20of%20commanding%20fire%20elementals_xdmg",
+        "name": "Brazier of Commanding Fire Elementals"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#brooch%20of%20shielding_xdmg",
+        "name": "Brooch of Shielding"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#broom%20of%20flying_xdmg",
+        "name": "Broom of Flying"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#candle%20of%20invocation_xdmg",
+        "name": "Candle of Invocation"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#candle%20of%20the%20deep_xdmg",
+        "name": "Candle of the Deep"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#cap%20of%20water%20breathing_xdmg",
+        "name": "Cap of Water Breathing"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#cape%20of%20the%20mountebank_xdmg",
+        "name": "Cape of the Mountebank"
+    },
+    {
+        "price": 4000,
+        "link": "https://5e.tools/items.html#carpet%20of%20flying_xdmg",
+        "name": "Carpet of Flying"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#cast-off%20armor_xdmg",
+        "name": "Cast-Off Armor"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#cauldron%20of%20rebirth_xdmg",
+        "name": "Cauldron of Rebirth"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#censer%20of%20controlling%20air%20elementals_xdmg",
+        "name": "Censer of Controlling Air Elementals"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#charlatan's%20die_xdmg",
+        "name": "Charlatan's Die"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#chime%20of%20opening_xdmg",
+        "name": "Chime of Opening"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#circlet%20of%20blasting_xdmg",
+        "name": "Circlet of Blasting"
+    },
+    {
+        "price": 3250,
+        "link": "https://5e.tools/items.html#cloak%20of%20arachnida_xdmg",
+        "name": "Cloak of Arachnida"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#cloak%20of%20billowing_xdmg",
+        "name": "Cloak of Billowing"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#cloak%20of%20displacement_xdmg",
+        "name": "Cloak of Displacement"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#cloak%20of%20elvenkind_xdmg",
+        "name": "Cloak of Elvenkind"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#cloak%20of%20many%20fashions_xdmg",
+        "name": "Cloak of Many Fashions"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#cloak%20of%20protection_xdmg",
+        "name": "Cloak of Protection"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#cloak%20of%20the%20bat_xdmg",
+        "name": "Cloak of the Bat"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#cloak%20of%20the%20manta%20ray_xdmg",
+        "name": "Cloak of the Manta Ray"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#clockwork%20amulet_xdmg",
+        "name": "Clockwork Amulet (Max. 3)"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#clothes%20of%20mending_xdmg",
+        "name": "Clothes of Mending"
+    },
+    {
+        "price": 3250,
+        "link": "https://5e.tools/items.html#crystal%20ball_xdmg",
+        "name": "Crystal Ball"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#cube%20of%20force_xdmg",
+        "name": "Cube of Force"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#cube%20of%20summoning_xdmg",
+        "name": "Cube of Summoning"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#daern's%20instant%20fortress_xdmg",
+        "name": "Daern's Instant Fortress"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#dagger%20of%20venom_xdmg",
+        "name": "Dagger of Venom"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#dancing%20sword_xdmg",
+        "name": "Dancing Sword"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#dark%20shard%20amulet_xdmg",
+        "name": "Dark Shard Amulet"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#dazzling%20weapon_efa",
+        "name": "Dazzling Weapon"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#decanter%20of%20endless%20water_xdmg",
+        "name": "Decanter of Endless Water"
+    },
+    {
+        "price": 300,
+        "link": "https://5e.tools/items.html#deck%20of%20illusions_xdmg",
+        "name": "Deck of Illusions"
+    },
+    {
+        "price": 3500,
+        "link": "https://5e.tools/items.html#demon%20armor_xdmg",
+        "name": "Demon Armor"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#dimensional%20shackles_xdmg",
+        "name": "Dimensional Shackles"
+    },
+    {
+        "price": 4000,
+        "link": "https://5e.tools/items.html#dragon%20scale%20mail_xdmg",
+        "name": "Dragon Scale Mail"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#dragon%20slayer_xdmg",
+        "name": "Dragon Slayer"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#dread%20helm_xdmg",
+        "name": "Dread Helm"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#driftglobe_xdmg",
+        "name": "Driftglobe"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#dust%20of%20disappearance_xdmg",
+        "name": "Dust of Disappearance"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#dust%20of%20dryness_xdmg",
+        "name": "Dust of Dryness"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#dust%20of%20sneezing%20and%20choking_xdmg",
+        "name": "Dust of Sneezing and Choking"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#dwarven%20plate_xdmg",
+        "name": "Dwarven Plate"
+    },
+    {
+        "price": 4500,
+        "link": "https://5e.tools/items.html#dwarven%20thrower_xdmg",
+        "name": "Dwarven Thrower"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#ear%20horn%20of%20hearing_xdmg",
+        "name": "Ear Horn of Hearing"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#elemental%20gem_xdmg",
+        "name": "Elemental Gem"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#elixir%20of%20health_xdmg",
+        "name": "Elixir of Health"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#elven%20chain_xdmg",
+        "name": "Elven Chain"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#enduring%20spellbook_xdmg",
+        "name": "Enduring Spellbook"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#energy%20bow_xdmg",
+        "name": "Energy Bow"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#enspelled%20armor%20(cantrip)_xdmg",
+        "name": "Enspelled Armor (Cantrip)"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#enspelled%20armor%20(level%201)_xdmg",
+        "name": "Enspelled Armor (Level 1)"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#enspelled%20staff%20(cantrip)_xdmg",
+        "name": "Enspelled Staff (Cantrip)"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#enspelled%20staff%20(level%201)_xdmg",
+        "name": "Enspelled Staff (Level 1)"
+    },
+    {
+        "price": 75,
+        "link": "https://5e.tools/items.html#enspelled%20weapon%20(cantrip)_xdmg",
+        "name": "Enspelled Weapon (Cantrip)"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#enspelled%20weapon%20(level%201)_xdmg",
+        "name": "Enspelled Weapon (Level 1)"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#ersatz%20eye_xdmg",
+        "name": "Ersatz Eye"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#eversmoking%20bottle_xdmg",
+        "name": "Eversmoking Bottle"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#executioner's%20axe_xdmg",
+        "name": "Executioner’s Axe"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#eyes%20of%20charming_xdmg",
+        "name": "Eyes of Charming"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#eyes%20of%20minute%20seeing_xdmg",
+        "name": "Eyes of Minute Seeing"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#eyes%20of%20the%20eagle_xdmg",
+        "name": "Eyes of the Eagle"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20bronze%20griffon_xdmg",
+        "name": "Figurine of Wondrous Power, Bronze Griffon"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20ebony%20fly_xdmg",
+        "name": "Figurine of Wondrous Power, Ebony Fly"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20golden%20lions_xdmg",
+        "name": "Figurine of Wondrous Power, Golden Lions"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20ivory%20goats_xdmg",
+        "name": "Figurine of Wondrous Power, Ivory Goats"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20marble%20elephant_xdmg",
+        "name": "Figurine of Wondrous Power, Marble Elephant"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20obsidian%20steed_xdmg",
+        "name": "Figurine of Wondrous Power, Obsidian Steed"
+    },
+    {
+        "price": 1750,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20onyx%20dog_xdmg",
+        "name": "Figurine of Wondrous Power, Onyx Dog"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20serpentine%20owl_xdmg",
+        "name": "Figurine of Wondrous Power, Serpentine Owl"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#figurine%20of%20wondrous%20power%2c%20silver%20raven_xdmg",
+        "name": "Figurine of Wondrous Power, Silver Raven"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#flame%20tongue_xdmg",
+        "name": "Flame Tongue"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#folding%20boat_xdmg",
+        "name": "Folding Boat"
+    },
+    {
+        "price": 3500,
+        "link": "https://5e.tools/items.html#frost%20brand_xdmg",
+        "name": "Frost Brand"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#gem%20of%20brightness_xdmg",
+        "name": "Gem of Brightness"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#gem%20of%20seeing_xdmg",
+        "name": "Gem of Seeing"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#giant%20slayer_xdmg",
+        "name": "Giant Slayer"
+    },
+    {
+        "price": 1800,
+        "link": "https://5e.tools/items.html#glamoured%20studded%20leather_xdmg",
+        "name": "Glamoured Studded Leather"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#gloves%20of%20missile%20snaring_xdmg",
+        "name": "Gloves of Missile Snaring"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#gloves%20of%20swimming%20and%20climbing_xdmg",
+        "name": "Gloves of Swimming and Climbing"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#gloves%20of%20thievery_xdmg",
+        "name": "Gloves of Thievery"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#goggles%20of%20night_xdmg",
+        "name": "Goggles of Night"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#hag%20eye_xdmg",
+        "name": "Hag Eye"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#hat%20of%20disguise_xdmg",
+        "name": "Hat of Disguise"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#hat%20of%20vermin_xdmg",
+        "name": "Hat of Vermin"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#hat%20of%20wizardry_xdmg",
+        "name": "Hat of Wizardry"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#helm%20of%20awareness_efa",
+        "name": "Helm of Awareness"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#helm%20of%20comprehending%20languages_xdmg",
+        "name": "Helm of Comprehending Languages"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#helm%20of%20telepathy_xdmg",
+        "name": "Helm of Telepathy"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#helm%20of%20teleportation_xdmg",
+        "name": "Helm of Teleportation"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#heward's%20handy%20haversack_xdmg",
+        "name": "Heward's Handy Haversack"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#heward's%20handy%20spice%20pouch_xdmg",
+        "name": "Heward's Handy Spice Pouch"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#horn%20of%20blasting_xdmg",
+        "name": "Horn of Blasting"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#horn%20of%20silent%20alarm_xdmg",
+        "name": "Horn of Silent Alarm"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#horseshoes%20of%20a%20zephyr_xdmg",
+        "name": "Horseshoes of a Zephyr"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#horseshoes%20of%20speed_xdmg",
+        "name": "Horseshoes of Speed"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#immovable%20rod_xdmg",
+        "name": "Immovable Rod"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#instrument%20of%20illusions_xdmg",
+        "name": "Instrument of Illusions"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#instrument%20of%20scribing_xdmg",
+        "name": "Instrument of Scribing"
+    },
+    {
+        "price": 4000,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20anstruth%20harp_xdmg",
+        "name": "Instrument of the Bards, Anstruth Harp"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20canaith%20mandolin_xdmg",
+        "name": "Instrument of the Bards, Canaith Mandolin"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20cli%20lyre_xdmg",
+        "name": "Instrument of the Bards, Cli Lyre"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20doss%20lute_xdmg",
+        "name": "Instrument of the Bards, Doss Lute"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20fochlucan%20bandore_xdmg",
+        "name": "Instrument of the Bards, Fochlucan Bandore"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#instrument%20of%20the%20bards%2c%20mac-fuirmidh%20cittern_xdmg",
+        "name": "Instrument of the Bards, Mac-Fuirmidh Cittern"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20absorption_xdmg",
+        "name": "Ioun Stone, Absorption"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20agility_xdmg",
+        "name": "Ioun Stone, Agility"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20awareness_xdmg",
+        "name": "Ioun Stone, Awareness"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20fortitude_xdmg",
+        "name": "Ioun Stone, Fortitude"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20insight_xdmg",
+        "name": "Ioun Stone, Insight"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20intellect_xdmg",
+        "name": "Ioun Stone, Intellect"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20leadership_xdmg",
+        "name": "Ioun Stone, Leadership"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20protection_xdmg",
+        "name": "Ioun Stone, Protection"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20reserve_xdmg",
+        "name": "Ioun Stone, Reserve"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20strength_xdmg",
+        "name": "Ioun Stone, Strength"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#ioun%20stone%2c%20sustenance_xdmg",
+        "name": "Ioun Stone, Sustenance"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#iron%20bands%20of%20bilarro_xdmg",
+        "name": "Iron Bands of Bilarro"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#javelin%20of%20lightning_xdmg",
+        "name": "Javelin of Lightning"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#keoghtom's%20ointment_xdmg",
+        "name": "Keoghtom's Ointment"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#lantern%20of%20revealing_xdmg",
+        "name": "Lantern of Revealing"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#lock%20of%20trickery_xdmg",
+        "name": "Lock of Trickery"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#lute%20of%20thunderous%20thumping_xdmg",
+        "name": "Lute of Thunderous Thumping"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#mace%20of%20disruption_xdmg",
+        "name": "Mace of Disruption"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#mace%20of%20smiting_xdmg",
+        "name": "Mace of Smiting"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#mace%20of%20terror_xdmg",
+        "name": "Mace of Terror"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#manifold%20tool_efa",
+        "name": "Manifold Tool"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#mantle%20of%20spell%20resistance_xdmg",
+        "name": "Mantle of Spell Resistance"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#mariner's%20armor_xdmg",
+        "name": "Mariner's Armor"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#medallion%20of%20thoughts_xdmg",
+        "name": "Medallion of Thoughts"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#mind%20sharpener_efa",
+        "name": "Mind Sharpener"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#mithral%20armor_xdmg",
+        "name": "Mithral Armor"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#moon-touched%20sword_xdmg",
+        "name": "Moon-Touched Sword"
+    },
+    {
+        "price": 20,
+        "link": "https://5e.tools/items.html#mystery%20key_xdmg",
+        "name": "Mystery Key"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#nature's%20mantle_xdmg",
+        "name": "Nature's Mantle"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#necklace%20of%20adaptation_xdmg",
+        "name": "Necklace of Adaptation"
+    },
+    {
+        "price": 300,
+        "link": "https://5e.tools/items.html#necklace%20of%20fireballs_xdmg",
+        "name": "Necklace of Fireballs (EA)"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#necklace%20of%20prayer%20beads_xdmg",
+        "name": "Necklace of Prayer Beads"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#nine%20lives%20stealer_xdmg",
+        "name": "Nine Lives Stealer"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#nolzur's%20marvelous%20pigments_xdmg",
+        "name": "Nolzur’s Marvelous Pigments"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#oathbow_xdmg",
+        "name": "Oathbow"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#oil%20of%20etherealness_xdmg",
+        "name": "Oil of Etherealness"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#oil%20of%20sharpness_xdmg",
+        "name": "Oil of Sharpness"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#oil%20of%20slipperiness_xdmg",
+        "name": "Oil of Slipperiness"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#orb%20of%20direction_xdmg",
+        "name": "Orb of Direction"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#orb%20of%20time_xdmg",
+        "name": "Orb of Time"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#pearl%20of%20power_xdmg",
+        "name": "Pearl of Power"
+    },
+    {
+        "price": 20,
+        "link": "https://5e.tools/items.html#perfume%20of%20bewitching_xdmg",
+        "name": "Perfume of Bewitching"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#periapt%20of%20health_xdmg",
+        "name": "Periapt of Health"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#periapt%20of%20proof%20against%20poison_xdmg",
+        "name": "Periapt of Proof against Poison"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#periapt%20of%20wound%20closure_xdmg",
+        "name": "Periapt of Wound Closure"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#philter%20of%20love_xdmg",
+        "name": "Philter of Love"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#pipe%20of%20smoke%20monsters_xdmg",
+        "name": "Pipe of Smoke Monsters"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#pipes%20of%20haunting_xdmg",
+        "name": "Pipes of Haunting"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#pipes%20of%20the%20sewers_xdmg",
+        "name": "Pipes of the Sewers"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#pole%20of%20angling_xdmg",
+        "name": "Pole of Angling"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#pole%20of%20collapsing_xdmg",
+        "name": "Pole of Collapsing"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#portable%20hole_xdmg",
+        "name": "Portable Hole"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#pot%20of%20awakening_xdmg",
+        "name": "Pot of Awakening"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#potion%20of%20animal%20friendship_xdmg",
+        "name": "Potion of Animal Friendship"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#potion%20of%20clairvoyance_xdmg",
+        "name": "Potion of Clairvoyance"
+    },
+    {
+        "price": 20,
+        "link": "https://5e.tools/items.html#potion%20of%20climbing_xdmg",
+        "name": "Potion of Climbing"
+    },
+    {
+        "price": 550,
+        "link": "https://5e.tools/items.html#potion%20of%20cloud%20giant%20strength_xdmg",
+        "name": "Potion of Cloud Giant Strength"
+    },
+    {
+        "price": 20,
+        "link": "https://5e.tools/items.html#potion%20of%20comprehension_xdmg",
+        "name": "Potion of Comprehension"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#potion%20of%20diminution_xdmg",
+        "name": "Potion of Diminution"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#potion%20of%20fire%20breath_xdmg",
+        "name": "Potion of Fire Breath"
+    },
+    {
+        "price": 450,
+        "link": "https://5e.tools/items.html#potion%20of%20fire%20giant%20strength_xdmg",
+        "name": "Potion of Fire Giant Strength"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#potion%20of%20flying_xdmg",
+        "name": "Potion of Flying"
+    },
+    {
+        "price": 350,
+        "link": "https://5e.tools/items.html#potion%20of%20frost%20giant%20strength_xdmg",
+        "name": "Potion of Frost Giant Strength"
+    },
+    {
+        "price": 300,
+        "link": "https://5e.tools/items.html#potion%20of%20gaseous%20form_xdmg",
+        "name": "Potion of Gaseous Form"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#potion%20of%20greater%20healing_xdmg",
+        "name": "Potion of Greater Healing"
+    },
+    {
+        "price": 650,
+        "link": "https://5e.tools/items.html#potion%20of%20greater%20invisibility_xdmg",
+        "name": "Potion of Greater Invisibility"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#potion%20of%20growth_xdmg",
+        "name": "Potion of Growth"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#potion%20of%20healing_xdmg",
+        "name": "Potion of Healing"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#potion%20of%20heroism_xdmg",
+        "name": "Potion of Heroism"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#potion%20of%20hill%20giant%20strength_xdmg",
+        "name": "Potion of Hill Giant Strength"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#potion%20of%20invisibility_xdmg",
+        "name": "Potion of Invisibility"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#potion%20of%20invulnerability_xdmg",
+        "name": "Potion of Invulnerability"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#potion%20of%20mind%20reading_xdmg",
+        "name": "Potion of Mind Reading"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#potion%20of%20poison_xdmg",
+        "name": "Potion of Poison"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#potion%20of%20pugilism_xdmg",
+        "name": "Potion of Pugilism"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#potion%20of%20resistance_xdmg",
+        "name": "Potion of Resistance"
+    },
+    {
+        "price": 650,
+        "link": "https://5e.tools/items.html#potion%20of%20speed_xdmg",
+        "name": "Potion of Speed"
+    },
+    {
+        "price": 350,
+        "link": "https://5e.tools/items.html#potion%20of%20stone%20giant%20strength_xdmg",
+        "name": "Potion of Stone Giant Strength"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#potion%20of%20superior%20healing_xdmg",
+        "name": "Potion of Superior Healing"
+    },
+    {
+        "price": 650,
+        "link": "https://5e.tools/items.html#potion%20of%20supreme%20healing_xdmg",
+        "name": "Potion of Supreme Healing"
+    },
+    {
+        "price": 650,
+        "link": "https://5e.tools/items.html#potion%20of%20vitality_xdmg",
+        "name": "Potion of Vitality"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#potion%20of%20water%20breathing_xdmg",
+        "name": "Potion of Water Breathing"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#prosthetic%20limb_xdmg",
+        "name": "Prosthetic Limb"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20anchor_xdmg",
+        "name": "Quaal's Feather Token, Anchor"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20bird_xdmg",
+        "name": "Quaal's Feather Token, Bird"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20fan_xdmg",
+        "name": "Quaal's Feather Token, Fan"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20swan%20boat_xdmg",
+        "name": "Quaal's Feather Token, Swan Boat"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20tree_xdmg",
+        "name": "Quaal's Feather Token, Tree"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#quaal's%20feather%20token%2c%20whip_xdmg",
+        "name": "Quaal's Feather Token, Whip"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#quarterstaff%20of%20the%20acrobat_xdmg",
+        "name": "Quarterstaff of the Acrobat"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#quiver%20of%20ehlonna_xdmg",
+        "name": "Quiver of Ehlonna"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#repeating%20shot_efa",
+        "name": "Repeating Shot"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#repulsion%20shield_efa",
+        "name": "Repulsion Shield"
+    },
+    {
+        "price": 625,
+        "link": "https://5e.tools/items.html#returning%20weapon_efa",
+        "name": "Returning Weapon"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#ring%20of%20animal%20influence_xdmg",
+        "name": "Ring of Animal Influence"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#ring%20of%20evasion_xdmg",
+        "name": "Ring of Evasion"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#ring%20of%20feather%20falling_xdmg",
+        "name": "Ring of Feather Falling"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#ring%20of%20free%20action_xdmg",
+        "name": "Ring of Free Action"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#ring%20of%20jumping_xdmg",
+        "name": "Ring of Jumping"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#ring%20of%20mind%20shielding_xdmg",
+        "name": "Ring of Mind Shielding"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#ring%20of%20protection_xdmg",
+        "name": "Ring of Protection"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#ring%20of%20regeneration_xdmg",
+        "name": "Ring of Regeneration"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#ring%20of%20resistance_xdmg",
+        "name": "Ring of Resistance"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#ring%20of%20shooting%20stars_xdmg",
+        "name": "Ring of Shooting Stars"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#ring%20of%20spell%20storing_xdmg",
+        "name": "Ring of Spell Storing"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#ring%20of%20swimming_xdmg",
+        "name": "Ring of Swimming"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#ring%20of%20telekinesis_xdmg",
+        "name": "Ring of Telekinesis"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#ring%20of%20the%20ram_xdmg",
+        "name": "Ring of the Ram"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#ring%20of%20warmth_xdmg",
+        "name": "Ring of Warmth"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#ring%20of%20water%20walking_xdmg",
+        "name": "Ring of Water Walking"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#ring%20of%20x-ray%20vision_xdmg",
+        "name": "Ring of X-ray Vision"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#rival%20coin_xdmg",
+        "name": "Rival Coin"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#robe%20of%20eyes_xdmg",
+        "name": "Robe of Eyes"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#robe%20of%20scintillating%20colors_xdmg",
+        "name": "Robe of Scintillating Colors"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#rod%20of%20absorption_xdmg",
+        "name": "Rod of Absorption"
+    },
+    {
+        "price": 4000,
+        "link": "https://5e.tools/items.html#rod%20of%20alertness_xdmg",
+        "name": "Rod of Alertness"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#rod%20of%20rulership_xdmg",
+        "name": "Rod of Rulership"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#rod%20of%20security_xdmg",
+        "name": "Rod of Security"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#rope%20of%20climbing_xdmg",
+        "name": "Rope of Climbing"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#rope%20of%20entanglement_xdmg",
+        "name": "Rope of Entanglement"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#rope%20of%20mending_xdmg",
+        "name": "Rope of Mending"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#ruby%20of%20the%20war%20mage_xdmg",
+        "name": "Ruby of the War Mage"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#saddle%20of%20the%20cavalier_xdmg",
+        "name": "Saddle of the Cavalier"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#scimitar%20of%20speed_xdmg",
+        "name": "Scimitar of Speed"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#scroll%20of%20protection_xdmg",
+        "name": "Scroll of Protection"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#sending%20stones_xdmg",
+        "name": "Sending Stones"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#sentinel%20shield_xdmg",
+        "name": "Sentinel Shield"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#shield%20of%20expression_xdmg",
+        "name": "Shield of Expression"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#shield%20of%20missile%20attraction_xdmg",
+        "name": "Shield of Missile Attraction"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#shield%20of%20the%20cavalier_xdmg",
+        "name": "Shield of the Cavalier"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#silvered%20weapon_xdmg",
+        "name": "Silvered Weapon"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#slippers%20of%20spider%20climbing_xdmg",
+        "name": "Slippers of Spider Climbing"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#smoldering%20armor_xdmg",
+        "name": "Smoldering Armor"
+    },
+    {
+        "price": 30,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(cantrip)_xdmg",
+        "name": "Spell Scroll (Cantrip)"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%201)_xdmg",
+        "name": "Spell Scroll (Level 1)"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%202)_xdmg",
+        "name": "Spell Scroll (Level 2)"
+    },
+    {
+        "price": 150,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%203)_xdmg",
+        "name": "Spell Scroll (Level 3)"
+    },
+    {
+        "price": 700,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%204)_xdmg",
+        "name": "Spell Scroll (Level 4)"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%205)_xdmg",
+        "name": "Spell Scroll (Level 5)"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%206)_xdmg",
+        "name": "Spell Scroll (Level 6)"
+    },
+    {
+        "price": 3500,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%207)_xdmg",
+        "name": "Spell Scroll (Level 7)"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#spell%20scroll%20(level%208)_xdmg",
+        "name": "Spell Scroll (Level 8)"
+    },
+    {
+        "price": 750,
+        "link": "",
+        "name": "Spell-Refueling Ring"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#spellguard%20shield_xdmg",
+        "name": "Spellguard Shield"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#spirit%20board_xdmg",
+        "name": "Spirit Board"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#staff%20of%20adornment_xdmg",
+        "name": "Staff of Adornment"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#staff%20of%20birdcalls_xdmg",
+        "name": "Staff of Birdcalls"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#staff%20of%20charming_xdmg",
+        "name": "Staff of Charming"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#staff%20of%20fire_xdmg",
+        "name": "Staff of Fire"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#staff%20of%20flowers_xdmg",
+        "name": "Staff of Flowers"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#staff%20of%20frost_xdmg",
+        "name": "Staff of Frost"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#staff%20of%20healing_xdmg",
+        "name": "Staff of Healing"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#staff%20of%20power_xdmg",
+        "name": "Staff of Power"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#staff%20of%20striking_xdmg",
+        "name": "Staff of Striking"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#staff%20of%20swarming%20insects_xdmg",
+        "name": "Staff of Swarming Insects"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#staff%20of%20the%20adder_xdmg",
+        "name": "Staff of the Adder"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#staff%20of%20the%20python_xdmg",
+        "name": "Staff of the Python"
+    },
+    {
+        "price": 2500,
+        "link": "https://5e.tools/items.html#staff%20of%20the%20woodlands_xdmg",
+        "name": "Staff of the Woodlands"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#staff%20of%20thunder%20and%20lightning_xdmg",
+        "name": "Staff of Thunder and Lightning"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#staff%20of%20withering_xdmg",
+        "name": "Staff of Withering"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#stone%20of%20controlling%20earth%20elementals_xdmg",
+        "name": "Stone of Controlling Earth Elementals"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#stone%20of%20good%20luck_xdmg",
+        "name": "Stone of Good Luck"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#sun%20blade_xdmg",
+        "name": "Sun Blade"
+    },
+    {
+        "price": 1250,
+        "link": "https://5e.tools/items.html#sword%20of%20life%20stealing_xdmg",
+        "name": "Sword of Life Stealing"
+    },
+    {
+        "price": 3000,
+        "link": "https://5e.tools/items.html#sword%20of%20sharpness_xdmg",
+        "name": "Sword of Sharpness"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#sword%20of%20vengeance_xdmg",
+        "name": "Sword of Vengeance"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#sword%20of%20wounding_xdmg",
+        "name": "Sword of Wounding"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#sylvan%20talon_xdmg",
+        "name": "Sylvan Talon"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#talking%20doll_xdmg",
+        "name": "Talking Doll"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#tankard%20of%20sobriety_xdmg",
+        "name": "Tankard of Sobriety"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#tentacle%20rod_xdmg",
+        "name": "Tentacle Rod"
+    },
+    {
+        "price": 200,
+        "link": "https://5e.tools/items.html#thayan%20spell%20tattoo_frhof",
+        "name": "Thayan Spell Tattoo (Level 1)"
+    },
+    {
+        "price": 5000,
+        "link": "https://5e.tools/items.html#thunderous%20greatclub_xdmg",
+        "name": "Thunderous Greatclub"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#trident%20of%20fish%20command_xdmg",
+        "name": "Trident of Fish Command"
+    },
+    {
+        "price": 50,
+        "link": "https://5e.tools/items.html#veteran's%20cane_xdmg",
+        "name": "Veteran's Cane"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#vicious%20weapon_xdmg",
+        "name": "Vicious Weapon"
+    },
+    {
+        "price": 5,
+        "link": "https://5e.tools/items.html#walloping%20ammunition_xdmg",
+        "name": "Walloping Ammunition"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#wand%20of%20binding_xdmg",
+        "name": "Wand of Binding"
+    },
+    {
+        "price": 25,
+        "link": "https://5e.tools/items.html#wand%20of%20conducting_xdmg",
+        "name": "Wand of Conducting"
+    },
+    {
+        "price": 500,
+        "link": "https://5e.tools/items.html#wand%20of%20enemy%20detection_xdmg",
+        "name": "Wand of Enemy Detection"
+    },
+    {
+        "price": 1000,
+        "link": "https://5e.tools/items.html#wand%20of%20fear_xdmg",
+        "name": "Wand of Fear"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#wand%20of%20fireballs_xdmg",
+        "name": "Wand of Fireballs"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#wand%20of%20lightning%20bolts_xdmg",
+        "name": "Wand of Lightning Bolts"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#wand%20of%20magic%20detection_xdmg",
+        "name": "Wand of Magic Detection"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#wand%20of%20magic%20missiles_xdmg",
+        "name": "Wand of Magic Missiles"
+    },
+    {
+        "price": 2000,
+        "link": "https://5e.tools/items.html#wand%20of%20paralysis_xdmg",
+        "name": "Wand of Paralysis"
+    },
+    {
+        "price": 3500,
+        "link": "https://5e.tools/items.html#wand%20of%20polymorph_xdmg",
+        "name": "Wand of Polymorph"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#wand%20of%20secrets_xdmg",
+        "name": "Wand of Secrets"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#wand%20of%20web_xdmg",
+        "name": "Wand of Web"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#wand%20of%20wonder_xdmg",
+        "name": "Wand of Wonder"
+    },
+    {
+        "price": 250,
+        "link": "https://5e.tools/items.html#weapon%20of%20warning_xdmg",
+        "name": "Weapon of Warning"
+    },
+    {
+        "price": 100,
+        "link": "https://5e.tools/items.html#wind%20fan_xdmg",
+        "name": "Wind Fan"
+    },
+    {
+        "price": 750,
+        "link": "https://5e.tools/items.html#winged%20boots_xdmg",
+        "name": "Winged Boots"
+    },
+    {
+        "price": 1500,
+        "link": "https://5e.tools/items.html#wings%20of%20flying_xdmg",
+        "name": "Wings of Flying"
+    }
+];

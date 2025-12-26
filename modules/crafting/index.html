@@ -76,9 +76,8 @@
 
         <div id="setupWizard">
             <!-- Step 1: Project Definition -->
-            <div class="step-section" id="step1" style="border-color: var(--text-normal);">
-                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Adım
-                    1: Proje Tanımlama</h5>
+            <div class="step-section" id="step1" style="border-color: var(--accent-color);">
+                <h5 class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Adım 1: Proje Tanımlama</h5>
 
                 <!-- Autocomplete Search -->
                 <div class="mb-3 position-relative">
@@ -93,30 +92,29 @@
 
                 <div class="row">
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-accent">Item'in Fiyatı (GP)</label>
+                        <label class="form-label text-normal">Item'in Fiyatı (GP)</label>
                         <div id="itemPrice"
-                            class="form-control bg-dark text-accent fw-bold d-flex align-items-center border-0"
+                            class="form-control bg-dark text-normal fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-warning">Item için gereken Work Units</label>
+                        <label class="form-label text-normal">Item için gereken Work Units</label>
                         <div id="targetWU"
-                            class="form-control bg-dark text-warning fw-bold d-flex align-items-center border-0"
+                            class="form-control bg-dark text-normal fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label class="form-label text-danger">Item'in Masterwork DC</label>
+                        <label class="form-label text-normal">Item'in Masterwork DC</label>
                         <div id="targetDC"
-                            class="form-control bg-dark text-danger fw-bold d-flex align-items-center border-0"
+                            class="form-control bg-dark text-normal fw-bold d-flex align-items-center border-0"
                             style="height: 38px;">0</div>
                     </div>
                 </div>
             </div>
 
             <!-- Step 2: Material Prep -->
-            <div class="step-section" id="step2" style="border-color: var(--text-normal);">
-                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Adım
-                    2: Materyal Kalitesi</h5>
+            <div class="step-section" id="step2" style="border-color: var(--success-color);">
+                <h5 class="step-header" style="border-bottom-color: var(--success-color); color: var(--success-color);">Adım 2: Materyal Kalitesi</h5>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-check card p-3 border-secondary mb-2" id="cardPoor">
@@ -155,9 +153,8 @@
             </div>
 
             <!-- Step 3: Tools & Skills -->
-            <div class="step-section" id="step3" style="border-color: var(--text-normal);">
-                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Adım
-                    3: Tool & Skill Check</h5>
+            <div class="step-section" id="step3" style="border-color: var(--danger-color);">
+                <h5 class="step-header" style="border-bottom-color: var(--danger-color); color: var(--danger-color);">Adım 3: Tool & Skill Check</h5>
                 
                 <div class="row mb-3">
                     <div class="col-md-12">
@@ -213,21 +210,8 @@
 
         <!-- Step 5: Simulation Panel -->
         <div id="simPanel" class="d-none">
-            <div class="card bg-dark border-primary mb-4 overflow-hidden">
-                <div class="card-header bg-primary text-white fw-bold">İlerleme Durumu</div>
-                <div class="card-body text-center">
-                    <h2 class="display-6"><span id="lblCurrentWU">0</span> / <span id="lblTargetWU">0</span> WU
-                    </h2>
-                    <div class="progress mt-2" style="height: 20px;">
-                        <div id="progressBar"
-                            class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                            style="width: 0%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="step-section" style="border-color: var(--text-normal);">
-                <h5 class="step-header" style="border-bottom-color: var(--text-normal); color: var(--text-normal);">Tur Aksiyonu</h5>
+            <div class="step-section" style="border-color: var(--warning-color);">
+                <h5 class="step-header" style="border-bottom-color: var(--warning-color); color: var(--warning-color);">Tur Aksiyonu</h5>
                 <div class="row align-items-end">
                     <div class="col-md-8">
                         <label class="form-label">Crafting Yaklaşımı (Approach)</label>
@@ -241,6 +225,18 @@
                         <button id="btnCraft" class="btn btn-danger w-100 py-2 fw-bold">
                             CRAFT!
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-dark border-primary mb-4 overflow-hidden">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold"><span id="lblCurrentWU">0</span> / <span id="lblTargetWU">0</span> WU (Çalışılan Gün Sayısı)
+                    </h5>
+                    <div class="progress mt-2" style="height: 20px;">
+                        <div id="progressBar"
+                            class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                            style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -290,7 +286,7 @@
     </div>
 
     <!-- Data & Scripts -->
-    <script src="../../js/data.js?v=2"></script>
+    <script src="../../js/data.js?v=3"></script>
     <script src="script.js"></script>
 </body>
 

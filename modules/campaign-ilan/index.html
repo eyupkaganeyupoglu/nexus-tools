@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        .section-card {
+        .step-section {
             border: 1px solid var(--border-color);
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -17,7 +17,7 @@
             margin-bottom: 20px;
         }
 
-        .section-header {
+        .step-header {
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
             margin-bottom: 20px;
@@ -47,9 +47,6 @@
             display: flex;
             align-items: center;
         }
-
-        /* Dual Slider Logic handled via standard inputs in specialized containers for simplicity/accessibility 
-           or via custom component. Using standard range inputs next to each other for Min/Max simplicity first. */
     </style>
 </head>
 
@@ -72,8 +69,8 @@
 
 
         <!-- Section A: Basic Info -->
-        <div class="section-card" id="section-a">
-            <div class="section-header">Campaign Bilgileri</div>
+        <div class="step-section" id="section-a" style="border-color: var(--accent-color);">
+            <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Campaign Bilgileri</div>
             <form id="form-section-a">
                 <div class="mb-3">
                     <label for="campaignTitle" class="form-label">Campaign Başlığı</label>
@@ -91,19 +88,12 @@
                         placeholder="Örn: Daggerford'da, kendine kırk haramiler diyen bir grup adamın isyan çıkaracağına dair söylentiler var. Bunu araştıracak maceracılar aranıyor."
                         required></textarea>
                 </div>
-                <div class="d-grid">
-                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-a')"
-                        id="btn-approve-a">
-                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                    </button>
-                    <div id="warning-section-a" class="text-danger small mt-2 text-center d-none"></div>
-                </div>
             </form>
         </div>
 
         <!-- Section B: Details (Exp, Level, Avatar) -->
-        <div class="section-card" id="section-b">
-            <div class="section-header">Tecrübe Seviyesi & Seviye Aralığı</div>
+        <div class="step-section" id="section-b" style="border-color: var(--success-color);">
+            <div class="step-header" style="border-bottom-color: var(--success-color); color: var(--success-color);">Tecrübe Seviyesi & Seviye Aralığı</div>
             <form id="form-section-b">
 
                 <!-- Experience Tags -->
@@ -158,20 +148,12 @@
                     <input type="number" class="form-control" id="avatarCount" min="1" max="10"
                         placeholder="1-10 arasında bir sayı girin." required>
                 </div>
-
-                <div class="d-grid">
-                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-b')"
-                        id="btn-approve-b">
-                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                    </button>
-                    <div id="warning-section-b" class="text-danger small mt-2 text-center d-none"></div>
-                </div>
             </form>
         </div>
 
         <!-- Section C: Timing & Other -->
-        <div class="section-card" id="section-c">
-            <div class="section-header">Zamanlama & Diğer</div>
+        <div class="step-section" id="section-c" style="border-color: var(--warning-color);">
+            <div class="step-header" style="border-bottom-color: var(--warning-color); color: var(--warning-color);">Zamanlama & Diğer</div>
             <form id="form-section-c">
 
                 <!-- Session Length -->
@@ -231,23 +213,17 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="d-grid">
-                    <button type="button" class="btn btn-warning" onclick="toggleApproval('section-c')"
-                        id="btn-approve-c">
-                        <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                    </button>
-                    <div id="warning-section-c" class="text-danger small mt-2 text-center d-none"></div>
-                </div>
             </form>
         </div>
 
         <!-- Generate Button -->
         <div class="d-grid mb-5">
-            <button class="btn btn-success btn-lg" id="btn-generate" disabled onclick="generateTemplate()">
-                <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Şablonu Oluştur
+            <button class="btn btn-success btn-lg" id="btn-generate" onclick="generateTemplate()">
+                Şablonu Oluştur
             </button>
-            <small class="text-muted text-center mt-2">Tüm bölümleri onayladıktan sonra oluşturabilirsiniz.</small>
+            <div id="generateWarning" class="alert alert-danger mt-3 d-none" role="alert">
+                Lütfen tüm zorunlu alanları doldurun.
+            </div>
         </div>
 
         <!-- Result Section -->

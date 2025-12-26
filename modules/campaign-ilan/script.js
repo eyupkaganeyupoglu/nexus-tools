@@ -7,12 +7,6 @@ const EXP_TAGS = [
     { label: "5/5", id: "<@&1438075253468299264>" }
 ];
 
-const approvalState = {
-    'section-a': false,
-    'section-b': false,
-    'section-c': false
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     initExpCheckboxes();
     initSliders();
@@ -73,63 +67,47 @@ function setupDualSlider(minId, maxId, displayId, formatter) {
     }); // Separate handler for max to adjust min
 }
 
-function toggleApproval(sectionId) {
-    const section = document.getElementById(sectionId);
-    const form = section.querySelector('form');
-    const warningEl = document.getElementById(`warning-${sectionId}`);
-    const btn = document.getElementById(`btn-approve-${sectionId.split('-')[1]}`);
-    const isApproved = approvalState[sectionId];
-
-    if (!isApproved) {
-        // Validation
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
-        // Section B specific validation: At least one tag
-        if (sectionId === 'section-b') {
-            const checked = form.querySelectorAll('input[type="checkbox"]:checked');
-            if (checked.length === 0) {
-                warningEl.textContent = 'Lütfen en az bir tecrübe seviyesi seçiniz.';
-                warningEl.classList.remove('d-none');
-                return;
-            }
-        }
-
-        if (warningEl) warningEl.classList.add('d-none');
-
-        // Lock
-        const inputs = form.querySelectorAll('input, textarea, select');
-        inputs.forEach(el => el.disabled = true);
-
-        // Update Button
-        btn.innerHTML = '<i class="fa-solid fa-pen-to-square me-2"></i>Düzenle';
-        btn.classList.replace('btn-warning', 'btn-secondary');
-
-        approvalState[sectionId] = true;
-    } else {
-        // Unlock
-        const inputs = form.querySelectorAll('input, textarea, select');
-        inputs.forEach(el => el.disabled = false);
-
-        // Update Button
-        btn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Onaylıyorum';
-        btn.classList.replace('btn-secondary', 'btn-warning');
-
-        approvalState[sectionId] = false;
-        document.getElementById('result-card').classList.add('d-none');
-    }
-
-    checkAllApproved();
-}
-
-function checkAllApproved() {
-    const allApproved = Object.values(approvalState).every(val => val === true);
-    document.getElementById('btn-generate').disabled = !allApproved;
-}
+// Approval logic removed
 
 function generateTemplate() {
+    // validations
+    const forms = ['form-section-a', 'form-section-b', 'form-section-c'];
+    let isValid = true;
+    let warningMsg = "Lütfen tüm zorunlu alanları doldurun.";
+
+    // Check Inputs Validity (Sequential & Manual Focus to suppress tooltips)
+    for (const fid of forms) {
+        const f = document.getElementById(fid);
+        const firstInvalid = f.querySelector(':invalid');
+        if (firstInvalid) {
+            firstInvalid.focus();
+            isValid = false;
+            break;
+        }
+    }
+
+    // If standard inputs are invalid, show warning and stop here
+    if (!isValid) {
+        const warningEl = document.getElementById('generateWarning');
+        warningEl.textContent = warningMsg;
+        warningEl.classList.remove('d-none');
+        return;
+    }
+
+    // Special Check for Experience Checkboxes
+    const checkedTags = document.querySelectorAll('#expCheckboxes input:checked');
+    if (checkedTags.length === 0) {
+        isValid = false;
+        warningMsg = "Lütfen en az bir tecrübe seviyesi seçiniz.";
+        const warningEl = document.getElementById('generateWarning');
+        warningEl.textContent = warningMsg;
+        warningEl.classList.remove('d-none');
+        return;
+    }
+
+    // Clear warning if valid
+    document.getElementById('generateWarning').classList.add('d-none');
+
     // A
     const title = document.getElementById('campaignTitle').value.trim();
     const loc = document.getElementById('campaignLocation').value.trim();
