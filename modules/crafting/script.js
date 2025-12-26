@@ -407,10 +407,20 @@ function checkEndCondition() {
         const hasToolsOfTheTrade = document.getElementById('hasToolsOfTheTrade').checked;
         const cooldownDays = hasToolsOfTheTrade ? Math.floor(STATE.targetWU / 2) : STATE.targetWU;
 
-        let html = '';
+        // Calculate Copy Text & HTML
+        let copyText = "";
+        let html = "";
+
         if (success) {
+            copyText = `**Toplam Puan:** ${STATE.grandTotal} (Gereken: ${STATE.targetDC})
+**${itemName}** başarıyla üretildi.
+**${cooldownDays}** gün boyunca başka bir item craftlayamazsın.`;
+
             html = `
-            <div class="alert mt-4 text-white" style="background-color: var(--success-color);">
+            <div class="alert mt-4 text-white position-relative" style="background-color: var(--success-color);">
+                <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyLastResult()" title="Sonucu Kopyala">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
                 <h4 class="alert-heading"><i class="fa-solid fa-trophy me-2"></i>Tebrikler!</h4>
                 <p class="mb-0">Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
@@ -424,8 +434,15 @@ function checkEndCondition() {
             if (STATE.selectedQuality === 'quality') recycleMsg = `${itemName} Common Materials geri kazanıldı.`;
             if (STATE.selectedQuality === 'common') recycleMsg = `${itemName} Poor Materials geri kazanıldı.`;
 
+            copyText = `**Toplam Puan:** ${STATE.grandTotal} (Gereken: ${STATE.targetDC})
+**Geri Dönüşüm Sonucu:** ${recycleMsg}
+**${cooldownDays}** gün boyunca başka bir item craftlayamazsın.`;
+
             html = `
-            <div class="alert mt-4 text-white" style="background-color: var(--danger-color);">
+            <div class="alert mt-4 text-white position-relative" style="background-color: var(--danger-color);">
+                <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyLastResult()" title="Sonucu Kopyala">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
                 <h4 class="alert-heading"><i class="fa-solid fa-skull-crossbones me-2"></i>Üretim Başarısız!</h4>
                 <p>Toplam Puan: <strong>${STATE.grandTotal}</strong> (Gereken: ${STATE.targetDC})</p>
                 <hr>
@@ -434,6 +451,9 @@ function checkEndCondition() {
             </div>
             `;
         }
+        
+        // Store for copy button
+        STATE.lastResultText = copyText;
 
         html += `<div class="d-grid mt-3"><button class="btn btn-primary" onclick="editSetup()">Yeni Üretim</button></div>`;
 
@@ -550,4 +570,26 @@ function updateMaterialUI() {
         el.style.borderColor = "var(--accent-color)";
         el.style.boxShadow = "0 0 10px rgba(88, 101, 242, 1)"; // Blue blur
     }
+}
+
+function copyLastResult() {
+    if (!STATE.lastResultText) return;
+    navigator.clipboard.writeText(STATE.lastResultText).then(() => {
+        // Optional user feedback (e.g. tooltip or temp icon change)
+        // For now just console log
+        console.log("Copied to clipboard!");
+        
+        // Visual Feedback
+        const btn = document.querySelector('.alert button i');
+        if(btn) {
+            const original = btn.className;
+            btn.className = "fa-solid fa-check";
+            setTimeout(() => {
+                btn.className = original;
+            }, 1000);
+        }
+    }).catch(err => {
+        console.error('Copy failed: ', err);
+        alert("Kopyalama başarısız oldu. Lütfen manuel seçip kopyalayın.");
+    });
 }
