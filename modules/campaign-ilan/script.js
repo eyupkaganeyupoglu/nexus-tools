@@ -135,15 +135,32 @@ function generateTemplate() {
 **Campaign Günü:** ${day}
 **Diğer Bilgiler:** ${other}\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
-    document.getElementById('resultOutput').textContent = output;
+    document.getElementById('resultOutput').value = output;
     document.getElementById('result-card').classList.remove('d-none');
     document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
 }
 
-function copyResult() {
-    const text = document.getElementById('resultOutput').textContent;
+function copyResultLocal(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    // Use innerText for pre tags or value for inputs
+    const text = element.innerText || element.value;
+
     navigator.clipboard.writeText(text).then(() => {
-        const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-        toast.show();
+        const btn = document.getElementById('btnCopyResult');
+        const icon = btn.querySelector('i');
+        const originalClass = "fa-regular fa-copy";
+        const successClass = "fa-solid fa-check";
+
+        if (icon) {
+            icon.className = successClass;
+            setTimeout(() => {
+                icon.className = originalClass;
+            }, 1000);
+        }
+    }).catch(err => {
+        console.error('Copy failed: ', err);
+        alert("Kopyalama başarısız oldu.");
     });
 }

@@ -174,16 +174,31 @@ function generateTemplate() {
 **ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçtikten sonra bu satırı silin.)\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
     // Render
-    document.getElementById('resultOutput').textContent = output;
+    document.getElementById('resultOutput').value = output;
     document.getElementById('result-card').classList.remove('d-none');
 
     // Scroll to result
     document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
 }
 
-function copyResult() {
-    const text = document.getElementById('resultOutput').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Panoya kopyalandı!');
+function copyResultLocal(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    navigator.clipboard.writeText(element.value || element.innerText).then(() => {
+        const btn = document.getElementById('btnCopyResult');
+        const icon = btn.querySelector('i');
+        const originalClass = "fa-solid fa-copy";
+        const successClass = "fa-solid fa-check";
+
+        if (icon) {
+            icon.className = successClass;
+            setTimeout(() => {
+                icon.className = originalClass;
+            }, 1000);
+        }
+    }).catch(err => {
+        console.error('Copy failed: ', err);
+        alert("Kopyalama başarısız oldu.");
     });
 }

@@ -227,16 +227,16 @@
         </div>
 
         <!-- Result Section -->
-        <div class="section-card d-none" id="result-card">
-            <div class="section-header d-flex justify-content-between align-items-center">
+        <div class="step-section d-none" id="result-card" style="border-color: var(--success-color);">
+            <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
                 <span>Oluşturulan Şablon</span>
-                <button class="btn btn-sm btn-outline-light" onclick="copyResult()">
-                    <i class="fa-regular fa-copy me-1"></i>Kopyala
+                <button class="btn btn-sm btn-outline-light" id="btnCopyResult" onclick="copyResultLocal('resultOutput')">
+                    <i class="fa-regular fa-copy"></i>
                 </button>
             </div>
             <div class="bg-darker p-3 rounded position-relative">
-                <pre id="resultOutput" class="text-light m-0"
-                    style="white-space: pre-wrap; font-family: monospace;"></pre>
+                <textarea class="form-control bg-dark text-light font-monospace border-0" id="resultOutput" rows="10"
+                    readonly style="resize: none;"></textarea>
             </div>
         </div>
 

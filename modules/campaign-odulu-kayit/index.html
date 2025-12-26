@@ -11,12 +11,30 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel="stylesheet">
+    <style>
+        .step-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
                 <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
@@ -28,103 +46,77 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container py-4">
+    <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Alerts Section -->
-                <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
-                    <i class="fa-solid fa-triangle-exclamation fa-2x me-3"></i>
-                    <div>
-                        <strong>İletişim Kuralı:</strong><br>
-                        Herhangi bir sorunuz olduğunda veya aldığınız itemleri bildirmek istediğinizde lütfen doğrudan 
-                        ADMIN ile DM (Özel Mesaj) üzerinden iletişime geçiniz. Avatarınızın <code>#avatarlar</code> 
-                        gönderilerine yazarak mesaj kirliliği oluşturmayınız.
-                    </div>
-                </div>
 
-                <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
-                    <i class="fa-solid fa-circle-info fa-2x me-3"></i>
-                    <div>
-                        <strong>Genesis Token Sistemi:</strong><br>
-                        Kazandığınız Genesis Token'ler artık <code>#avatarlar/Burası Ne?/Genesis Tokenler</code> 
-                        mesajı üzerinden takip edilmektedir. Genesis Token kazandığınızda, listeye işlenmesi için 
-                        lütfen ADMIN'e bilgi veriniz.
-                    </div>
-                </div>
 
-                <!-- Input Card -->
-                <div class="card mb-4 overflow-hidden rounded-3">
-                    <div class="card-body">
-                        <form id="campaignAwardForm">
-                            <!-- Campaign Name -->
-                            <div class="mb-3">
-                                <label for="campaignName" class="form-label">Campaign Adı</label>
-                                <textarea class="form-control" id="campaignName" rows="2"
-                                    placeholder="Örn: Maestro'nun Kahkaha Arenası" required></textarea>
+                <!-- Input Section -->
+                <div class="step-section" id="reward-section" style="border-color: var(--accent-color);">
+                    <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Campaign Ödül Formu</div>
+                    
+                    <form id="campaignAwardForm">
+                        <!-- Campaign Name -->
+                        <div class="mb-3">
+                            <label for="campaignName" class="form-label">Campaign Adı</label>
+                            <textarea class="form-control" id="campaignName" rows="2"
+                                placeholder="Örn: Maestro'nun Kahkaha Arenası" required></textarea>
+                        </div>
+
+                        <!-- Role -->
+                        <div class="mb-3">
+                            <label class="form-label d-block">Rol</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="roleOptions" id="rolePlayer"
+                                    value="Oyuncu" checked>
+                                <label class="form-check-label" for="rolePlayer">Oyuncu</label>
                             </div>
-
-                            <!-- Role -->
-                            <div class="mb-3">
-                                <label class="form-label d-block">Rol</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="roleOptions" id="rolePlayer"
-                                        value="Oyuncu" checked>
-                                    <label class="form-check-label" for="rolePlayer">Oyuncu</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="roleOptions" id="roleDM"
-                                        value="DM">
-                                    <label class="form-check-label" for="roleDM">DM</label>
-                                </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="roleOptions" id="roleDM"
+                                    value="DM">
+                                <label class="form-check-label" for="roleDM">DM</label>
                             </div>
+                        </div>
 
-                            <!-- Rewards -->
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label for="goldReward" class="form-label">GP</label>
-                                    <input type="number" class="form-control" id="goldReward" min="0" step="1"
-                                        placeholder="Gold" required>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="milestoneReward" class="form-label">MS</label>
-                                    <input type="number" class="form-control" id="milestoneReward" min="0" step="1"
-                                        placeholder="Milestone" required>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label for="tokenReward" class="form-label">GT</label>
-                                    <input type="number" class="form-control" id="tokenReward" min="0" step="1"
-                                        placeholder="Genesis Token" required>
-                                </div>
+                        <!-- Rewards -->
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="milestoneReward" class="form-label">MS</label>
+                                <input type="number" class="form-control" id="milestoneReward" min="0" step="1"
+                                    placeholder="Milestone" required>
                             </div>
-
-                            <!-- Action Button -->
-                            <div class="d-grid gap-2 mt-2">
-                                <button type="submit" class="btn btn-primary" id="approveBtn">
-                                    <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                                </button>
-                                <button type="button" class="btn btn-secondary d-none" id="editBtn">
-                                    <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
-                                </button>
+                            <div class="col-md-6 mb-3">
+                                <label for="tokenReward" class="form-label">GT</label>
+                                <input type="number" class="form-control" id="tokenReward" min="0" step="1"
+                                    placeholder="Genesis Token" required>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                        </div>
 
-                <!-- Result Card -->
-                <div class="card d-none" id="resultCard">
-                    <div class="card-header">
-                        Oluşturulan Şablon
-                    </div>
-                    <div class="card-body">
-                        <div class="position-relative">
-                            <textarea class="form-control bg-dark text-light font-monospace" id="resultArea" rows="6"
-                                readonly></textarea>
-                            <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2"
-                                onclick="copyToClipboard('resultArea')">
-                                <i class="fa-solid fa-copy"></i>
+                        <!-- Action Button -->
+                        <div class="d-grid gap-2 mt-2">
+                            <button type="submit" class="btn btn-primary" id="approveBtn">
+                                <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                            </button>
+                            <button type="button" class="btn btn-secondary d-none" id="editBtn">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
                             </button>
                         </div>
+                    </form>
+                </div>
+
+                <!-- Result Section -->
+                <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
+                    <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
+                        <span>Oluşturulan Şablon</span>
+                        <button class="btn btn-sm btn-outline-light" id="btnCopyResult" onclick="copyResultLocal('resultArea')">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bg-darker p-3 rounded position-relative">
+                        <textarea class="form-control bg-dark text-light font-monospace border-0" id="resultArea" rows="6"
+                            readonly style="resize: none;"></textarea>
                     </div>
                 </div>
 
@@ -145,6 +137,29 @@
         const resultCard = document.getElementById('resultCard');
         const resultArea = document.getElementById('resultArea');
 
+        // Local Copy Logic
+        function copyResultLocal(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            navigator.clipboard.writeText(element.value || element.innerText).then(() => {
+                const btn = document.getElementById('btnCopyResult');
+                const icon = btn.querySelector('i');
+                const originalClass = "fa-solid fa-copy";
+                const successClass = "fa-solid fa-check";
+
+                if (icon) {
+                    icon.className = successClass;
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 1000);
+                }
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+                alert("Kopyalama başarısız oldu.");
+            });
+        }
+
         // Form Submit
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -152,12 +167,12 @@
             // Get Values
             const campaign = document.getElementById('campaignName').value.trim();
             const role = document.querySelector('input[name="roleOptions"]:checked').value;
-            const gp = document.getElementById('goldReward').value;
+
             const ms = document.getElementById('milestoneReward').value;
             const gt = document.getElementById('tokenReward').value;
 
             // Generate Markdown
-            const markdown = `**Campaign adı:** ${campaign}\n**Role:** ${role}\n**GP:** ${gp}\n**MS:** ${ms}\n**GT:** ${gt}\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
+            const markdown = `**Campaign adı:** ${campaign}\n**Role:** ${role}\n**MS:** ${ms}\n**GT:** ${gt}\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
             // Show Result
             resultArea.value = markdown;

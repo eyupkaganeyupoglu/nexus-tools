@@ -11,12 +11,60 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel="stylesheet">
+    <style>
+        .step-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .btn-outline-warning,
+        .btn-outline-success {
+            color: var(--text-light);
+            border-color: var(--border-color);
+        }
+
+        .btn-outline-success:hover {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            color: #fff;
+        }
+
+        .btn-outline-warning:hover {
+            background-color: var(--warning-color);
+            border-color: var(--warning-color);
+            color: #000;
+        }
+        
+        .btn-check:checked+.btn-outline-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            color: #fff;
+        }
+
+        .btn-check:checked+.btn-outline-warning {
+            background-color: var(--warning-color);
+            border-color: var(--warning-color);
+            color: #000;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
                 <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
@@ -28,123 +76,118 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container py-4">
+    <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-7">
 
-                <!-- Input Card -->
-                <div class="card mb-4 overflow-hidden rounded-3">
+                <!-- Input Section -->
+                <div class="step-section" id="rule-section" style="border-color: var(--accent-color);">
+                    <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Kural Bilgileri</div>
 
-                    <div class="card-body">
+                    <!-- Mode Selection -->
+                    <div class="mb-4 text-center">
+                        <div class="btn-group w-100" role="group" aria-label="Mode Selection">
+                            <input type="radio" class="btn-check" name="modeBtn" id="modeAdd" value="add" checked>
+                            <label class="btn btn-outline-success" for="modeAdd">
+                                <i class="fa-solid fa-plus me-2"></i>Yeni Kural Ekle
+                            </label>
 
-                        <!-- Mode Selection -->
-                        <div class="mb-4 text-center">
-                            <div class="btn-group w-100" role="group" aria-label="Mode Selection">
-                                <input type="radio" class="btn-check" name="modeBtn" id="modeAdd" value="add" checked>
-                                <label class="btn btn-outline-primary" for="modeAdd">
-                                    <i class="fa-solid fa-plus me-2"></i>Yeni Kural Ekle
-                                </label>
+                            <input type="radio" class="btn-check" name="modeBtn" id="modeEdit" value="edit">
+                            <label class="btn btn-outline-warning" for="modeEdit">
+                                <i class="fa-solid fa-eraser me-2"></i>Mevcut Kuralı Sil / Değiştir
+                            </label>
+                        </div>
+                    </div>
 
-                                <input type="radio" class="btn-check" name="modeBtn" id="modeEdit" value="edit">
-                                <label class="btn btn-outline-warning" for="modeEdit">
-                                    <i class="fa-solid fa-eraser me-2"></i>Mevcut Kuralı Sil / Değiştir
-                                </label>
+                    <form id="ruleForm">
+
+                        <!-- COMMON: Rule Name -->
+                        <div class="mb-3">
+                            <label for="ruleName" class="form-label" id="labelRuleName">Başlık</label>
+                            <input type="text" class="form-control" id="ruleName"
+                                placeholder="Kural için temsili bir başlık yazın." required>
+                        </div>
+
+                        <!-- MODE A: Add New Rule Content -->
+                        <div id="sectionAdd">
+                            <div class="mb-3">
+                                <label for="newRuleContent" class="form-label">Eklenecek Kuralın İçeriği</label>
+                                <textarea class="form-control" id="newRuleContent" rows="4"
+                                    placeholder="Eklenecek kuralın içeriğini eksiksiz bir şekilde yazın."></textarea>
                             </div>
                         </div>
 
-                        <form id="ruleForm">
+                        <!-- MODE B: Edit/Delete Specifics -->
+                        <div id="sectionEdit" class="d-none">
 
-                            <!-- COMMON: Rule Name -->
+
                             <div class="mb-3">
-                                <label for="ruleName" class="form-label" id="labelRuleName">Başlık</label>
-                                <input type="text" class="form-control" id="ruleName"
-                                    placeholder="Kural için temsili bir başlık yazın." required>
+                                <label class="form-label">İşlem Türü</label>
+                                <div class="d-flex gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editType" id="typeChange"
+                                            value="change" checked>
+                                        <label class="form-check-label" for="typeChange">
+                                            Değiştir
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="editType" id="typeDelete"
+                                            value="delete">
+                                        <label class="form-check-label text-danger" for="typeDelete">
+                                            Sil
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- MODE A: Add New Rule Content -->
-                            <div id="sectionAdd">
+                            <div id="changeContentGroup">
                                 <div class="mb-3">
-                                    <label for="newRuleContent" class="form-label">Eklenecek Kuralın İçeriği</label>
-                                    <textarea class="form-control" id="newRuleContent" rows="4"
-                                        placeholder="Eklenecek kuralın içeriğini eksiksiz bir şekilde yazın."></textarea>
+                                    <label for="oldRuleContent" class="form-label">Değiştirilecek/Silinecek Kuralın
+                                        eski İçeriği</label>
+                                    <textarea class="form-control" id="oldRuleContent" rows="4"
+                                        placeholder="Değiştirilecek/Silinecek kuralın eski içeriğini eksiksiz bir şekilde yazın."></textarea>
                                 </div>
-                            </div>
-
-                            <!-- MODE B: Edit/Delete Specifics -->
-                            <div id="sectionEdit" class="d-none">
-
-
                                 <div class="mb-3">
-                                    <label class="form-label">İşlem Türü</label>
-                                    <div class="d-flex gap-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="editType" id="typeChange"
-                                                value="change" checked>
-                                            <label class="form-check-label" for="typeChange">
-                                                Değiştir
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="editType" id="typeDelete"
-                                                value="delete">
-                                            <label class="form-check-label text-danger" for="typeDelete">
-                                                Sil
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="changeContentGroup">
-                                    <div class="mb-3">
-                                        <label for="oldRuleContent" class="form-label">Değiştirilecek/Silinecek Kuralın
-                                            eski İçeriği</label>
-                                        <textarea class="form-control" id="oldRuleContent" rows="4"
-                                            placeholder="Değiştirilecek/Silinecek kuralın eski içeriğini eksiksiz bir şekilde yazın."></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="newRuleContentEdit" class="form-label">Değiştirilecek/Silinecek
-                                            Kuralın yeni İçeriği</label>
-                                        <textarea class="form-control" id="newRuleContentEdit" rows="4"
-                                            placeholder="Değiştirilecek/Silinecek kuralın yeni içeriğini eksiksiz bir şekilde yazın."></textarea>
-                                    </div>
+                                    <label for="newRuleContentEdit" class="form-label">Değiştirilecek/Silinecek
+                                        Kuralın yeni İçeriği</label>
+                                    <textarea class="form-control" id="newRuleContentEdit" rows="4"
+                                        placeholder="Değiştirilecek/Silinecek kuralın yeni içeriğini eksiksiz bir şekilde yazın."></textarea>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- COMMON: Reason -->
-                            <div class="mb-3">
-                                <label for="reason" class="form-label">Sebep</label>
-                                <textarea class="form-control" id="reason" rows="3"
-                                    placeholder="Neden böyle bir şey teklif ettiğinizi yazın." required></textarea>
-                            </div>
+                        <!-- COMMON: Reason -->
+                        <div class="mb-3">
+                            <label for="reason" class="form-label">Sebep</label>
+                            <textarea class="form-control" id="reason" rows="3"
+                                placeholder="Neden böyle bir şey teklif ettiğinizi yazın." required></textarea>
+                        </div>
 
-                            <!-- Action Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary" id="approveBtn">
-                                    <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                                </button>
-                                <button type="button" class="btn btn-secondary d-none" id="editBtn">
-                                    <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
-                                </button>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Result Card -->
-                <div class="card d-none" id="resultCard">
-                    <div class="card-header">
-                        Oluşturulan Şablon
-                    </div>
-                    <div class="card-body">
-                        <div class="position-relative">
-                            <textarea class="form-control bg-dark text-light font-monospace" id="resultArea" rows="6"
-                                readonly></textarea>
-                            <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2"
-                                onclick="copyToClipboard('resultArea')">
-                                <i class="fa-solid fa-copy"></i>
+                        <!-- Action Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="approveBtn">
+                                <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                            </button>
+                            <button type="button" class="btn btn-secondary d-none" id="editBtn">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
                             </button>
                         </div>
+
+                    </form>
+                </div>
+
+                <!-- Result Section -->
+                <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
+                    <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
+                        <span>Oluşturulan Şablon</span>
+                        <button class="btn btn-sm btn-outline-light" id="btnCopyResult" onclick="copyResultLocal('resultArea')">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bg-darker p-3 rounded position-relative">
+                        <textarea class="form-control bg-dark text-light font-monospace border-0" id="resultArea" rows="6"
+                            readonly style="resize: none;"></textarea>
                     </div>
                 </div>
 
@@ -169,6 +212,35 @@
         const typeChangeRadio = document.getElementById('typeChange');
         const typeDeleteRadio = document.getElementById('typeDelete');
         const changeContentGroup = document.getElementById('changeContentGroup');
+        
+        const form = document.getElementById('ruleForm');
+        const approveBtn = document.getElementById('approveBtn');
+        const editBtn = document.getElementById('editBtn');
+        const resultCard = document.getElementById('resultCard');
+        const resultArea = document.getElementById('resultArea');
+
+        // Local Copy Logic
+        function copyResultLocal(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            navigator.clipboard.writeText(element.value || element.innerText).then(() => {
+                const btn = document.getElementById('btnCopyResult');
+                const icon = btn.querySelector('i');
+                const originalClass = "fa-solid fa-copy";
+                const successClass = "fa-solid fa-check";
+
+                if (icon) {
+                    icon.className = successClass;
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 1000);
+                }
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+                alert("Kopyalama başarısız oldu.");
+            });
+        }
 
         // Toggle Modes
         const toggleMode = () => {
@@ -183,12 +255,12 @@
             document.getElementById('newRuleContentEdit').value = "";
 
             // Hide Result
-            document.getElementById('resultCard').classList.add('d-none');
-            document.getElementById('resultArea').value = "";
+            resultCard.classList.add('d-none');
+            resultArea.value = "";
 
             // Reset Buttons
-            document.getElementById('approveBtn').classList.remove('d-none');
-            document.getElementById('editBtn').classList.add('d-none');
+            approveBtn.classList.remove('d-none');
+            editBtn.classList.add('d-none');
 
             if (modeAddRadio.checked) {
                 sectionAdd.classList.remove('d-none');
@@ -226,13 +298,6 @@
         typeChangeRadio.addEventListener('change', toggleEditType);
         typeDeleteRadio.addEventListener('change', toggleEditType);
 
-        // Core Form Logic
-        const form = document.getElementById('ruleForm');
-        const approveBtn = document.getElementById('approveBtn');
-        const editBtn = document.getElementById('editBtn');
-        const resultCard = document.getElementById('resultCard');
-        const resultArea = document.getElementById('resultArea');
-
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -248,7 +313,6 @@
                 markdown = `**Kural İsmi:** ${ruleName}\n**Sorun:** Ekle\n**Ekle:** ${content}\n**Sebep:** ${reason}`;
             } else {
                 // Mode B: Edit/Delete
-                // Mode B: Edit/Delete
                 const type = typeChangeRadio.checked ? "Değiştir" : "Sil";
 
                 markdown = `**Kural İsmi:** ${ruleName}\n**Sorun:** ${type}\n`;
@@ -262,8 +326,6 @@
                 markdown += `**Sebep:** ${reason}`;
             }
 
-            // Output
-
             // Append Footer
             markdown += "\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*";
 
@@ -271,10 +333,7 @@
             resultCard.classList.remove('d-none');
 
             toggleInputs('ruleForm', true);
-            // Re-enable radio buttons for mode switching allows user to reset completely via "Düzenle" which unlocks everything
-            // But we need to make sure the mode toggle event listeners don't break logic on disabled inputs. 
-            // toggleInputs disables EVERYTHING including radios.
-
+            
             approveBtn.classList.add('d-none');
             editBtn.classList.remove('d-none');
         });

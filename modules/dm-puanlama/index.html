@@ -12,6 +12,23 @@
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel="stylesheet">
     <style>
+        .step-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
         /* Placeholder color for invalid (empty) required select */
         #dmScore:invalid {
             color: var(--text-muted);
@@ -24,10 +41,10 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
                 <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
@@ -39,69 +56,65 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container py-4">
+    <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Input Card -->
-                <div class="card mb-4 overflow-hidden rounded-3">
+                <!-- Input Section -->
+                <div class="step-section" id="score-section" style="border-color: var(--accent-color);">
+                    <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">DM Puanlama Formu</div>
 
-                    <div class="card-body">
-                        <form id="dmScoreForm">
-                            <!-- Campaign Name -->
-                            <div class="mb-3">
-                                <label for="campaignName" class="form-label">Campaign İsmi</label>
-                                <input type="text" class="form-control" id="campaignName"
-                                    placeholder="Örn: Haydutlardan Rehine Kurtarma" required>
-                            </div>
+                    <form id="dmScoreForm">
+                        <!-- Campaign Name -->
+                        <div class="mb-3">
+                            <label for="campaignName" class="form-label">Campaign İsmi</label>
+                            <input type="text" class="form-control" id="campaignName"
+                                placeholder="Örn: Haydutlardan Rehine Kurtarma" required>
+                        </div>
 
-                            <!-- Score -->
-                            <div class="mb-3">
-                                <label for="dmScore" class="form-label">Puanınız (1-5)</label>
-                                <select class="form-select" id="dmScore" required>
-                                    <option value="" selected disabled>Campaign ve DM için puan veriniz...</option>
-                                    <option value="5">5 - Kusursuz</option>
-                                    <option value="4">4 - İyi</option>
-                                    <option value="3">3 - Ortalama</option>
-                                    <option value="2">2 - Eh işte</option>
-                                    <option value="1">1 - Bok gibi</option>
-                                </select>
-                            </div>
+                        <!-- Score -->
+                        <div class="mb-3">
+                            <label for="dmScore" class="form-label">Puanınız (1-5)</label>
+                            <select class="form-select" id="dmScore" required>
+                                <option value="" selected disabled>Campaign ve DM için puan veriniz...</option>
+                                <option value="5">5 - Kusursuz</option>
+                                <option value="4">4 - İyi</option>
+                                <option value="3">3 - Ortalama</option>
+                                <option value="2">2 - Eh işte</option>
+                                <option value="1">1 - Bok gibi</option>
+                            </select>
+                        </div>
 
-                            <!-- Comment -->
-                            <div class="mb-3">
-                                <label for="comment" class="form-label">Yorum (Opsiyonel)</label>
-                                <textarea class="form-control" id="comment" rows="3"
-                                    placeholder="Campaign ve DM ile ilgili görüşleriniz..."></textarea>
-                            </div>
+                        <!-- Comment -->
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Yorum (Opsiyonel)</label>
+                            <textarea class="form-control" id="comment" rows="3"
+                                placeholder="Campaign ve DM ile ilgili görüşleriniz..."></textarea>
+                        </div>
 
-                            <!-- Action Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary" id="approveBtn">
-                                    <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                                </button>
-                                <button type="button" class="btn btn-secondary d-none" id="editBtn">
-                                    <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Result Card -->
-                <div class="card d-none" id="resultCard">
-                    <div class="card-header">
-                        Oluşturulan Şablon
-                    </div>
-                    <div class="card-body">
-                        <div class="position-relative">
-                            <textarea class="form-control bg-dark text-light font-monospace" id="resultArea" rows="4"
-                                readonly></textarea>
-                            <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2"
-                                onclick="copyToClipboard('resultArea')">
-                                <i class="fa-solid fa-copy"></i>
+                        <!-- Action Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="approveBtn">
+                                <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                            </button>
+                            <button type="button" class="btn btn-secondary d-none" id="editBtn">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
                             </button>
                         </div>
+                    </form>
+                </div>
+
+                <!-- Result Section -->
+                <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
+                    <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
+                        <span>Oluşturulan Şablon</span>
+                        <button class="btn btn-sm btn-outline-light" id="btnCopyResult" onclick="copyResultLocal('resultArea')">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bg-darker p-3 rounded position-relative">
+                        <textarea class="form-control bg-dark text-light font-monospace border-0" id="resultArea" rows="4"
+                            readonly style="resize: none;"></textarea>
                     </div>
                 </div>
 
@@ -121,6 +134,29 @@
         const editBtn = document.getElementById('editBtn');
         const resultCard = document.getElementById('resultCard');
         const resultArea = document.getElementById('resultArea');
+
+        // Local Copy Logic
+        function copyResultLocal(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            navigator.clipboard.writeText(element.value || element.innerText).then(() => {
+                const btn = document.getElementById('btnCopyResult');
+                const icon = btn.querySelector('i');
+                const originalClass = "fa-solid fa-copy";
+                const successClass = "fa-solid fa-check";
+
+                if (icon) {
+                    icon.className = successClass;
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 1000);
+                }
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+                alert("Kopyalama başarısız oldu.");
+            });
+        }
 
         // Form Submit
         form.addEventListener('submit', (e) => {

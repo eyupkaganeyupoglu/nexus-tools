@@ -12,6 +12,23 @@
     <!-- Custom CSS -->
     <link href="../../css/style.css" rel="stylesheet">
     <style>
+        .step-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
         /* Placeholder color for date input when empty (invalid/required) */
         #deathDate:invalid {
             color: var(--text-muted);
@@ -19,10 +36,10 @@
     </style>
 </head>
 
-<body>
+<body class="bg-dark text-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
                 <i class="fa-solid fa-dungeon me-2"></i>Nexus Tools
@@ -38,59 +55,56 @@
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Input Card -->
-                <div class="card mb-4 overflow-hidden rounded-3">
+                <!-- Input Section -->
+                <div class="step-section" id="tombstone-section" style="border-color: var(--accent-color);">
+                    <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Mezar Taşı Formu</div>
+                    
+                    <form id="tombstoneForm">
+                        <!-- Avatar Name -->
+                        <div class="mb-3">
+                            <label for="avatarName" class="form-label">Avatarın Adı</label>
+                            <input type="text" class="form-control" id="avatarName" placeholder="Ölen avatarınızın adını yazın." required>
+                        </div>
 
-                    <div class="card-body">
-                        <form id="tombstoneForm">
-                            <!-- Avatar Name -->
-                            <div class="mb-3">
-                                <label for="avatarName" class="form-label">Avatarın Adı</label>
-                                <input type="text" class="form-control" id="avatarName" placeholder="Ölen avatarınızın adını yazın." required>
-                            </div>
+                        <!-- Death Cause -->
+                        <div class="mb-3">
+                            <label for="deathCause" class="form-label">Ölüm Sebebi</label>
+                            <input type="text" class="form-control" id="deathCause"
+                                placeholder="Avatarınızın ölüm sebebi." required>
+                        </div>
 
-                            <!-- Death Cause -->
-                            <div class="mb-3">
-                                <label for="deathCause" class="form-label">Ölüm Sebebi</label>
-                                <input type="text" class="form-control" id="deathCause"
-                                    placeholder="Avatarınızın ölüm sebebi." required>
-                            </div>
+                        <!-- Death Date -->
+                        <div class="mb-3">
+                            <label for="deathDate" class="form-label">Ölüm Tarihi</label>
+                            <input type="date" class="form-control" id="deathDate" required>
+                        </div>
 
-                            <!-- Death Date -->
-                            <div class="mb-3">
-                                <label for="deathDate" class="form-label">Ölüm Tarihi</label>
-                                <input type="date" class="form-control" id="deathDate" required>
-                            </div>
-
-                            <!-- Action Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary" id="approveBtn">
-                                    <i class="fa-solid fa-check me-2"></i>Onaylıyorum
-                                </button>
-                                <button type="button" class="btn btn-secondary d-none" id="editBtn">
-                                    <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Result Card -->
-                <div class="card d-none" id="resultCard">
-                    <div class="card-header">
-                        <i class="fa-solid fa-code me-2"></i>Oluşturulan Şablon
-                    </div>
-                    <div class="card-body">
-                        <div class="position-relative">
-                            <textarea class="form-control bg-dark text-light font-monospace" id="resultArea" rows="5"
-                                readonly></textarea>
-                            <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2"
-                                onclick="copyToClipboard('resultArea')">
-                                <i class="fa-solid fa-copy"></i>
+                        <!-- Action Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary" id="approveBtn">
+                                <i class="fa-solid fa-check me-2"></i>Onaylıyorum
+                            </button>
+                            <button type="button" class="btn btn-secondary d-none" id="editBtn">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Düzenle
                             </button>
                         </div>
+                    </form>
+                </div>
+
+                <!-- Result Section -->
+                <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
+                    <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
+                        <span>Oluşturulan Şablon</span>
+                        <button class="btn btn-sm btn-outline-light" id="btnCopyResult" onclick="copyResultLocal('resultArea')">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bg-darker p-3 rounded position-relative">
+                        <textarea class="form-control bg-dark text-light font-monospace border-0" id="resultArea" rows="5"
+                            readonly style="resize: none;"></textarea>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -107,6 +121,29 @@
         const editBtn = document.getElementById('editBtn');
         const resultCard = document.getElementById('resultCard');
         const resultArea = document.getElementById('resultArea');
+
+        // Local Copy Logic
+        function copyResultLocal(elementId) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            navigator.clipboard.writeText(element.value || element.innerText).then(() => {
+                const btn = document.getElementById('btnCopyResult');
+                const icon = btn.querySelector('i');
+                const originalClass = "fa-solid fa-copy";
+                const successClass = "fa-solid fa-check";
+
+                if (icon) {
+                    icon.className = successClass;
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                    }, 1000);
+                }
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+                alert("Kopyalama başarısız oldu.");
+            });
+        }
 
         // Form Submit (Approve)
         form.addEventListener('submit', (e) => {
