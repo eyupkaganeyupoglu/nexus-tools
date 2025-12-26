@@ -1,13 +1,11 @@
-/**
- * Nexus Tools - Shared Utilities
- */
+/** Shared Utilities */
 
-// Format currency
+// Currency
 const formatGold = (amount) => {
     return new Intl.NumberFormat('en-US', { style: 'decimal', minimumFractionDigits: 0 }).format(amount) + ' GP';
 };
 
-// Copy to Clipboard
+// Copy
 const copyToClipboard = async (elementId) => {
     const element = document.getElementById(elementId);
     if (!element) return;
@@ -21,7 +19,7 @@ const copyToClipboard = async (elementId) => {
     }
 };
 
-// Simple Toast Notification (requires a toast container in HTML)
+// Toast
 const showToast = (message, type = 'primary') => {
     // Create toast container if not exists
     let container = document.getElementById('toast-container');
@@ -52,7 +50,7 @@ const showToast = (message, type = 'primary') => {
     const toastEl = temp.firstChild;
     container.appendChild(toastEl);
 
-    // Auto remove after 3 seconds
+    // Auto remove
     setTimeout(() => {
         if (toastEl && toastEl.parentElement) {
             toastEl.remove();
@@ -60,7 +58,7 @@ const showToast = (message, type = 'primary') => {
     }, 3000);
 };
 
-// Toggle inputs disabled state
+// Toggle inputs
 const toggleInputs = (containerId, disabled) => {
     const container = document.getElementById(containerId);
     if (!container) return;

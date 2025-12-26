@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pazar İlanı - Nexus Araçları</title>
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Styles -->
     <link href="../../css/style.css" rel="stylesheet">
     <style>
         .step-section {
@@ -29,7 +29,7 @@
             font-size: 1.2rem;
         }
 
-        /* Autocomplete Styles */
+        /* Autocomplete CSS */
         .autocomplete-items {
             position: absolute;
             border: 1px solid var(--bg-tertiary);
@@ -64,7 +64,7 @@
 
 <body class="bg-dark text-light">
 
-    <!-- Navbar -->
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
@@ -76,18 +76,18 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Input Section -->
+                <!-- Input -->
                 <div class="step-section" id="market-section" style="border-color: var(--accent-color);">
                     <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Pazar İlanı Oluştur</div>
                     
                     <form id="marketForm" autocomplete="off">
 
-                        <!-- Item Search (Autocomplete) -->
+                        <!-- Item Search -->
                         <div class="mb-3 position-relative">
                             <label for="itemName" class="form-label">Item İsmi</label>
                             <div class="input-group">
@@ -95,10 +95,10 @@
                                 <input type="text" class="form-control" id="itemName"
                                     placeholder="Satacağınız item'in ismi." required>
                             </div>
-                            <!-- Autocomplete List Container -->
+                            <!-- List Container -->
                             <div id="autocomplete-list" class="autocomplete-items"></div>
 
-                            <!-- Hidden Data Fields -->
+                            <!-- Hidden Fields -->
                             <input type="hidden" id="itemLink">
                             <input type="hidden" id="itemOriginalPrice">
                         </div>
@@ -126,7 +126,7 @@
                                 placeholder="Yazmak istediğiniz diğer şeyler."></textarea>
                         </div>
 
-                        <!-- Action Button -->
+                        <!-- Actions -->
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary" id="approveBtn">
                                 Şablonu Oluştur
@@ -138,7 +138,7 @@
                     </form>
                 </div>
 
-                <!-- Result Section -->
+                <!-- Result -->
                 <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
                     <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
                         <span>Oluşturulan Şablon</span>
@@ -158,12 +158,12 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Market Data -->
+    <!-- Data -->
     <script src="../../js/data.js?v=3"></script>
-    <!-- Main Utility JS -->
+    <!-- Main JS -->
     <script src="../../js/main.js"></script>
 
-    <!-- Module Specific JS -->
+    <!-- Script -->
     <script>
         const inputItem = document.getElementById('itemName');
         const listContainer = document.getElementById('autocomplete-list');
@@ -172,7 +172,7 @@
         const displayOriginalPrice = document.getElementById('originalPriceDisplay');
         const inputSalePrice = document.getElementById('salePrice');
 
-        // Local Copy Logic (Icon Swap, No Toast)
+        // Copy
         function copyResultLocal(elementId) {
             const element = document.getElementById(elementId);
             if (!element) return;
@@ -195,14 +195,14 @@
             });
         }
 
-        // Autocomplete Logic
+        // Autocomplete
         let currentFocus = -1;
 
         inputItem.addEventListener('input', function (e) {
             const val = this.value;
             const lowerVal = val.toLowerCase();
 
-            // Reset hidden fields when user types
+            // Reset hidden fields
             inputLink.value = "";
             inputOriginalPrice.value = "";
             displayOriginalPrice.textContent = "-";
@@ -212,12 +212,12 @@
 
             currentFocus = -1;
 
-            // Filter Data (limit to 10 results for performance)
+            // Filter Data
             const matches = marketData.filter(item =>
                 item.name.toLowerCase().includes(lowerVal)
             ).slice(0, 10);
 
-            // Check for exact match in the filtered results to update price immediately
+            // Exact Match
             const exactMatch = matches.find(item => item.name.toLowerCase() === lowerVal);
             if (exactMatch) {
                 inputLink.value = exactMatch.link;
@@ -228,7 +228,7 @@
 
             matches.forEach(match => {
                 const div = document.createElement('div');
-                // Highlight matching part
+                // Highlight
                 const regex = new RegExp(`(${val})`, 'gi');
                 div.innerHTML = match.name.replace(regex, "<strong>$1</strong>");
                 div.innerHTML += `<input type='hidden' value='${JSON.stringify(match)}'>`;
@@ -243,7 +243,7 @@
             });
         });
 
-        // Keyboard Navigation
+        // Keyboard Nav
         inputItem.addEventListener('keydown', function (e) {
             let x = listContainer.getElementsByTagName('div');
             if (e.keyCode == 40) { // Down
@@ -288,12 +288,12 @@
             inputSalePrice.value = data.price; // Auto-fill sale price
         }
 
-        // Close list when clicking outside
+        // Close List
         document.addEventListener('click', function (e) {
             closeAllLists(e.target);
         });
 
-        // Form Submission
+        // Submit
         const form = document.getElementById('marketForm');
         const approveBtn = document.getElementById('approveBtn');
         const editBtn = document.getElementById('editBtn');
@@ -308,7 +308,7 @@
             const price = inputSalePrice.value;
             const extra = document.getElementById('extraInfo').value;
 
-            // Check for exact match if link is empty (User typed name but didn't select)
+            // Fallback Exact Match
             let link = inputLink.value;
             let originalPrice = inputOriginalPrice.value;
 
@@ -320,22 +320,22 @@
                 }
             }
 
-            // Determine Currency
+            // Currency
             let currency = "GP";
             if (!link || link === "#") {
                 currency = "GT";
             }
 
-            // Generate Markdown
+            // Markdown
             let markdown = `**Item:** ${item}\n**Satıcı:** ${seller}\n**Ek Bilgiler:** ${extra}\n**Fiyat:** ${price} ${currency}`;
 
-            // Append Link only if valid
+            // Append Link
             if (link && link !== "#") {
                 markdown += `\n**Link:** [${item}](${link}), ${originalPrice || 0} GP`;
             }
 
 
-            // Append Footer
+            // Footer
             markdown += "\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*";
 
             resultArea.value = markdown;

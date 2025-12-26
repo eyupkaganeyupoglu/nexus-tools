@@ -39,7 +39,7 @@ function renderClassInputs() {
     const container = document.getElementById('classInputsContainer');
     const countContainer = document.getElementById('classCountContainer');
 
-    // Toggle count visibility
+    // Toggle visibility
     if (isMulticlass) {
         countContainer.classList.remove('d-none');
     } else {
@@ -56,7 +56,7 @@ function renderClassInputs() {
         count = val;
     }
 
-    // Simple re-render (clears existing values, can be improved but sufficient for requirement)
+    // Render inputs
     container.innerHTML = '';
 
     for (let i = 0; i < count; i++) {
@@ -84,7 +84,7 @@ function renderClassInputs() {
 
 
 function generateTemplate() {
-    // validations
+    // Validations
     const forms = ['form-section-a', 'form-section-b', 'form-section-c'];
     let isValid = true;
     let warningMsg = "Lütfen eksik alanları doldurunuz.";
@@ -96,14 +96,14 @@ function generateTemplate() {
         // Find the first invalid element in this form
         const firstInvalid = f.querySelector(':invalid');
         if (firstInvalid) {
-            firstInvalid.focus(); // Focus specifically the first invalid element
+            firstInvalid.focus();
             isValid = false;
             warningMsg = "Lütfen tüm zorunlu alanları doldurun.";
-            break; // Stop here
+            break;
         }
     }
 
-    // If standard inputs are invalid, show warning and stop here
+    // Show Warning
     if (!isValid) {
         const warningEl = document.getElementById('generateWarning');
         warningEl.textContent = warningMsg;
@@ -111,7 +111,7 @@ function generateTemplate() {
         return;
     }
 
-    // Special Check for Checkboxes (Only if forms are valid)
+    // Check Tags
     const checked = document.querySelectorAll('#classCheckboxes input:checked');
     if (checked.length === 0) {
         isValid = false;
@@ -122,10 +122,10 @@ function generateTemplate() {
     if (!isValid) {
         warningEl.textContent = warningMsg;
         warningEl.classList.remove('d-none');
-        return; // Stop here
+        return;
     }
     
-    // Clear warning if valid
+    // Clear Warning
     warningEl.classList.add('d-none');
 
     // Collect Data
@@ -177,7 +177,7 @@ function generateTemplate() {
     document.getElementById('resultOutput').value = output;
     document.getElementById('result-card').classList.remove('d-none');
 
-    // Scroll to result
+    // Scroll
     document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
 }
 

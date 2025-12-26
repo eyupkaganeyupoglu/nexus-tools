@@ -30,7 +30,7 @@
             pointer-events: none;
         }
 
-        /* Autocomplete Styles */
+        /* Autocomplete CSS */
         .autocomplete-items {
             position: absolute;
             border: 1px solid var(--bg-tertiary);
@@ -60,7 +60,7 @@
 
 <body class="bg-dark text-light">
 
-    <!-- Navbar -->
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
@@ -75,11 +75,11 @@
 
 
         <div id="setupWizard">
-            <!-- Step 1: Project Definition -->
+            <!-- Step 1 -->
             <div class="step-section" id="step1" style="border-color: var(--accent-color);">
                 <h5 class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">Adım 1: Proje Tanımlama</h5>
 
-                <!-- Autocomplete Search -->
+                <!-- Search -->
                 <div class="mb-3 position-relative">
                     <label class="form-label">Üretilecek Eşya</label>
                     <div class="input-group">
@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <!-- Step 2: Material Prep -->
+            <!-- Step 2 -->
             <div class="step-section" id="step2" style="border-color: var(--success-color);">
                 <h5 class="step-header" style="border-bottom-color: var(--success-color); color: var(--success-color);">Adım 2: Materyal Kalitesi</h5>
                 <div class="row">
@@ -152,7 +152,7 @@
                 </div>
             </div>
 
-            <!-- Step 3: Tools & Skills -->
+            <!-- Step 3 -->
             <div class="step-section" id="step3" style="border-color: var(--danger-color);">
                 <h5 class="step-header" style="border-bottom-color: var(--danger-color); color: var(--danger-color);">Adım 3: Tool & Skill Check</h5>
                 
@@ -160,7 +160,7 @@
                     <div class="col-md-12">
                         <label class="form-label">Karakter Seviyesi:</label>
                         <select id="charLevel" class="form-select">
-                            <!-- Filled by JS -->
+                            <!-- JS Filled -->
                         </select>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Kullanılacak Tool</label>
                         <select id="toolSelect" class="form-select">
-                            <!-- Populated by JS -->
+                            <!-- JS Populated -->
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -196,7 +196,7 @@
                 </div>
             </div>
 
-            <!-- Step 4: Control -->
+            <!-- Step 4 -->
             <div class="step-section text-center" id="step4" style="border: none;">
                 <button id="btnStartSetup" class="btn btn-lg btn-success w-50">
                     Onayla ve Başla
@@ -208,7 +208,7 @@
             </div>
         </div>
 
-        <!-- Step 5: Simulation Panel -->
+        <!-- Step 5 -->
         <div id="simPanel" class="d-none">
             <div class="step-section" style="border-color: var(--warning-color);">
                 <h5 class="step-header" style="border-bottom-color: var(--warning-color); color: var(--warning-color);">Tur Aksiyonu</h5>
@@ -259,14 +259,14 @@
                                 </tr>
                             </thead>
                             <tbody id="simLogBody">
-                                <!-- Logs go here -->
+                                <!-- Logs -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <!-- Explainer Text -->
+            <!-- Info -->
             <div class="mb-3 text-start" style="color: var(--text-normal);">
                 <div><span class="fw-bold">CM Toplamı:</span> O Work Unit (WU) için tüm Crafting Modifier (CM) değerlerinin toplamıdır.</div>
                 <div><span class="fw-bold">İlerleme Zarı:</span> O Work Unit (WU) için atılan 1d20 zarının sonucudur.</div>
@@ -276,16 +276,16 @@
 
 
 
-            <!-- Final Result Overlay/Card -->
+            <!-- Result -->
             <div id="resultContainer" class="d-none">
-                <!-- Generated dynamically -->
+                <!-- Dynamic -->
             </div>
 
         </div>
 
     </div>
 
-    <!-- Data & Scripts -->
+    <!-- Scripts -->
     <script src="../../js/data.js?v=3"></script>
     <script src="script.js"></script>
 </body>

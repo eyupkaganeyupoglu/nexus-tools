@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DM Puanlama - Nexus Araçları</title>
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Styles -->
     <link href="../../css/style.css" rel="stylesheet">
     <style>
         .step-section {
@@ -29,12 +29,12 @@
             font-size: 1.2rem;
         }
 
-        /* Placeholder color for invalid (empty) required select */
+        /* Validations */
         #dmScore:invalid {
             color: var(--text-muted);
         }
 
-        /* Ensure options remain normal color */
+        /* Options Color */
         #dmScore option {
             color: var(--text-normal);
         }
@@ -43,7 +43,7 @@
 
 <body class="bg-dark text-light">
 
-    <!-- Navbar -->
+    <!-- Nav -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-darker border-bottom border-secondary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../../index.html">
@@ -55,17 +55,17 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
 
-                <!-- Input Section -->
+                <!-- Input -->
                 <div class="step-section" id="score-section" style="border-color: var(--accent-color);">
                     <div class="step-header" style="border-bottom-color: var(--accent-color); color: var(--accent-color);">DM Puanlama Formu</div>
 
                     <form id="dmScoreForm">
-                        <!-- Campaign Name -->
+                        <!-- Campaign -->
                         <div class="mb-3">
                             <label for="campaignName" class="form-label">Campaign İsmi</label>
                             <input type="text" class="form-control" id="campaignName"
@@ -92,7 +92,7 @@
                                 placeholder="Campaign ve DM ile ilgili görüşleriniz..."></textarea>
                         </div>
 
-                        <!-- Action Button -->
+                        <!-- Actions -->
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary" id="approveBtn">
                                 <i class="fa-solid fa-check me-2"></i>Onaylıyorum
@@ -104,7 +104,7 @@
                     </form>
                 </div>
 
-                <!-- Result Section -->
+                <!-- Result -->
                 <div class="step-section d-none" id="resultCard" style="border-color: var(--success-color);">
                     <div class="step-header d-flex justify-content-between align-items-center" style="border-bottom-color: var(--success-color); color: var(--success-color);">
                         <span>Oluşturulan Şablon</span>
@@ -124,10 +124,10 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Main Utility JS -->
+    <!-- Main JS -->
     <script src="../../js/main.js"></script>
 
-    <!-- Module Specific JS -->
+    <!-- Script -->
     <script>
         const form = document.getElementById('dmScoreForm');
         const approveBtn = document.getElementById('approveBtn');
@@ -135,7 +135,7 @@
         const resultCard = document.getElementById('resultCard');
         const resultArea = document.getElementById('resultArea');
 
-        // Local Copy Logic
+        // Copy
         function copyResultLocal(elementId) {
             const element = document.getElementById(elementId);
             if (!element) return;
@@ -158,7 +158,7 @@
             });
         }
 
-        // Form Submit
+        // Submit
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -171,14 +171,14 @@
                 comment = "Yorum yapılmadı.";
             }
 
-            // Generate Markdown
+            // Markdown
             const markdown = `**Campaign:** ${campaign}\n**Yorum:** ${comment}\n**Puan:** ${score}\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
-            // Show Result
+            // Show
             resultArea.value = markdown;
             resultCard.classList.remove('d-none');
 
-            // Lock Inputs
+            // Lock
             toggleInputs('dmScoreForm', true);
 
             // Swap Buttons
@@ -186,12 +186,12 @@
             editBtn.classList.remove('d-none');
         });
 
-        // Edit Button
+        // Edit
         editBtn.addEventListener('click', () => {
-            // Unlock Inputs
+            // Unlock
             toggleInputs('dmScoreForm', false);
 
-            // Hide Result
+            // Hide
             resultCard.classList.add('d-none');
 
             // Swap Buttons
