@@ -121,11 +121,12 @@ body {
 .module-card {
     transition: transform 0.2s, box-shadow 0.2s;
     height: 100%;
+    background-color: var(--bg-tertiary);
 }
 
 .module-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 12px rgba(88, 101, 242, 0.5);
     border-color: var(--accent-color);
 }
 
