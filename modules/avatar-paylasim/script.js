@@ -162,14 +162,14 @@ function generateTemplate() {
 
     // Format Output
     const output = `**BAŞLIK:** ${headerTitle} (Bunu başlığa yazdıktan sonra bu satırı silin.)
-**MESAJ:** (Bu satırı silin.)
-- **${avatarName}**
-- ${backstory}
-- **Personality Traits:** ${personalityTraits}
-- **Ideals:** ${ideals}
-- **Bonds:** ${bonds}
-- **Flaws:** ${flaws}
-- ${about}
+**MESAJ:** (Bu satırı silin.)\n
+**${avatarName}**\n
+${backstory}\n
+**Personality Traits:** ${personalityTraits}\n
+**Ideals:** ${ideals}\n
+**Bonds:** ${bonds}\n
+**Flaws:** ${flaws}\n
+${about}
 
 **ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçtikten sonra bu satırı silin.)\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
