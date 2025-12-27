@@ -169,7 +169,7 @@ ${backstory}\n
 **Ideals:** ${ideals}\n
 **Bonds:** ${bonds}\n
 **Flaws:** ${flaws}\n
-${about}
+**Oyuncu Hakkında:** ${about}
 
 **ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçtikten sonra bu satırı silin.)\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
