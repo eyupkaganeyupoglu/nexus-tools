@@ -139,6 +139,19 @@
                     <textarea class="form-control" id="aboutPlayer" rows="2"
                         placeholder="Kendiniz hakkında bahsetmek istediğiniz şeyler." required></textarea>
                 </div>
+
+                <!-- Envanter Section -->
+                <div class="mb-3">
+                    <label class="form-label">Envanter (Opsiyonel)</label>
+                    <div class="input-group mb-2 position-relative">
+                        <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+                        <input type="text" class="form-control" id="inventorySearch" placeholder="Eşya Ara..." autocomplete="off">
+                        <button class="btn btn-success" type="button" id="btnAddInventory">Ekle</button>
+                        <div id="inventory-autocomplete-list" class="autocomplete-items"></div>
+                    </div>
+                    <div id="inventoryContainer" class="d-flex flex-wrap gap-2">
+                        <!-- Chips will go here -->
+                    </div>
             </form>
         </div>
 
@@ -184,6 +197,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/all-items.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -155,3 +155,49 @@ body {
     border-radius: calc(0.375rem - 1px);
     /* Match card radius */
 }
+
+/* Autocomplete CSS */
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid var(--bg-tertiary);
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.autocomplete-items div:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Inventory Chips */
+.inventory-chip {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-block;
+    color: var(--text-normal);
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.inventory-chip:hover {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+    text-decoration: line-through;
+}

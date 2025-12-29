@@ -12,7 +12,99 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event Listeners
     document.getElementById('multiclassToggle').addEventListener('change', renderClassInputs);
     document.getElementById('classCount').addEventListener('change', renderClassInputs);
+    
+    initInventory();
 });
+
+// --- Inventory System ---
+let inventoryItems = [];
+
+function initInventory() {
+    const input = document.getElementById('inventorySearch');
+    const btnAdd = document.getElementById('btnAddInventory');
+    
+    input.addEventListener('input', handleInventorySearch);
+    
+    // Add on button click
+    btnAdd.addEventListener('click', () => {
+        addInventoryItem(input.value);
+    });
+    
+    // Add on Enter key
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addInventoryItem(input.value);
+        }
+    });
+
+    // Close autocomplete on click outside
+    document.addEventListener('click', (e) => {
+        if (e.target !== input) {
+            document.getElementById('inventory-autocomplete-list').innerHTML = '';
+        }
+    });
+}
+
+function handleInventorySearch(e) {
+    const val = this.value;
+    const list = document.getElementById('inventory-autocomplete-list');
+    list.innerHTML = '';
+
+    if (!val || typeof allItems === 'undefined') return;
+
+    // Filter items
+    const matches = allItems.filter(item => 
+        item.name.toLowerCase().includes(val.toLowerCase())
+    ).slice(0, 8); // Limit to 8
+
+    matches.forEach(item => {
+        const div = document.createElement('div');
+        div.innerHTML = item.name;
+        div.addEventListener('click', () => {
+            document.getElementById('inventorySearch').value = item.name;
+            list.innerHTML = '';
+            // Optional: Auto add? No, let user click Add or Enter as per standard UX, or just fill input.
+            // User requirement: "Ekle butonu... itemi eklemeli".
+        });
+        list.appendChild(div);
+    });
+}
+
+function addInventoryItem(name) {
+    name = name.trim();
+    if (!name) return;
+    
+    // Add to list
+    inventoryItems.push(name);
+    
+    // Render UI
+    renderInventory();
+    
+    // Clear input
+    document.getElementById('inventorySearch').value = '';
+    document.getElementById('inventory-autocomplete-list').innerHTML = '';
+}
+
+function removeInventoryItem(index) {
+    inventoryItems.splice(index, 1);
+    renderInventory();
+}
+
+function renderInventory() {
+    const container = document.getElementById('inventoryContainer');
+    container.innerHTML = '';
+    
+    inventoryItems.forEach((item, index) => {
+        const chip = document.createElement('div');
+        chip.className = 'inventory-chip';
+        chip.textContent = item;
+        chip.title = "Silmek için tıklayın";
+        chip.onclick = () => removeInventoryItem(index);
+        container.appendChild(chip);
+    });
+}
+
 
 function initClassCheckboxes() {
     const container = document.getElementById('classCheckboxes');
@@ -169,7 +261,8 @@ ${backstory}\n
 **Ideals:** ${ideals}\n
 **Bonds:** ${bonds}\n
 **Flaws:** ${flaws}\n
-**Oyuncu Hakkında:** ${about}
+**Oyuncu Hakkında:** ${about}\n
+**Envanter:** ${inventoryItems.join(', ')}
 
 **ETİKETLER:** ${selectedTags.join(', ')} (Bu etiketleri gönderinin altındakilerden seçtikten sonra bu satırı silin.)\n*[NEXUS Tool Kullanılarak Oluşturulmuştur]*`;
 
