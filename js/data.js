@@ -1838,5 +1838,25 @@ const marketData=[
         "price": 1500,
         "link": "https://5e.tools/items.html#wings%20of%20flying_xdmg",
         "name": "Wings of Flying"
-    }
+    },
+    {
+        "price": 200.0,
+        "link": "https://5e.tools/items.html#splint%20armor_xphb",
+        "name": "Splint Armor"
+    },
+    {
+        "price": 400.0,
+        "link": "https://5e.tools/items.html#breastplate_xphb",
+        "name": "Breastplate"
+    },
+    {
+        "price": 750.0,
+        "link": "https://5e.tools/items.html#half%20plate%20armor_xphb",
+        "name": "Half Plate Armor"
+    },
+    {
+        "price": 1500.0,
+        "link": "https://5e.tools/items.html#plate%20armor_xphb",
+        "name": "Plate Armor"
+    },
 ];
