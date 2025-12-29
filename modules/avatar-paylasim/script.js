@@ -17,24 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Inventory System ---
-let inventoryItems = [];
+let inventoryItems = []; // Array of strings: "Item Name (Price UNIT)"
 
 function initInventory() {
     const input = document.getElementById('inventorySearch');
+    const priceInput = document.getElementById('inventoryPrice');
     const btnAdd = document.getElementById('btnAddInventory');
     
+    // Search input handler
     input.addEventListener('input', handleInventorySearch);
     
-    // Add on button click
+    // Add button handler
     btnAdd.addEventListener('click', () => {
-        addInventoryItem(input.value);
+        addInventoryItem();
     });
     
-    // Add on Enter key
+    // Enter key handler (both inputs)
     input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
-            addInventoryItem(input.value);
+            addInventoryItem();
+        }
+    });
+
+    priceInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addInventoryItem();
         }
     });
 
@@ -47,42 +56,124 @@ function initInventory() {
 }
 
 function handleInventorySearch(e) {
-    const val = this.value;
+    const val = this.value; // 'this' is the search input
     const list = document.getElementById('inventory-autocomplete-list');
+    const btnAdd = document.getElementById('btnAddInventory');
+    const priceInput = document.getElementById('inventoryPrice');
+    
+    // Reset list
     list.innerHTML = '';
 
-    if (!val || typeof allItems === 'undefined') return;
+    // If user is typing/editing, assume Homebrew or Refining Search.
+    // Reset to "Homebrew" state: Enable price, Warning button.
+    priceInput.removeAttribute('readonly');
+    priceInput.disabled = false;
+    
+    btnAdd.textContent = "Homebrew Ekle";
+    btnAdd.className = "btn btn-warning";
 
-    // Filter items
-    const matches = allItems.filter(item => 
-        item.name.toLowerCase().includes(val.toLowerCase())
-    ).slice(0, 8); // Limit to 8
+    if (typeof allItems === 'undefined' || !val) {
+        return;
+    }
+
+    // --- Filter and Sort for Autocomplete ---
+    const lowerVal = val.toLowerCase();
+    
+    const matches = allItems
+        .filter(item => item.name.toLowerCase().includes(lowerVal))
+        .sort((a, b) => {
+            const aName = a.name.toLowerCase();
+            const bName = b.name.toLowerCase();
+            
+            // Priority 1: Exact match
+            if (aName === lowerVal && bName !== lowerVal) return -1;
+            if (bName === lowerVal && aName !== lowerVal) return 1;
+
+            // Priority 2: Starts with
+            const aStarts = aName.startsWith(lowerVal);
+            const bStarts = bName.startsWith(lowerVal);
+            if (aStarts && !bStarts) return -1;
+            if (!aStarts && bStarts) return 1;
+
+            // Priority 3: Alphabetical
+            return aName.localeCompare(bName);
+        })
+        .slice(0, 10);
 
     matches.forEach(item => {
         const div = document.createElement('div');
-        div.innerHTML = item.name;
+        // Display using GP for standard items
+        div.innerHTML = `${item.name} <span style="font-size: 0.8em; color: #aaa;">(${item.price} GP)</span>`;
         div.addEventListener('click', () => {
-            document.getElementById('inventorySearch').value = item.name;
+            // Standard Item Selected Flow
+            const formattedName = `${item.name} (${item.price} GP)`;
+            document.getElementById('inventorySearch').value = formattedName;
+            
+            // Set Standard Item State
+            const btnAdd = document.getElementById('btnAddInventory');
+            const priceInput = document.getElementById('inventoryPrice');
+            
+            btnAdd.textContent = "Ekle";
+            btnAdd.className = "btn btn-success";
+            
+            // Clear and disable price input (it's part of the name now)
+            priceInput.value = '';
+            priceInput.setAttribute('readonly', true);
+            priceInput.disabled = true;
+
             list.innerHTML = '';
-            // Optional: Auto add? No, let user click Add or Enter as per standard UX, or just fill input.
-            // User requirement: "Ekle butonu... itemi eklemeli".
         });
         list.appendChild(div);
     });
 }
 
-function addInventoryItem(name) {
-    name = name.trim();
+function addInventoryItem() {
+    const nameInput = document.getElementById('inventorySearch');
+    const priceInput = document.getElementById('inventoryPrice');
+    
+    let name = nameInput.value.trim();
+    const price = priceInput.value.trim();
+    
     if (!name) return;
+
+    let finalItemString = "";
+
+    // Determine Mode based on Input State
+    if (priceInput.hasAttribute('readonly') || priceInput.disabled) {
+        // STANDARD MODE (Item already format: "Name (Price GP)")
+        // We trust the value in nameInput because it was set by our click handler
+        // and the input ends with 'GP)'.
+        // However, user might have just typed "Name (Price GP)" manually? 
+        // We simply take the input as is if it looks like a standard item format or price is disabled.
+        finalItemString = name;
+    } else {
+        // HOMEBREW MODE
+        // User typed a name and (hopefully) a price.
+        if (!price) {
+            alert("Lütfen eşya için bir değer (GT) giriniz.");
+            priceInput.focus();
+            return;
+        }
+        finalItemString = `${name} (${price} GT)`;
+    }
     
     // Add to list
-    inventoryItems.push(name);
+    inventoryItems.push(finalItemString);
     
     // Render UI
     renderInventory();
     
-    // Clear input
-    document.getElementById('inventorySearch').value = '';
+    // Clear inputs
+    nameInput.value = '';
+    priceInput.value = '';
+    
+    // Reset state to Homebrew (default)
+    const btnAdd = document.getElementById('btnAddInventory');
+    btnAdd.textContent = "Homebrew Ekle";
+    btnAdd.className = "btn btn-warning";
+    priceInput.removeAttribute('readonly');
+    priceInput.disabled = false;
+    
     document.getElementById('inventory-autocomplete-list').innerHTML = '';
 }
 
@@ -95,10 +186,10 @@ function renderInventory() {
     const container = document.getElementById('inventoryContainer');
     container.innerHTML = '';
     
-    inventoryItems.forEach((item, index) => {
+    inventoryItems.forEach((itemString, index) => {
         const chip = document.createElement('div');
         chip.className = 'inventory-chip';
-        chip.textContent = item;
+        chip.textContent = itemString;
         chip.title = "Silmek için tıklayın";
         chip.onclick = () => removeInventoryItem(index);
         container.appendChild(chip);

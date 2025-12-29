@@ -142,11 +142,12 @@
 
                 <!-- Envanter Section -->
                 <div class="mb-3">
-                    <label class="form-label">Envanter (Opsiyonel)</label>
+                    <label class="form-label">Envanter</label>
                     <div class="input-group mb-2 position-relative">
                         <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
                         <input type="text" class="form-control" id="inventorySearch" placeholder="Eşya Ara..." autocomplete="off">
-                        <button class="btn btn-success" type="button" id="btnAddInventory">Ekle</button>
+                        <input type="number" class="form-control" id="inventoryPrice" placeholder="GT" style="max-width: 100px;">
+                        <button class="btn btn-warning" type="button" id="btnAddInventory">Homebrew Ekle</button>
                         <div id="inventory-autocomplete-list" class="autocomplete-items"></div>
                     </div>
                     <div id="inventoryContainer" class="d-flex flex-wrap gap-2">
