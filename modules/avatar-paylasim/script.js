@@ -47,6 +47,13 @@ function initInventory() {
         }
     });
 
+    // Clear warning when typing in price
+    priceInput.addEventListener('input', () => {
+        const warn = document.getElementById('inventoryWarning');
+        warn.classList.add('d-none');
+        warn.textContent = '';
+    });
+
     // Close autocomplete on click outside
     document.addEventListener('click', (e) => {
         if (e.target !== input) {
@@ -60,6 +67,11 @@ function handleInventorySearch(e) {
     const list = document.getElementById('inventory-autocomplete-list');
     const btnAdd = document.getElementById('btnAddInventory');
     const priceInput = document.getElementById('inventoryPrice');
+    
+    // Clear warning
+    const warn = document.getElementById('inventoryWarning');
+    warn.classList.add('d-none');
+    warn.textContent = '';
     
     // Reset list
     list.innerHTML = '';
@@ -112,6 +124,7 @@ function handleInventorySearch(e) {
             // Set Standard Item State
             const btnAdd = document.getElementById('btnAddInventory');
             const priceInput = document.getElementById('inventoryPrice');
+            const warn = document.getElementById('inventoryWarning');
             
             btnAdd.textContent = "Ekle";
             btnAdd.className = "btn btn-success";
@@ -120,6 +133,10 @@ function handleInventorySearch(e) {
             priceInput.value = '';
             priceInput.setAttribute('readonly', true);
             priceInput.disabled = true;
+
+            // Clear warning
+            warn.classList.add('d-none');
+            warn.textContent = '';
 
             list.innerHTML = '';
         });
@@ -130,6 +147,7 @@ function handleInventorySearch(e) {
 function addInventoryItem() {
     const nameInput = document.getElementById('inventorySearch');
     const priceInput = document.getElementById('inventoryPrice');
+    const warn = document.getElementById('inventoryWarning');
     
     let name = nameInput.value.trim();
     const price = priceInput.value.trim();
@@ -140,22 +158,22 @@ function addInventoryItem() {
 
     // Determine Mode based on Input State
     if (priceInput.hasAttribute('readonly') || priceInput.disabled) {
-        // STANDARD MODE (Item already format: "Name (Price GP)")
-        // We trust the value in nameInput because it was set by our click handler
-        // and the input ends with 'GP)'.
-        // However, user might have just typed "Name (Price GP)" manually? 
-        // We simply take the input as is if it looks like a standard item format or price is disabled.
+        // STANDARD MODE
         finalItemString = name;
     } else {
         // HOMEBREW MODE
-        // User typed a name and (hopefully) a price.
         if (!price) {
-            alert("Lütfen eşya için bir değer (GT) giriniz.");
-            priceInput.focus();
+            warn.textContent = "Lütfen eşya için bir değer (GT) giriniz.";
+            warn.classList.remove('d-none');
+            // priceInput.focus(); // Optional: user might find auto-focus annoying if they just missed it
             return;
         }
         finalItemString = `${name} (${price} GT)`;
     }
+    
+    // Success: Clear warning
+    warn.classList.add('d-none');
+    warn.textContent = '';
     
     // Add to list
     inventoryItems.push(finalItemString);
